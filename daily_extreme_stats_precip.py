@@ -12,8 +12,8 @@ cdms2.setNetcdfShuffleFlag(0)
 cdms2.setNetcdfDeflateFlag(0)
 cdms2.setNetcdfDeflateLevelFlag(0)
 
-OUTROOT = '/mnt/BCSD/_data/out_stats'
-OUTTEMP = '/mnt/BCSD/_data/junk'
+OUTROOT = '/mnt/out_stats'
+OUTTEMP = '/home/edarague'
 if not os.path.isdir(OUTROOT):
     os.mkdir(OUTROOT)
 if not os.path.isdir(OUTTEMP):

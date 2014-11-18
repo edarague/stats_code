@@ -13,8 +13,8 @@ cdms2.setNetcdfShuffleFlag(0)
 cdms2.setNetcdfDeflateFlag(0)
 cdms2.setNetcdfDeflateLevelFlag(0)
 
-OUTROOT = '/home/edarague/out_stats'
-OUTTEMP = '/home/edarague/BCSD/data/junk'
+OUTROOT = '/mnt/out_stats'
+OUTTEMP = '/home/edarague'
 if not os.path.isdir(OUTROOT):
     os.mkdir(OUTROOT)
 if not os.path.isdir(OUTTEMP):
@@ -29,11 +29,13 @@ txtinst = "Santa Clara U.,Climate Central,The Nature Conservancy"
 #cdo griddes ifile > mygrid ; then edit mygrid and set xfirst to the new value
 #cdo setgrid,mygrid ifile ofile
 
-def CopyFiles (fname='',styr=0,enyr=0):
+def CopyFiles (fname='', styr=0, enyr=0, model=''):
     if not styr > 1899 and enyr < 2101 and (enyr>styr):
         raise 'incorrect args passed to CopyFiles %s %d %d' % (fname,styr,enyr)
     nyrs = enyr-styr+1
     fn_nodir = string.split(fname,"/")[-1]
+    if not os.path.exists(OUTTEMP + "/" + model + "/junk"):
+        os.system("mkdir -p " + OUTTEMP + "/" + model + "/junk")
     for i in range(nyrs):
         y = styr+i
         fn = fname + str(y) + ".nc"
@@ -46,25 +48,26 @@ def CopyFiles (fname='',styr=0,enyr=0):
             else:
                 print 'infile not found: ',fn
                 sys.exit(0)
-        of = OUTTEMP + "/" + fn_nodir + str(y) + ".nc"
+        of = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
         if not os.path.exists(of):
 #            txt = "cdo copy " + fn + " " + of
 #            print "copying file " + fn + " to directory " + OUTTEMP
             txt = "ln -s " + fn + " " + of
             print "creating link for file " + fn + " to directory " + OUTTEMP
+            print (txt)
             os.system(txt)
         else:
             print "link to "+fn+" already exists in directory "+OUTTEMP+"\n\tskipping..."
 
-def CalcTavg (fnamen='', fnamex='', styr=0, enyr=0):
+def CalcTavg (fnamen='', fnamex='', styr=0, enyr=0, model=''):
     fnx_nodir = string.split(fnamex, "/")[-1]
     fnn_nodir = string.split(fnamen, "/")[-1]
     #fn_nodir = fnx_nodir.replace('tasmax','tas')
     nyrs = enyr-styr+1
     for i in range(nyrs):
         y = styr+i
-        fnx = OUTTEMP + "/" + fnx_nodir + str(y) + ".nc"
-        fnn = OUTTEMP + "/" + fnn_nodir + str(y) + ".nc"
+        fnx = OUTTEMP + "/" + model + "/junk/" + fnx_nodir + str(y) + ".nc"
+        fnn = OUTTEMP + "/" + model + "/junk/" + fnn_nodir + str(y) + ".nc"
         ft = fnx.replace('tasmax','tmp')
         fn = fnx.replace('tasmax','tas')
         if not (os.path.exists(fnx) and os.path.exists(fnn)):
@@ -86,7 +89,7 @@ def CalcTavg (fnamen='', fnamex='', styr=0, enyr=0):
             txtcmd = "ncrename -h -v tasmin,tas " + fn
             os.system(txtcmd)
 
-def TAVG (fname='',styr=0,enyr=0):
+def TAVG (fname='',styr=0,enyr=0, model=''):
     if not styr > 1899 and enyr < 2101 and (enyr>styr):
         raise 'incorrect args passed to TAVG %s %d %d' % (fname,styr,enyr)
     nyrs = enyr-styr+1
@@ -99,7 +102,7 @@ def TAVG (fname='',styr=0,enyr=0):
         y = styr+i
         print "computing TAVG for year ",y
         #fn = fname + str(y) + ".nc"
-        fn = OUTTEMP + "/" + fn_nodir + str(y) + ".nc"
+        fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
         if not os.path.exists(fn):
             if y == enyr:
                 print 'infile not found: ',fn,' ...skipping last year'
@@ -124,20 +127,22 @@ def TAVG (fname='',styr=0,enyr=0):
     os.system(txtcmd)
     return ofallmon
 
-def TXX (fname='',styr=0,enyr=0):
+def TXX (fname='', styr=0, enyr=0, model=''):
+    if not os.path.exists(OUTROOT+"/"+model+"/"):
+        os.system('mkdir ' + OUTROOT+"/"+model+"/")
     if not styr > 1899 and enyr < 2101 and (enyr>styr):
         raise 'incorrect args passed to TXX %s %d %d' % (fname,styr,enyr)
     nyrs = enyr-styr+1
     fn_nodir = string.split(fname,"/")[-1]
-    ofall = OUTROOT+"/"+fn_nodir+str(styr)+"-"+str(enyr)+".nc"
+    ofall = OUTROOT+"/"+model+"/"+fn_nodir+str(styr)+"-"+str(enyr)+".nc"
     ofall = ofall.replace('tasmax','TXX')
-    ofallmon = OUTROOT+"/"+fn_nodir+str(styr)+"-"+str(enyr)+".monthly.nc"
+    ofallmon = OUTROOT+"/"+model+"/"+fn_nodir+str(styr)+"-"+str(enyr)+".monthly.nc"
     ofallmon = ofallmon.replace('tasmax','TXX')
     for i in range(nyrs):
         y = styr+i
         print "\n> computing TXX for year ",y
         #fn = fname + str(y) + ".nc"
-        fn = OUTTEMP + "/" + fn_nodir + str(y) + ".nc"
+        fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
         if not os.path.exists(fn):
             if y == enyr:
                 print 'infile not found: ',fn,' ...skipping last year'
