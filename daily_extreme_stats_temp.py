@@ -54,7 +54,6 @@ def CopyFiles (fname='', styr=0, enyr=0, model=''):
 #            print "copying file " + fn + " to directory " + OUTTEMP
             txt = "ln -s " + fn + " " + of
             print "creating link for file " + fn + " to directory " + OUTTEMP
-            print (txt)
             os.system(txt)
         else:
             print "link to "+fn+" already exists in directory "+OUTTEMP+"\n\tskipping..."

@@ -8,10 +8,10 @@
 
 #import cdms2
 #import os,string,sys
-import sys
-if len (sys.argv) != 2 :
+import sys, os
+if len(sys.argv) != 2:
     print "Usage: python runlist.txt.py "
-    sys.exit (1)
+    sys.exit(1)
 import daily_extreme_stats_temp as Tstats
 import daily_extreme_stats_precip as Pstats
 
@@ -55,6 +55,9 @@ for line in f.readlines():
 f.close()
 
 for i in range(len(models)):
+    if not os.path.isdir('/mnt/out_stats/' + models[i]):
+        os.mkdir('/mnt/out_stats/' + models[i])
+
     #within each directory, subdirectories for each variable: pr, tasmax, tasmin
     ind20 = RootDir + "/" + models[i] + "/historical/day/" + runs[i]
     fn20pr = ind20+"/pr/pr_day_"+models[i]+"_historical_"+runs[i]+"_"
