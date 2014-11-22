@@ -176,20 +176,22 @@ def TXX (fname='', styr=0, enyr=0, model=''):
     os.system(txtcmd)
     return ofall
 
-def TNN (fname='',styr=0,enyr=0):
-    if not styr > 1899 and enyr < 2101 and (enyr>styr):
+def TNN (fname='', styr=0, enyr=0, model=''):
+    if not os.path.exists(OUTROOT+"/"+model+"/"):
+        os.system('mkdir ' + OUTROOT+"/"+model+"/")
+     if not styr > 1899 and enyr < 2101 and (enyr>styr):
         raise 'incorrect args passed to TNN %s %d %d' % (fname,styr,enyr)
     nyrs = enyr-styr+1
     fn_nodir = string.split(fname,"/")[-1]
-    ofall = OUTROOT+"/"+fn_nodir+str(styr)+"-"+str(enyr)+".nc"
+    ofall = OUTROOT+"/"+model+"/"+fn_nodir+str(styr)+"-"+str(enyr)+".nc"
     ofall = ofall.replace('tasmin','TNN')
-    ofallmon = OUTROOT+"/"+fn_nodir+str(styr)+"-"+str(enyr)+".monthly.nc"
+    ofallmon = OUTROOT+"/"+model+"/"+fn_nodir+str(styr)+"-"+str(enyr)+".monthly.nc"
     ofallmon = ofallmon.replace('tasmin','TNN')
     for i in range(nyrs):
         y = styr+i
         print "computing TNN for year ",y
         #fn = fname + str(y) + ".nc"
-        fn = OUTTEMP + "/" + fn_nodir + str(y) + ".nc"
+        fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
         if not os.path.exists(fn):
             if y == enyr:
                 print 'infile not found: ',fn,' ...skipping last year'
