@@ -65,14 +65,14 @@ for i in range(len(models)):
     fn20tn = ind20+"/tasmin/tasmin_day_"+models[i]+"_historical_"+runs[i]+"_"
 
     ind21 = RootDir + "/" + models[i] + "/rcp45/day/" + runs[i]
-    ind21 = RootDir + "/" + models[i] + "/rcp45/day" + runs[i]
+    ind21 = RootDir + "/" + models[i] + "/rcp45/day/" + runs[i]
     fn21pr = ind21+"/pr/pr_day_"+models[i]+"_rcp45_"+runs[i]+"_"
     fn21tx = ind21+"/tasmax/tasmax_day_"+models[i]+"_rcp45_"+runs[i]+"_"
 
     ind22 = RootDir + "/" + models[i] + "/rcp85/day/" + runs[i]
-    ind22 = RootDir + "/" + models[i] + "/rcp85/day" + runs[i]
-    fn22pr = ind21+"/pr/pr_day_"+models[i]+"_rcp85_"+runs[i]+"_"
-    fn22tx = ind21+"/tasmax/tasmax_day_"+models[i]+"_rcp85_"+runs[i]+"_"
+    ind22 = RootDir + "/" + models[i] + "/rcp85/day/" + runs[i]
+    fn22pr = ind22+"/pr/pr_day_"+models[i]+"_rcp85_"+runs[i]+"_"
+    fn22tx = ind22+"/tasmax/tasmax_day_"+models[i]+"_rcp85_"+runs[i]+"_"
     ####################################################################################
     #CopyFiles really just creates soft links to files for existing variables
     #working directory is hardcoded in two py modules.
