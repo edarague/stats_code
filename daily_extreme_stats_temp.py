@@ -179,7 +179,7 @@ def TXX (fname='', styr=0, enyr=0, model=''):
 def TNN (fname='', styr=0, enyr=0, model=''):
     if not os.path.exists(OUTROOT+"/"+model+"/"):
         os.system('mkdir ' + OUTROOT+"/"+model+"/")
-     if not styr > 1899 and enyr < 2101 and (enyr>styr):
+    if not styr > 1899 and enyr < 2101 and (enyr>styr):
         raise 'incorrect args passed to TNN %s %d %d' % (fname,styr,enyr)
     nyrs = enyr-styr+1
     fn_nodir = string.split(fname,"/")[-1]
