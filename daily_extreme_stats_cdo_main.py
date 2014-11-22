@@ -76,16 +76,22 @@ for i in range(len(models)):
     Tstats.CopyFiles(fn20tx, StRef, EnRef, models[i])
     for j in range(len(StYrs)):
         Tstats.CopyFiles(fn21tx, StYrs[j], EnYrs[j], models[i])
+       Tstats.CopyFiles(fn22tx, StYrs[j], EnYrs[j], models[i])
+
     Tstats.CopyFiles(fn20tn, StRef, EnRef, models[i])
     for j in range(len(StYrs)):
         Tstats.CopyFiles(fn21tn, StYrs[j], EnYrs[j], models[i])
+        Tstats.CopyFiles(fn22tn, StYrs[j], EnYrs[j], models[i])
+
     Tstats.CopyFiles(fn20pr, StRef, EnRef, models[i])
     for j in range(len(StYrs)):
         Tstats.CopyFiles(fn21pr, StYrs[j], EnYrs[j], models[i])
+        Tstats.CopyFiles(fn22pr, StYrs[j], EnYrs[j], models[i])
 
-    Tstats.CalcTavg(fn20tn, fn20tx, StRef, EnRef, models[i])
-    for j in range(len(StYrs)):
-        Tstats.CalcTavg(fn21tn, fn21tx, StYrs[j], EnYrs[j], models[i])
+#    Tstats.CalcTavg(fn20tn, fn20tx, StRef, EnRef, models[i])
+#    for j in range(len(StYrs)):
+#        Tstats.CalcTavg(fn21tn, fn21tx, StYrs[j], EnYrs[j], models[i])
+#        Tstats.CalcTavg(fn22tn, fn22tx, StYrs[j], EnYrs[j], models[i])
 
     #Monthly mean maximum temperatures
     if 'txavg' in vars:
