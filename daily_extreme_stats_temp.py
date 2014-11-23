@@ -62,7 +62,7 @@ def copy_files (fname='', styr=0, enyr=0, model=''):
             print "\nlink to " + fn + " already exists in directory " + OUTTEMP + "/" + model + "/junk\n\tskipping..."
 
 
-def calc_tavg (fnamen='', fnamex='', styr=0, enyr=0, model=''):
+def calc_tavg(fnamen='', fnamex='', styr=0, enyr=0, model=''):
     if not path.exists(RootDir + "/" + model + "/junk"):
         system("mkdir -p " + RootDir + "/" + model + "/junk")
     fnx_nodir = split(fnamex, "/")[-1]
