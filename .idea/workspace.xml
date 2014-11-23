@@ -42,8 +42,8 @@
       <file leaf-file-name="daily_extreme_stats_temp.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/daily_extreme_stats_temp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.536859" vertical-offset="906" max-vertical-offset="12512">
-              <caret line="73" column="44" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.50961536" vertical-offset="906" max-vertical-offset="12512">
+              <caret line="72" column="45" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
               <folding>
                 <element signature="e#114#134#0" expanded="true" />
               </folding>
@@ -524,7 +524,13 @@
       <option name="project" value="LOCAL" />
       <updated>1416763713765</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="cdo_main and stats_temp updated">
+      <created>1416763895427</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1416763895427</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -915,8 +921,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/daily_extreme_stats_temp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.536859" vertical-offset="906" max-vertical-offset="12512">
-          <caret line="73" column="44" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.50961536" vertical-offset="906" max-vertical-offset="12512">
+          <caret line="72" column="45" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
           <folding>
             <element signature="e#114#134#0" expanded="true" />
           </folding>
