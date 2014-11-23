@@ -70,8 +70,8 @@ def calc_tavg (fnamen='', fnamex='', styr=0, enyr=0, model=''):
     nyrs = enyr-styr+1
     for i in range(nyrs):
         y = styr+i
-        fnx = OUTTEMP + "/" + model + "/junk/" + fnx_nodir + str(y) + ".nc"
-        fnn = OUTTEMP + "/" + model + "/junk/" + fnn_nodir + str(y) + ".nc"
+        fnx = OUTTEMP + "/" + model + "/" + fnx_nodir + str(y) + ".nc"
+        fnn = OUTTEMP + "/" + model + "/" + fnn_nodir + str(y) + ".nc"
         fnxe = RootDir + "/" + model + "/junk/" + fnx_nodir + str(y) + ".nc"
         ft = fnx.replace('tasmax', 'tmp')
         fn = fnx.replace('tasmax', 'tas')
