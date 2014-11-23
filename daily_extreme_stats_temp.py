@@ -55,13 +55,11 @@ def copy_files (fname='', styr=0, enyr=0, model=''):
                 exit(0)
         of = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
         if not path.exists(of):
-#            txt = "cdo copy " + fn + " " + of
-#            print "copying file " + fn + " to directory " + OUTTEMP
             txt = "ln -s " + fn + " " + of
-            print "creating link for file " + fn + " to directory " + OUTTEMP
+            print "creating link for file " + fn + " to directory " + OUTTEMP + "/" + model + "/junk"
             system(txt)
         else:
-            print "link to "+fn+" already exists in directory "+OUTTEMP+"\n\tskipping..."
+            print "link to " + fn + " already exists in directory " + OUTTEMP + "/" + model + "/junk\n\tskipping..."
 
 
 def calc_tavg (fnamen='', fnamex='', styr=0, enyr=0, model=''):
@@ -82,7 +80,7 @@ def calc_tavg (fnamen='', fnamex='', styr=0, enyr=0, model=''):
                 nyrs = nyrs - 1
                 break
             else:
-                raise Exception('infile not found: '+fnx+' '+fnn)
+                raise Exception('infile not found: ' + fnx + ' or ' + fnn)
         # calc mean daily temp if doesn't already exist
         if not path.exists(fn):
             print "\n> calculating daily avg temp year " + str(y)
