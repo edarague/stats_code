@@ -13,6 +13,9 @@ setNetcdfShuffleFlag(0)
 setNetcdfDeflateFlag(0)
 setNetcdfDeflateLevelFlag(0)
 
+# necesario para temperaturas promedio calculadas
+RootDir = '/mnt/BCSD'
+
 OUTROOT = '/mnt/out_stats'
 if not path.isdir(OUTROOT):
     mkdir(OUTROOT)
@@ -60,35 +63,41 @@ def copy_files (fname='', styr=0, enyr=0, model=''):
         else:
             print "link to "+fn+" already exists in directory "+OUTTEMP+"\n\tskipping..."
 
-def CalcTavg (fnamen='', fnamex='', styr=0, enyr=0, model=''):
+
+def calc_tavg (fnamen='', fnamex='', styr=0, enyr=0, model=''):
+    if not path.exists(RootDir + "/" + model + "/junk"):
+        system("mkdir -p " + RootDir + "/" + model + "/junk")
     fnx_nodir = split(fnamex, "/")[-1]
     fnn_nodir = split(fnamen, "/")[-1]
-    #fn_nodir = fnx_nodir.replace('tasmax','tas')
     nyrs = enyr-styr+1
     for i in range(nyrs):
         y = styr+i
-        fnx = OUTTEMP + "/" + model + "/junk/" + fnx_nodir + str(y) + ".nc"
-        fnn = OUTTEMP + "/" + model + "/junk/" + fnn_nodir + str(y) + ".nc"
-        ft = fnx.replace('tasmax','tmp')
-        fn = fnx.replace('tasmax','tas')
+        fnx = RootDir + "/" + model + "/junk/" + fnx_nodir + str(y) + ".nc"
+        fnn = RootDir + "/" + model + "/junk/" + fnn_nodir + str(y) + ".nc"
+        ft = fnx.replace('tasmax', 'tmp')
+        fn = fnx.replace('tasmax', 'tas')
         if not (path.exists(fnx) and path.exists(fnn)):
             if y == enyr:
-                print 'infile not found: ', fnx, fnn,' ...skipping last year'
-                nyrs = nyrs-1
+                print 'infile not found: ', fnx, fnn, ' ...skipping last year'
+                nyrs = nyrs - 1
                 break
             else:
                 raise Exception('infile not found: '+fnx+' '+fnn)
-        #calc mean daily temp if doesn't already exist
+        # calc mean daily temp if doesn't already exist
         if not path.exists(fn):
             print "\n> calculating daily avg temp year " + str(y)
             txt1 = "cdo -m 1e+20 -add %s %s %s" % (fnn, fnx, ft)
-            txt2 = "cdo divc,2.0 %s %s" % (ft,fn)
-            txt3 = "rm -rf "+ft
-            system(txt1)
-            system(txt2)
-            system(txt3)
-            txtcmd = "ncrename -h -v tasmin,tas " + fn
-            system(txtcmd)
+            #system(txt1)
+            print txt1
+            txt2 = "cdo divc,2.0 %s %s" % (ft, fn)
+            print txt2
+            #system(txt2)
+            txt3 = "rm -rf " + ft
+            print txt3
+            #system(txt3)
+            txt4 = "ncrename -h -v tasmin,tas " + fn
+            print txt4
+            #system(txt4)
 
 def TAVG (fname='',styr=0,enyr=0, model=''):
     if not styr > 1899 and enyr < 2101 and (enyr>styr):
