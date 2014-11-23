@@ -84,23 +84,23 @@ def calc_tavg(fnamen='', fnamex='', styr=0, enyr=0, model=''):
             else:
                 raise Exception('infile not found: ' + fnx + ' or ' + fnn)
         # calc mean daily temp if doesn't already exist
-        if not path.exists(fn):
+        if not path.exists(fne):
             print "\n> calculating daily avg temp year " + str(y)
             txt1 = "cdo -m 1e+20 -add %s %s %s" % (fnn, fnx, ft)
-            #system(txt1)
+            system(txt1)
             print txt1
             txt2 = "cdo divc,2.0 %s %s" % (ft, fn)
             print txt2
-            #system(txt2)
+            system(txt2)
             txt3 = "rm -rf " + ft
             print txt3
-            #system(txt3)
+            system(txt3)
             txt4 = "ncrename -h -v tasmin,tas " + fn
             print txt4
-            #system(txt4)
+            system(txt4)
             txt5 = "mv " + fn + " " + fne
             print txt5
-            #system(txt)
+            system(txt)
 
 def TAVG (fname='',styr=0,enyr=0, model=''):
     if not styr > 1899 and enyr < 2101 and (enyr>styr):
