@@ -28,8 +28,8 @@ StComHis = 1950
 EnComHis = 2005
 
 # future periods
-StYrsFut = [2006]
-EnYrsFut = [2099]
+StYrsFut = 2006
+EnYrsFut = 2099
 
 # root dir needs to match list of runs below - they need to be located there
 RootDir = '/mnt/BCSD'
