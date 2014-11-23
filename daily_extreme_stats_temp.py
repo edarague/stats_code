@@ -47,19 +47,19 @@ def copy_files (fname='', styr=0, enyr=0, model=''):
         #print "copying file %s for year %s to new location" % (fn, y)
         if not path.exists(fn):
             if y == enyr:
-                print 'infile not found: ',fn,' ...skipping last year'
+                print '\ninfile not found: ', fn, ' ...skipping last year'
                 nyrs = nyrs-1
                 break
             else:
-                print 'infile not found: ',fn
+                print '\ninfile not found: ', fn
                 exit(0)
         of = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
         if not path.exists(of):
             txt = "ln -s " + fn + " " + of
-            print "creating link for file " + fn + " to directory " + OUTTEMP + "/" + model + "/junk"
+            print "\ncreating link for file " + fn + " to directory " + OUTTEMP + "/" + model + "/junk"
             system(txt)
         else:
-            print "link to " + fn + " already exists in directory " + OUTTEMP + "/" + model + "/junk\n\tskipping..."
+            print "\nlink to " + fn + " already exists in directory " + OUTTEMP + "/" + model + "/junk\n\tskipping..."
 
 
 def calc_tavg (fnamen='', fnamex='', styr=0, enyr=0, model=''):
