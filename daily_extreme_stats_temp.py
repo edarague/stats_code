@@ -88,19 +88,19 @@ def calc_tavg(fnamen='', fnamex='', styr=0, enyr=0, model=''):
             print "\n> calculating daily avg temp year " + str(y)
             txt1 = "cdo -m 1e+20 -add %s %s %s" % (fnn, fnx, ft)
             print txt1
-            #system(txt1)
+            system(txt1)
             txt2 = "cdo divc,2.0 %s %s" % (ft, fn)
             print txt2
-            #system(txt2)
+            system(txt2)
             txt3 = "rm -rf " + ft
             print txt3
-            #system(txt3)
+            system(txt3)
             txt4 = "ncrename -h -v tasmin,tas " + fn
             print txt4
-            #system(txt4)
+            system(txt4)
             txt5 = "mv " + fn + " " + fne
             print txt5
-            #system(txt5)
+            system(txt5)
 
 def TAVG (fname='',styr=0,enyr=0, model=''):
     if not styr > 1899 and enyr < 2101 and (enyr>styr):

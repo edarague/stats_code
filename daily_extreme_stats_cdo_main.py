@@ -268,4 +268,4 @@ for scens in ('historical', 'rcp45', 'rcp85'):
             of = p_stats.SDII(fn_rcp_pr, StYrsFut, EnYrsFut)
             print "created outfile %s\n" % (of)
 
-print '\n\n... done!\n\n'
+print '\n\n... done!\n'
