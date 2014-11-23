@@ -70,10 +70,12 @@ def calc_tavg (fnamen='', fnamex='', styr=0, enyr=0, model=''):
     nyrs = enyr-styr+1
     for i in range(nyrs):
         y = styr+i
-        fnx = RootDir + "/" + model + "/junk/" + fnx_nodir + str(y) + ".nc"
-        fnn = RootDir + "/" + model + "/junk/" + fnn_nodir + str(y) + ".nc"
+        fnx = OUTTEMP + "/" + model + "/junk/" + fnx_nodir + str(y) + ".nc"
+        fnn = OUTTEMP + "/" + model + "/junk/" + fnn_nodir + str(y) + ".nc"
+        fnxe = RootDir + "/" + model + "/junk/" + fnx_nodir + str(y) + ".nc"
         ft = fnx.replace('tasmax', 'tmp')
         fn = fnx.replace('tasmax', 'tas')
+        fne = fnxe.replace('tasmax', 'tas')
         if not (path.exists(fnx) and path.exists(fnn)):
             if y == enyr:
                 print 'infile not found: ', fnx, fnn, ' ...skipping last year'
@@ -96,6 +98,9 @@ def calc_tavg (fnamen='', fnamex='', styr=0, enyr=0, model=''):
             txt4 = "ncrename -h -v tasmin,tas " + fn
             print txt4
             #system(txt4)
+            txt5 = "mv " + fn + " " + fne
+            print txt5
+            #system(txt)
 
 def TAVG (fname='',styr=0,enyr=0, model=''):
     if not styr > 1899 and enyr < 2101 and (enyr>styr):
