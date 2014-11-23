@@ -102,9 +102,10 @@ def calc_tavg(fnamen='', fnamex='', styr=0, enyr=0, model=''):
             print txt5
             system(txt5)
 
-def TAVG (fname='',styr=0,enyr=0, model=''):
+
+def tavg (fname='',styr=0,enyr=0, model=''):
     if not styr > 1899 and enyr < 2101 and (enyr>styr):
-        raise 'incorrect args passed to TAVG %s %d %d' % (fname,styr,enyr)
+        raise 'incorrect args passed to tavg %s %d %d' % (fname,styr,enyr)
     nyrs = enyr-styr+1
     fn_nodir = split(fname,"/")[-1]
     #ofall = OUTROOT+"/"+fn_nodir+str(styr)+"-"+str(enyr)+".nc"
@@ -113,7 +114,7 @@ def TAVG (fname='',styr=0,enyr=0, model=''):
     #ofallmon = ofallmon.replace('tasmax','TXX')
     for i in range(nyrs):
         y = styr+i
-        print "computing TAVG for year ",y
+        print "computing tavg for year ",y
         #fn = fname + str(y) + ".nc"
         fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
         if not path.exists(fn):
