@@ -47,227 +47,225 @@ if not path.isdir('/mnt/out_stats/' + model):
 # copy_files really just creates soft links to files for existing variables
 # working directory is hardcoded in two py modules.
 # Also, tavg ('tas') is needed for many stats, calculate up front
-ind_hist = RootDir + "/" + model + "/historical/day/r1i1p1"
+for scens in ('historical', 'rcp45', 'rcp85'):
+    if scens == 'historical':
+        ind_hist = RootDir + "/" + model + "/historical/day/r1i1p1"
 
-# soflink tasmin historical
-fn_hist_tn = ind_hist + "/tasmin/tasmin_day_" + model + "_historical_r1i1p1_"
-t_stats.copy_files(fn_hist_tn, StComHis, EnComHis, model)
+        # soflink tasmin historical
+        fn_hist_tn = ind_hist + "/tasmin/tasmin_day_" + model + "_historical_r1i1p1_"
+        t_stats.copy_files(fn_hist_tn, StComHis, EnComHis, model)
 
-# soflink tasmax historical
-fn_hist_tx = ind_hist + "/tasmax/tasmax_day_" + model + "_historical_r1i1p1_"
-t_stats.copy_files(fn_hist_tx, StComHis, EnComHis, model)
+        # soflink tasmax historical
+        fn_hist_tx = ind_hist + "/tasmax/tasmax_day_" + model + "_historical_r1i1p1_"
+        t_stats.copy_files(fn_hist_tx, StComHis, EnComHis, model)
 
-# soflink pr historical
-fn_hist_pr = ind_hist + "/pr/pr_day_" + model + "_historical_r1i1p1_"
-t_stats.copy_files(fn_hist_pr, StComHis, EnComHis, model)
+        # soflink pr historical
+        fn_hist_pr = ind_hist + "/pr/pr_day_" + model + "_historical_r1i1p1_"
+        t_stats.copy_files(fn_hist_pr, StComHis, EnComHis, model)
 
-# calculate tmean historical
-t_stats.calc_tavg(fn_hist_tn, fn_hist_tx, StComHis, EnComHis, model)
+        # calculate tmean historical
+        t_stats.calc_tavg(fn_hist_tn, fn_hist_tx, StComHis, EnComHis, model)
+    else:
+        ind_rcp = RootDir + "/" + model + "/" + scens + "/day/r1i1p1"
 
-for scens in ('rcp45', 'rcp85'):
-    ind_rcp = RootDir + "/" + model + "/" + scens + "/day/r1i1p1"
+        # soflink tasmin rcp
+        fn_rcp_tn = ind_rcp + "/tasmin/tasmin_day_" + model + "_" + scens + "_r1i1p1_"
+        t_stats.copy_files(fn_rcp_tn, StYrsFut, EnYrsFut, model)
 
-    # soflink tasmin rcp
-    fn_rcp_tn = ind_rcp + "/tasmin/tasmin_day_" + model + "_" + scens + "_r1i1p1_"
-    t_stats.copy_files(fn_rcp_tn, StYrsFut, EnYrsFut, model)
+        # soflink tasmin rcp
+        fn_rcp_tx = ind_rcp + "/tasmax/tasmax_day_" + model + "_" + scens + "_r1i1p1_"
+        t_stats.copy_files(fn_rcp_tx, StYrsFut, EnYrsFut, model)
 
-    # soflink tasmin rcp
-    fn_rcp_tx = ind_rcp + "/tasmax/tasmax_day_" + model + "_" + scens + "_r1i1p1_"
-    t_stats.copy_files(fn_rcp_tx, StYrsFut, EnYrsFut, model)
+        # soflink tasmin rcp
+        fn_rcp_pr = ind_rcp + "/pr/pr_day_" + model + "_" + scens + "_r1i1p1_"
+        t_stats.copy_files(fn_rcp_pr, StYrsFut, EnYrsFut, model)
 
-    # soflink tasmin rcp
-    fn_rcp_pr = ind_rcp + "/pr/pr_day_" + model + "_" + scens + "_r1i1p1_"
-    t_stats.copy_files(fn_rcp_pr, StYrsFut, EnYrsFut, model)
+        # calculate tmean rcp
+        t_stats.calc_tavg(fn_rcp_tn, fn_rcp_tx, StYrsFut, EnYrsFut, model)
 
-    # calculate tmean rcp
-    t_stats.calc_tavg(fn_rcp_tn, fn_rcp_tx, StYrsFut, EnYrsFut, model)
-
-exit()
-
-# Monthly mean maximum temperatures
-if 'txavg' in var_stat:
-    of = t_stats.TAVG(fn_hist_tx, StComHis, EnComHis, model)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
+    # Monthly mean maximum temperatures
+    if 'txavg' in var_stat:
+        of = t_stats.TAVG(fn_hist_tx, StComHis, EnComHis, model)
+        print "created outfile %s\n" % (of)
         of = t_stats.TAVG(fn_rcp_tx, StYrsFut, EnYrsFut, model)
         print "created outfile %s\n" % (of)
         #modify variable name, history, global attributes
 
-# Monthly mean minimum temperatures
-if 'tnavg' in var_stat:
-    of = t_stats.TAVG(fn_hist_tn, StComHis, EnComHis)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = t_stats.TAVG(fn_rcp_tn, StYrsFut, EnYrsFut)
+    # Monthly mean minimum temperatures
+    if 'tnavg' in var_stat:
+        of = t_stats.TAVG(fn_hist_tn, StComHis, EnComHis)
         print "created outfile %s\n" % (of)
-        #modify variable name, history, global attributes
+        for j in range(len(StYrsFut)):
+            of = t_stats.TAVG(fn_rcp_tn, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
+            #modify variable name, history, global attributes
 
-# Monthly maximum temperatures
-if 'txx' in var_stat:
-    of = t_stats.TXX(fn_hist_tx, StComHis, EnComHis, model)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = t_stats.TXX(fn_rcp_tx, StYrsFut, EnYrsFut, model)
+    # Monthly maximum temperatures
+    if 'txx' in var_stat:
+        of = t_stats.TXX(fn_hist_tx, StComHis, EnComHis, model)
         print "created outfile %s\n" % (of)
-        #modify variable name, history, global attributes
+        for j in range(len(StYrsFut)):
+            of = t_stats.TXX(fn_rcp_tx, StYrsFut, EnYrsFut, model)
+            print "created outfile %s\n" % (of)
+            #modify variable name, history, global attributes
 
-# Monthly minimum temperatures
-if 'tnn' in var_stat:
-    of = t_stats.TNN(fn_hist_tn, StComHis, EnComHis)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = t_stats.TNN(fn_rcp_tn, StYrsFut, EnYrsFut)
+    # Monthly minimum temperatures
+    if 'tnn' in var_stat:
+        of = t_stats.TNN(fn_hist_tn, StComHis, EnComHis)
         print "created outfile %s\n" % (of)
+        for j in range(len(StYrsFut)):
+            of = t_stats.TNN(fn_rcp_tn, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-# 90th percentile Tmax - one value per year
-if 'tx90' in var_stat:
-    of = t_stats.TX90(fn_hist_tx, StComHis, EnComHis)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = t_stats.TX90(fn_rcp_tx, StYrsFut, EnYrsFut)
+    # 90th percentile Tmax - one value per year
+    if 'tx90' in var_stat:
+        of = t_stats.TX90(fn_hist_tx, StComHis, EnComHis)
         print "created outfile %s\n" % (of)
+        for j in range(len(StYrsFut)):
+            of = t_stats.TX90(fn_rcp_tx, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-# Generalized version: Pct of time T doesn't exceeds ref pd Nth percentile
-if 'tx90p' in var_stat:
-    oftx90p_ref = t_stats.Tref(fn_hist_tx, 90, 'tasmax', StRefHis, EnRefHis)
-    print "created outfile %s\n" % (oftx90p_ref)
-    of = t_stats.TP(fn_hist_tx, 90, 'tasmax', oftx90p_ref, StComHis, EnComHis)
-    for j in range(len(StYrsFut)):
-        of = t_stats.TP(fn_rcp_tx, 90, 'tasmax', oftx90p_ref, StYrsFut, EnYrsFut)
-        print "created outfile %s\n" % (of)
-# Generalized version: Pct of time T doesn't exceeds ref pd Nth percentile
-if 'tx10p' in var_stat:
-    oftx90p_ref = t_stats.Tref(fn_hist_tx, 10, 'tasmax', StRefHis, EnRefHis)
-    print "created outfile %s\n" % (oftx90p_ref)
-    of = t_stats.TP(fn_hist_tx, 10, 'tasmax', oftx90p_ref, StComHis, EnComHis)
-    for j in range(len(StYrsFut)):
-        of = t_stats.TP(fn_rcp_tx, 10, 'tasmax', oftx90p_ref, StYrsFut, EnYrsFut)
-        print "created outfile %s\n" % (of)
+    # Generalized version: Pct of time T doesn't exceeds ref pd Nth percentile
+    if 'tx90p' in var_stat:
+        oftx90p_ref = t_stats.Tref(fn_hist_tx, 90, 'tasmax', StRefHis, EnRefHis)
+        print "created outfile %s\n" % (oftx90p_ref)
+        of = t_stats.TP(fn_hist_tx, 90, 'tasmax', oftx90p_ref, StComHis, EnComHis)
+        for j in range(len(StYrsFut)):
+            of = t_stats.TP(fn_rcp_tx, 90, 'tasmax', oftx90p_ref, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
+    # Generalized version: Pct of time T doesn't exceeds ref pd Nth percentile
+    if 'tx10p' in var_stat:
+        oftx90p_ref = t_stats.Tref(fn_hist_tx, 10, 'tasmax', StRefHis, EnRefHis)
+        print "created outfile %s\n" % (oftx90p_ref)
+        of = t_stats.TP(fn_hist_tx, 10, 'tasmax', oftx90p_ref, StComHis, EnComHis)
+        for j in range(len(StYrsFut)):
+            of = t_stats.TP(fn_rcp_tx, 10, 'tasmax', oftx90p_ref, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-# Generalized version: Pct of time T doesn't exceeds ref pd Nth percentile
-if 'tn90p' in var_stat:
-    oftx90p_ref = t_stats.Tref(fn_hist_tn, 90, 'tasmin', StRefHis, EnRefHis)
-    print "created outfile %s\n" % (oftx90p_ref)
-    of = t_stats.TP(fn_hist_tn, 90, 'tasmin', oftx90p_ref, StComHis, EnComHis)
-    for j in range(len(StYrsFut)):
-        of = t_stats.TP(fn_rcp_tn, 90, 'tasmin', oftx90p_ref, StYrsFut, EnYrsFut)
-        print "created outfile %s\n" % (of)
+    # Generalized version: Pct of time T doesn't exceeds ref pd Nth percentile
+    if 'tn90p' in var_stat:
+        oftx90p_ref = t_stats.Tref(fn_hist_tn, 90, 'tasmin', StRefHis, EnRefHis)
+        print "created outfile %s\n" % (oftx90p_ref)
+        of = t_stats.TP(fn_hist_tn, 90, 'tasmin', oftx90p_ref, StComHis, EnComHis)
+        for j in range(len(StYrsFut)):
+            of = t_stats.TP(fn_rcp_tn, 90, 'tasmin', oftx90p_ref, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-# Generalized version: Pct of time T doesn't exceeds ref pd Nth percentile
-if 'tn10p' in var_stat:
-    oftx90p_ref = t_stats.Tref(fn_hist_tn, 10, 'tasmin', StRefHis, EnRefHis)
-    print "created outfile %s\n" % (oftx90p_ref)
-    of = t_stats.TP(fn_hist_tn, 10, 'tasmin', oftx90p_ref, StComHis, EnComHis)
-    for j in range(len(StYrsFut)):
-        of = t_stats.TP(fn_rcp_tn, 10, 'tasmin', oftx90p_ref, StYrsFut, EnYrsFut)
-        print "created outfile %s\n" % (of)
+    # Generalized version: Pct of time T doesn't exceeds ref pd Nth percentile
+    if 'tn10p' in var_stat:
+        oftx90p_ref = t_stats.Tref(fn_hist_tn, 10, 'tasmin', StRefHis, EnRefHis)
+        print "created outfile %s\n" % (oftx90p_ref)
+        of = t_stats.TP(fn_hist_tn, 10, 'tasmin', oftx90p_ref, StComHis, EnComHis)
+        for j in range(len(StYrsFut)):
+            of = t_stats.TP(fn_rcp_tn, 10, 'tasmin', oftx90p_ref, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-# Frost days
-if 'fd' in var_stat:
-    of = t_stats.FD(fn_hist_tn, StComHis, EnComHis)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = t_stats.FD(fn_rcp_tn, StYrsFut, EnYrsFut)
+    # Frost days
+    if 'fd' in var_stat:
+        of = t_stats.FD(fn_hist_tn, StComHis, EnComHis)
         print "created outfile %s\n" % (of)
+        for j in range(len(StYrsFut)):
+            of = t_stats.FD(fn_rcp_tn, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-# Thermal growing season length
-if 'gsl' in var_stat:
-    of = t_stats.GSL(fn_hist_tn, fn_hist_tx, lsm, StComHis, EnComHis)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = t_stats.GSL(fn_rcp_tn, fn_rcp_tx, lsm, StYrsFut, EnYrsFut)
+    # Thermal growing season length
+    if 'gsl' in var_stat:
+        of = t_stats.GSL(fn_hist_tn, fn_hist_tx, lsm, StComHis, EnComHis)
         print "created outfile %s\n" % (of)
+        for j in range(len(StYrsFut)):
+            of = t_stats.GSL(fn_rcp_tn, fn_rcp_tx, lsm, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-# Heat wave duration index wrt mean of reference_period
-if 'hwdi' in var_stat:
-    oftxnorm_ref = t_stats.TXnorm(fn_hist_tx, StRefHis, EnRefHis)
-    print "created outfile %s\n" % (oftxnorm_ref)
-    of = t_stats.HWDI(fn_hist_tx, oftxnorm_ref, StComHis, EnComHis)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = t_stats.HWDI(fn_rcp_tx, oftxnorm_ref, StYrsFut, EnYrsFut)
+    # Heat wave duration index wrt mean of reference_period
+    if 'hwdi' in var_stat:
+        oftxnorm_ref = t_stats.TXnorm(fn_hist_tx, StRefHis, EnRefHis)
+        print "created outfile %s\n" % (oftxnorm_ref)
+        of = t_stats.HWDI(fn_hist_tx, oftxnorm_ref, StComHis, EnComHis)
         print "created outfile %s\n" % (of)
+        for j in range(len(StYrsFut)):
+            of = t_stats.HWDI(fn_rcp_tx, oftxnorm_ref, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-# cooling degree days
-if 'cd18' in var_stat:
-    of = t_stats.CD18(fn20tg, StComHis, EnComHis)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = t_stats.CD18(fn21tg, StYrsFut, EnYrsFut)
+    # cooling degree days
+    if 'cd18' in var_stat:
+        of = t_stats.CD18(fn20tg, StComHis, EnComHis)
         print "created outfile %s\n" % (of)
+        for j in range(len(StYrsFut)):
+            of = t_stats.CD18(fn21tg, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-# heating degree days
-if 'hd18' in var_stat:
-    of = t_stats.HD18(fn20tg, StComHis, EnComHis)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = t_stats.HD18(fn21tg, StYrsFut, EnYrsFut)
+    # heating degree days
+    if 'hd18' in var_stat:
+        of = t_stats.HD18(fn20tg, StComHis, EnComHis)
         print "created outfile %s\n" % (of)
+        for j in range(len(StYrsFut)):
+            of = t_stats.HD18(fn21tg, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-# growing degree days
-if 'gd10' in var_stat:
-    of = t_stats.GD10(fn20tg, StComHis, EnComHis)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = t_stats.GD10(fn21tg, StYrsFut, EnYrsFut)
+    # growing degree days
+    if 'gd10' in var_stat:
+        of = t_stats.GD10(fn20tg, StComHis, EnComHis)
         print "created outfile %s\n" % (of)
+        for j in range(len(StYrsFut)):
+            of = t_stats.GD10(fn21tg, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-###########################################################################
+    ###########################################################################
 
-# Monthly total precip
-if 'ptot' in var_stat:
-    of = p_stats.Ptot(fn_hist_pr, StComHis, EnComHis)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = p_stats.Ptot(fn_rcp_pr, StYrsFut, EnYrsFut)
+    # Monthly total precip
+    if 'ptot' in var_stat:
+        of = p_stats.Ptot(fn_hist_pr, StComHis, EnComHis)
         print "created outfile %s\n" % (of)
+        for j in range(len(StYrsFut)):
+            of = p_stats.Ptot(fn_rcp_pr, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-# Consecutive dry days
-if 'cdd' in var_stat:
-    of = p_stats.CDD(fn_hist_pr, StComHis, EnComHis)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = p_stats.CDD(fn_rcp_pr, StYrsFut, EnYrsFut)
+    # Consecutive dry days
+    if 'cdd' in var_stat:
+        of = p_stats.CDD(fn_hist_pr, StComHis, EnComHis)
         print "created outfile %s\n" % (of)
+        for j in range(len(StYrsFut)):
+            of = p_stats.CDD(fn_rcp_pr, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-#Number of wet days > 0.2 mm/d
-if 'r02' in var_stat:
-    of = p_stats.R02(fn_hist_pr, StComHis, EnComHis)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = p_stats.R02(fn_rcp_pr, StYrsFut, EnYrsFut)
+    #Number of wet days > 0.2 mm/d
+    if 'r02' in var_stat:
+        of = p_stats.R02(fn_hist_pr, StComHis, EnComHis)
         print "created outfile %s\n" % (of)
+        for j in range(len(StYrsFut)):
+            of = p_stats.R02(fn_rcp_pr, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-# Max consec 5 day precip
-if 'r5d' in var_stat:
-    of = p_stats.R5D(fn_hist_pr, StComHis, EnComHis)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = p_stats.R5D(fn_rcp_pr, StYrsFut, EnYrsFut)
+    # Max consec 5 day precip
+    if 'r5d' in var_stat:
+        of = p_stats.R5D(fn_hist_pr, StComHis, EnComHis)
         print "created outfile %s\n" % (of)
+        for j in range(len(StYrsFut)):
+            of = p_stats.R5D(fn_rcp_pr, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-# Pct of time precip exceeds ref pd 90th percentile (wet day values)
-# calculate % of precip due to this too
-if 'r90p' in var_stat:
-    ofpr90_ref = p_stats.R90ref(fn_hist_pr, StRefHis, EnRefHis)
-    print "created outfile %s\n" % (ofpr90_ref)
-    of = p_stats.R90P(fn_hist_pr, ofpr90_ref, StComHis, EnComHis)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = p_stats.R90P(fn_rcp_pr, ofpr90_ref, StYrsFut, EnYrsFut)
+    # Pct of time precip exceeds ref pd 90th percentile (wet day values)
+    # calculate % of precip due to this too
+    if 'r90p' in var_stat:
+        ofpr90_ref = p_stats.R90ref(fn_hist_pr, StRefHis, EnRefHis)
+        print "created outfile %s\n" % (ofpr90_ref)
+        of = p_stats.R90P(fn_hist_pr, ofpr90_ref, StComHis, EnComHis)
         print "created outfile %s\n" % (of)
-    of = p_stats.R90PTOT(fn_hist_pr, ofpr90_ref, StComHis, EnComHis)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = p_stats.R90PTOT(fn_rcp_pr, ofpr90_ref, StYrsFut, EnYrsFut)
+        for j in range(len(StYrsFut)):
+            of = p_stats.R90P(fn_rcp_pr, ofpr90_ref, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
+        of = p_stats.R90PTOT(fn_hist_pr, ofpr90_ref, StComHis, EnComHis)
         print "created outfile %s\n" % (of)
+        for j in range(len(StYrsFut)):
+            of = p_stats.R90PTOT(fn_rcp_pr, ofpr90_ref, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-# simple daily precip intensity index
-if 'sdii' in var_stat:
-    of = p_stats.SDII(fn_hist_pr, StComHis, EnComHis)
-    print "created outfile %s\n" % (of)
-    for j in range(len(StYrsFut)):
-        of = p_stats.SDII(fn_rcp_pr, StYrsFut, EnYrsFut)
+    # simple daily precip intensity index
+    if 'sdii' in var_stat:
+        of = p_stats.SDII(fn_hist_pr, StComHis, EnComHis)
         print "created outfile %s\n" % (of)
+        for j in range(len(StYrsFut)):
+            of = p_stats.SDII(fn_rcp_pr, StYrsFut, EnYrsFut)
+            print "created outfile %s\n" % (of)
 
-#done
+print '... done!'
