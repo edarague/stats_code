@@ -1,2 +1,0 @@
-BNU-ESM rcp45 r1i1p1
-BNU-ESM rcp85 r1i1p1
