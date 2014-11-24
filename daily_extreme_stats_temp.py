@@ -125,9 +125,6 @@ def tavg(fname='', styr=0, enyr=0, model=''):
             txt = "cdo -m 1e+20 monmean " + fn + " junk_mon.nc"
             print txt
             system(txt)
-            txt = "cdo cat junk_mon.nc " + ofallmon
-            print txt
-            system(txt)
             txt = "cdo -b F32 cat " + ofallmon + " junk_mon.nc junk_mon_cat.nc"
             print txt
             system(txt)
