@@ -102,11 +102,13 @@ def calc_tavg(fnamen='', fnamex='', styr=0, enyr=0, model=''):
 
 
 def tavg(fname='', styr=0, enyr=0, model=''):
+    if not path.exists(OUTROOT + "/" + model + "/"):
+        system('mkdir ' + OUTROOT + "/" + model + "/")
     if not styr > 1899 and enyr < 2101 and (enyr > styr):
         raise 'incorrect args passed to tavg (%s, %d, %d, %s)' % (fname, styr, enyr, model)
     nyrs = enyr - styr + 1
     fn_nodir = split(fname, "/")[-1]
-    ofallmon = RootDir + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
+    ofallmon = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
     for i in range(nyrs):
         y = styr + i
         print "\n... computing tavg for %s%s " % (path.basename(fname), y)
