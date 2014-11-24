@@ -106,7 +106,7 @@ def tavg(fname='', styr=0, enyr=0, model=''):
         raise 'incorrect args passed to tavg (%s, %d, %d, %s)' % (fname, styr, enyr, model)
     nyrs = enyr - styr + 1
     fn_nodir = split(fname, "/")[-1]
-    ofallmon = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
+    ofallmon = RootDir + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
     for i in range(nyrs):
         y = styr + i
         print "\n... computing tavg for %s%s " % (path.basename(fname), y)
@@ -119,17 +119,28 @@ def tavg(fname='', styr=0, enyr=0, model=''):
                 raise Exception('infile not found: '), fn
         if i == 0:
             txt = "cdo -m 1e+20 monmean " + fn + " " + ofallmon
+            print txt
             system(txt)
         else:
             txt = "cdo -m 1e+20 monmean " + fn + " junk_mon.nc"
+            print txt
             system(txt)
             txt = "cdo cat junk_mon.nc " + ofallmon
+            print txt
+            system(txt)
+            txt = "cdo -b F32 cat " + ofallmon + " junk_mon.nc junk_mon_cat.nc"
+            print txt
+            system(txt)
+            txt = "rm -rf junk_mon.nc " + ofallmon + " && mv junk_mon_cat.nc " + ofallmon
+            print txt
             system(txt)
     now = datetime.now()
     txthist = "Created on " + now.strftime("%Y-%m-%d %H:%M")
     txtcmd = "ncatted -h -a history,global,o,c,'" + txthist + "' " + ofallmon
+    print txtcmd
     system(txtcmd)
     txtcmd = "ncatted -h -a institution,global,c,c,'" + txtinst + "' " + ofallmon
+    print txtcmd
     system(txtcmd)
     return ofallmon
 
