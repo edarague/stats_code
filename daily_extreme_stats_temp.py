@@ -83,7 +83,7 @@ def calc_tavg(fnamen='', fnamex='', styr=0, enyr=0, model=''):
                 raise Exception('infile not found: ' + fnx + ' or ' + fnn)
         # calc mean daily temp if doesn't already exist
         if not path.exists(fne):
-            print "\n... calculating daily avg temp for year %s, file %s " % (y, fnamen)
+            print "\n... calculating daily avg temp for %s%s" % (path.basename(fnamen), y)
             txt1 = "cdo -m 1e+20 -add %s %s %s" % (fnn, fnx, ft)
             # print txt1
             system(txt1)
@@ -109,7 +109,7 @@ def tavg(fname='', styr=0, enyr=0, model=''):
     ofallmon = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
     for i in range(nyrs):
         y = styr + i
-        print "\n... computing tavg for year %s, file: %s " % (y, fname)
+        print "\n... computing tavg for %s%s " % (path.basename(fname), y)
         fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
         if not path.exists(fn):
             if y == enyr:
