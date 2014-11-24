@@ -106,7 +106,7 @@ def tavg(fname='', styr=0, enyr=0, model=''):
         raise 'incorrect args passed to tavg (%s, %d, %d, %s)' % (fname, styr, enyr, model)
     nyrs = enyr - styr + 1
     fn_nodir = split(fname, "/")[-1]
-    ofallmon = RootDir + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
+    ofallmon = RootDir + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
     for i in range(nyrs):
         y = styr + i
         print "\n... computing tavg for %s%s " % (path.basename(fname), y)
