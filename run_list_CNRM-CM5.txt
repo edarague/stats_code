@@ -1,2 +1,0 @@
-CNRM-CM5 rcp45 r1i1p1
-CNRM-CM5 rcp85 r1i1p1

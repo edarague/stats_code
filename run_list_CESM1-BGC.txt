@@ -1,2 +1,0 @@
-CESM1-BGC rcp45 r1i1p1
-CESM1-BGC rcp85 r1i1p1
