@@ -83,18 +83,20 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         # calculate tmean rcp
         t_stats.calc_tavg(fn_rcp_tn, fn_rcp_tx, StYrsFut, EnYrsFut, model)
 
-    # Monthly mean maximum temperatures
-    if 'txavg' in var_stat:
+    # Monthly mean maximum temperatures historical
+    if 'txavg' in var_stat and scens == 'historical':
         of = t_stats.tavg(fn_hist_tx, StComHis, EnComHis, model)
         print "created outfile %s\n" % of
+    if 'txavg' in var_stat and scens != 'historical':
         of = t_stats.tavg(fn_rcp_tx, StYrsFut, EnYrsFut, model)
         print "created outfile %s\n" % of
         # modify variable name, history, global attributes
 
     # Monthly mean minimum temperatures
-    if 'tnavg' in var_stat:
+    if 'tnavg' in var_stat and scens == 'historical':
         of = t_stats.tavg(fn_hist_tn, StComHis, EnComHis, model)
         print "created outfile %s\n" % of
+    if 'tnavg' in var_stat and scens != 'historical':
         of = t_stats.tavg(fn_rcp_tn, StYrsFut, EnYrsFut)
         print "created outfile %s\n" % of
         # modify variable name, history, global attributes
