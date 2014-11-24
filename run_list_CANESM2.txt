@@ -1,2 +1,0 @@
-CANESM2 rcp45 r1i1p1
-CANESM2 rcp85 r1i1p1
