@@ -97,7 +97,7 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         of = t_stats.tavg(fn_hist_tn, StComHis, EnComHis, model)
         print "created outfile %s\n" % of
     if 'tnavg' in var_stat and scens != 'historical':
-        of = t_stats.tavg(fn_rcp_tn, StYrsFut, EnYrsFut)
+        of = t_stats.tavg(fn_rcp_tn, StYrsFut, EnYrsFut, model)
         print "created outfile %s\n" % of
         # modify variable name, history, global attributes
 

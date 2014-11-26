@@ -116,10 +116,10 @@ def tavg(fname='', styr=0, enyr=0, model=''):
             fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
             if not path.exists(fn):
                 if y == enyr:
-                    print 'infile not found: ', fn, ' ...skipping last year'
+                    print 'infile not found: %s ...skipping last year' % fn
                     break
                 else:
-                    raise Exception('infile not found: '), fn
+                    raise Exception('infile not found: %s' % fn)
             if i == 0:
                 txt = "cdo -m 1e+20 monmean " + fn + " " + ofallmon
                 print txt
