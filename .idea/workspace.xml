@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96277a6e-048a-4ac7-9f17-e06ef6ff3297" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daily_extreme_stats_cdo_main.py" afterPath="$PROJECT_DIR$/daily_extreme_stats_cdo_main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daily_extreme_stats_temp.py" afterPath="$PROJECT_DIR$/daily_extreme_stats_temp.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -43,8 +42,8 @@
       <file leaf-file-name="daily_extreme_stats_temp.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/daily_extreme_stats_temp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.62305987" vertical-offset="1189" max-vertical-offset="13158">
-              <caret line="103" column="40" selection-start-line="103" selection-start-column="35" selection-end-line="103" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.5654102" vertical-offset="2907" max-vertical-offset="13158">
+              <caret line="201" column="36" selection-start-line="201" selection-start-column="36" selection-end-line="201" selection-end-column="36" />
               <folding>
                 <element signature="e#114#134#0" expanded="true" />
               </folding>
@@ -482,7 +481,13 @@
       <option name="project" value="LOCAL" />
       <updated>1417015248728</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="cdo_main and stats_temp updated">
+      <created>1417115243150</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1417115243150</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -893,8 +898,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/daily_extreme_stats_temp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62305987" vertical-offset="1189" max-vertical-offset="13158">
-          <caret line="103" column="40" selection-start-line="103" selection-start-column="35" selection-end-line="103" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.5654102" vertical-offset="2907" max-vertical-offset="13158">
+          <caret line="201" column="36" selection-start-line="201" selection-start-column="36" selection-end-line="201" selection-end-column="36" />
           <folding>
             <element signature="e#114#134#0" expanded="true" />
           </folding>
