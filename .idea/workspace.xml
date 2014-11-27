@@ -31,8 +31,8 @@
       <file leaf-file-name="daily_extreme_stats_cdo_main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/daily_extreme_stats_cdo_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1088" max-vertical-offset="4403">
-              <caret line="99" column="62" selection-start-line="99" selection-start-column="62" selection-end-line="99" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1156" max-vertical-offset="4403">
+              <caret line="107" column="24" selection-start-line="107" selection-start-column="24" selection-end-line="107" selection-end-column="24" />
               <folding>
                 <element signature="e#363#389#0" expanded="true" />
               </folding>
@@ -43,8 +43,8 @@
       <file leaf-file-name="daily_extreme_stats_temp.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/daily_extreme_stats_temp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30537635" vertical-offset="1722" max-vertical-offset="12903">
-              <caret line="118" column="69" selection-start-line="118" selection-start-column="69" selection-end-line="118" selection-end-column="69" />
+            <state vertical-scroll-proportion="0.62305987" vertical-offset="1189" max-vertical-offset="13158">
+              <caret line="103" column="40" selection-start-line="103" selection-start-column="35" selection-end-line="103" selection-end-column="40" />
               <folding>
                 <element signature="e#114#134#0" expanded="true" />
               </folding>
@@ -82,8 +82,8 @@
         <option value="$PROJECT_DIR$/daily_extreme_stats_cdo_main_TNN.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/run_list_CCSM4.txt" />
-        <option value="$PROJECT_DIR$/daily_extreme_stats_temp.py" />
         <option value="$PROJECT_DIR$/daily_extreme_stats_cdo_main.py" />
+        <option value="$PROJECT_DIR$/daily_extreme_stats_temp.py" />
       </list>
     </option>
   </component>
@@ -476,7 +476,13 @@
       <option name="project" value="LOCAL" />
       <updated>1417013530371</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="cdo_main and stats_temp updated">
+      <created>1417015248728</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1417015248728</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -877,8 +883,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/daily_extreme_stats_cdo_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1088" max-vertical-offset="4403">
-          <caret line="99" column="62" selection-start-line="99" selection-start-column="62" selection-end-line="99" selection-end-column="62" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1156" max-vertical-offset="4403">
+          <caret line="107" column="24" selection-start-line="107" selection-start-column="24" selection-end-line="107" selection-end-column="24" />
           <folding>
             <element signature="e#363#389#0" expanded="true" />
           </folding>
@@ -887,8 +893,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/daily_extreme_stats_temp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30537635" vertical-offset="1722" max-vertical-offset="12903">
-          <caret line="118" column="69" selection-start-line="118" selection-start-column="69" selection-end-line="118" selection-end-column="69" />
+        <state vertical-scroll-proportion="0.62305987" vertical-offset="1189" max-vertical-offset="13158">
+          <caret line="103" column="40" selection-start-line="103" selection-start-column="35" selection-end-line="103" selection-end-column="40" />
           <folding>
             <element signature="e#114#134#0" expanded="true" />
           </folding>

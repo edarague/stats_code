@@ -144,59 +144,74 @@ def tavg(fname='', styr=0, enyr=0, model=''):
         system(txtcmd)
         return ofallmon
     else:
-        print "\n... nothing to do!\n"
+        print "\n... nothing to do, %s exist!\n" % ofallmon
 
 
-def TXX(fname='', styr=0, enyr=0, model=''):
+def txx(fname='', styr=0, enyr=0, model=''):
     if not path.exists(OUTROOT + "/" + model + "/"):
         system('mkdir ' + OUTROOT + "/" + model + "/")
     if not styr > 1899 and enyr < 2101 and (enyr > styr):
         raise 'incorrect args passed to TXX %s %d %d' % (fname, styr, enyr)
     nyrs = enyr - styr + 1
     fn_nodir = split(fname, "/")[-1]
-    ofall = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
+    ofall = OUTTEMP + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
     ofall = ofall.replace('tasmax', 'TXX')
-    ofallmon = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
+    ofallmon = OUTTEMP + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
     ofallmon = ofallmon.replace('tasmax', 'TXX')
-    for i in range(nyrs):
-        y = styr + i
-        print "\n... computing TXX for year ", y
-        # fn = fname + str(y) + ".nc"
-        fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
-        if not path.exists(fn):
-            if y == enyr:
-                print 'infile not found: ', fn, ' ...skipping last year'
-                nyrs = nyrs - 1
-                break
+    ofallr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
+    ofallr = ofallr.replace('tasmax', 'TXX')
+    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
+    ofallmonr = ofallmonr.replace('tasmax', 'TXX')
+    if not path.exists(ofallmon):
+        for i in range(nyrs):
+            y = styr + i
+            print "\n... computing TXX for year ", y
+            # fn = fname + str(y) + ".nc"
+            fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
+            if not path.exists(fn):
+                if y == enyr:
+                    print 'infile not found: ', fn, ' ...skipping last year'
+                    break
+                else:
+                    raise Exception('infile not found: %s' % fn)
+            if i == 0:
+                txt = "cdo -m 1e+20 monmax " + fn + " " + ofallmon
+                print txt
+                system(txt)
             else:
-                raise 'infile not found: ', fn
-        if i == 0:
-            txt = "cdo -m 1e+20 monmax " + fn + " " + ofallmon
-            print txt
-            system(txt)
-        else:
-            txt = "cdo -m 1e+20 monmax " + fn + " junk_mon.nc"
-            print txt
-            system(txt)
-            txt = "cdo -b F32 cat " + ofallmon + " junk_mon.nc junk_mon_cat.nc"
-            print txt
-            system(txt)
-            txt = "rm -rf junk_mon.nc " + ofallmon + " && mv junk_mon_cat.nc " + ofallmon
-            print txt
-            system(txt)
-    now = datetime.now()
-    txthist = "Created on " + now.strftime("%Y-%m-%d %H:%M")
-    txtcmd = "ncatted -h -a history,global,o,c,'" + txthist + "' " + ofallmon
-    system(txtcmd)
-    txtcmd = "ncatted -h -a institution,global,c,c,'" + txtinst + "' " + ofallmon
-    system(txtcmd)
-    txtcmd = "ncrename -h -v tasmax,txx " + ofallmon
-    system(txtcmd)
-    # create yearly summary file
-    txtcmd = "cdo -m 1e+20 yearmax " + ofallmon + " " + ofall
-    system(txtcmd)
-    return ofall
-
+                txt = "cdo -m 1e+20 monmax " + fn + " junk_mon.nc"
+                print txt
+                system(txt)
+                txt = "cdo -b F32 cat " + ofallmon + " junk_mon.nc junk_mon_cat.nc"
+                print txt
+                system(txt)
+                txt = "rm -rf junk_mon.nc " + ofallmon + " && mv junk_mon_cat.nc " + ofallmon
+                print txt
+                system(txt)
+        now = datetime.now()
+        txthist = "Created on " + now.strftime("%Y-%m-%d %H:%M")
+        txtcmd = "ncatted -h -a history,global,o,c,'" + txthist + "' " + ofallmon
+        print txtcmd
+        system(txtcmd)
+        txtcmd = "ncatted -h -a institution,global,c,c,'" + txtinst + "' " + ofallmon
+        print txtcmd
+        system(txtcmd)
+        txtcmd = "ncrename -h -v tasmax,txx " + ofallmon
+        print txtcmd
+        system(txtcmd)
+        # create yearly summary file
+        txtcmd = "cdo -m 1e+20 yearmax " + ofallmon + " " + ofall
+        print txtcmd
+        system(txtcmd)
+        txtmvmon = "mv %s %s" % (ofallmon, ofallmonr)
+        print txtmvmon
+        system(txtmvmon)
+        txtmv = "mv %s %s" % (ofall, ofallr)
+        print txtmv
+        system(txtmv)
+        return ofall
+    else:
+        print "\n... nothing to do, %s exist!\n" % ofall
 
 def TNN(fname='', styr=0, enyr=0, model=''):
     if not path.exists(OUTROOT + "/" + model + "/"):
