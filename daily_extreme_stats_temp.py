@@ -154,9 +154,9 @@ def txx(fname='', styr=0, enyr=0, model=''):
         raise 'incorrect args passed to TXX %s %d %d' % (fname, styr, enyr)
     nyrs = enyr - styr + 1
     fn_nodir = split(fname, "/")[-1]
-    ofall = OUTTEMP + "/" + model + "/junk/" +fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
+    ofall = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
     ofall = ofall.replace('tasmax', 'TXX')
-    ofallmon = OUTTEMP + "/" + model + "/junk/" +fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
+    ofallmon = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
     ofallmon = ofallmon.replace('tasmax', 'TXX')
     ofallr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
     ofallr = ofallr.replace('tasmax', 'TXX')

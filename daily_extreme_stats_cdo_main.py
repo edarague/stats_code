@@ -102,9 +102,10 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         # modify variable name, history, global attributes
 
     # Monthly maximum temperatures
-    if 'txx' in var_stat:
+    if 'txx' in var_stat and scens == 'historical':
         of = t_stats.txx(fn_hist_tx, StComHis, EnComHis, model)
         print "created outfile %s\n" % of
+    if 'txx' in var_stat and scens != 'historical':
         of = t_stats.txx(fn_rcp_tx, StYrsFut, EnYrsFut, model)
         print "created outfile %s\n" % of
         # modify variable name, history, global attributes
