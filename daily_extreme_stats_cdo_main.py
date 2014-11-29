@@ -111,10 +111,11 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         # modify variable name, history, global attributes
 
     # Monthly minimum temperatures
-    if 'tnn' in var_stat:
-        of = t_stats.TNN(fn_hist_tn, StComHis, EnComHis)
+    if 'tnn' in var_stat and scens == 'historical':
+        of = t_stats.tnn(fn_hist_tn, StComHis, EnComHis, model)
         print "created outfile %s\n" % of
-        of = t_stats.TNN(fn_rcp_tn, StYrsFut, EnYrsFut)
+    if 'tnn' in var_stat and scens != 'historical':
+        of = t_stats.tnn(fn_rcp_tn, StYrsFut, EnYrsFut, model)
         print "created outfile %s\n" % of
 
     # 90th percentile Tmax - one value per year
