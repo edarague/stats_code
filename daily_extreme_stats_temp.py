@@ -252,7 +252,10 @@ def tnn(fname='', styr=0, enyr=0, model=''):
                 txt = "cdo -m 1e+20 monmin " + fn + " junk_mon.nc"
                 print txt
                 system(txt)
-                txt = "cdo cat junk_mon.nc " + ofallmon
+                txt = "cdo -b F32 cat " + ofallmon + " junk_mon.nc junk_mon_cat.nc"
+                print txt
+                system(txt)
+                txt = "rm -rf junk_mon.nc " + ofallmon + " && mv junk_mon_cat.nc " + ofallmon
                 print txt
                 system(txt)
         # modify variable name and other attributes
