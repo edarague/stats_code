@@ -26,6 +26,40 @@ if not path.isdir(OUTTEMP):
 txtinst = "Santa Clara U.,Climate Central,The Nature Conservancy"
 
 
+def calc_ppmm(fnamep='', styr=0, enyr=0, model=''):
+    if not path.exists(RootDir + "/" + model + "/junk"):
+        system("mkdir -p " + RootDir + "/" + model + "/junk")
+    fnp_nodir = split(fnamep, "/")[-1]
+    nyrs = enyr - styr + 1
+    for i in range(nyrs):
+        y = styr + i
+        fnp = OUTTEMP + "/" + model + "/junk/" + fnp_nodir + str(y) + ".nc"
+        if not (path.exists(fnx) and path.exists(fnp_nodir)):
+            if y == enyr:
+                print 'infile not found: ', fnx, fnp_nodir, ' ...skipping last year'
+                break
+            else:
+                raise Exception('infile not found: ' + fnx + ' or ' + fnp_nodir)
+        # calc mean daily temp if doesn't already exist
+        if not path.exists(fne):
+            print "\n... calculating daily pp temp for %s in mm" % (path.basename(fnamep), y)
+            txt1 = "cdo -m 1e+20 -mulc,86400 %s" % fnp
+            print txt1
+            system(txt1)
+            txt2 = "cdo divc,2.0 %s %s" % (ft, fp)
+            print txt2
+            system(txt2)
+            txt3 = "rm -rf " + ft
+            print txt3
+            system(txt3)
+            txt4 = "ncrename -h -v tasmin,tas " + fp
+            print txt4
+            system(txt4)
+            txt5 = "mv " + fp + " " + fne
+            print txt5
+            system(txt5)
+
+
 def ptot(fname='', styr=0, enyr=0, model=''):
     if not styr > 1899 and enyr < 2101 and (enyr > styr):
         raise 'incorrect args passed to Ptot %s %d %d' % (fname, styr, enyr)
