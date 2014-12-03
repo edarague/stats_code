@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="96277a6e-048a-4ac7-9f17-e06ef6ff3297" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daily_extreme_stats_cdo_main.py" afterPath="$PROJECT_DIR$/daily_extreme_stats_cdo_main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daily_extreme_stats_precip.py" afterPath="$PROJECT_DIR$/daily_extreme_stats_precip.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daily_extreme_stats_temp.py" afterPath="$PROJECT_DIR$/daily_extreme_stats_temp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/stats_code.iml" afterPath="$PROJECT_DIR$/.idea/stats_code.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="stats_code.iws" />
@@ -56,8 +52,8 @@
       <file leaf-file-name="daily_extreme_stats_cdo_main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/daily_extreme_stats_cdo_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73978496" vertical-offset="2933" max-vertical-offset="4454">
-              <caret line="213" column="0" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3376344" vertical-offset="9" max-vertical-offset="4454">
+              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
               <folding>
                 <element signature="e#363#389#0" expanded="true" />
               </folding>
@@ -98,8 +94,8 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/run_list_CCSM4.txt" />
         <option value="$PROJECT_DIR$/daily_extreme_stats_temp.py" />
-        <option value="$PROJECT_DIR$/daily_extreme_stats_cdo_main.py" />
         <option value="$PROJECT_DIR$/daily_extreme_stats_precip.py" />
+        <option value="$PROJECT_DIR$/daily_extreme_stats_cdo_main.py" />
       </list>
     </option>
   </component>
@@ -510,7 +506,13 @@
       <option name="project" value="LOCAL" />
       <updated>1417270728001</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="cdo_main and stats_temp updated">
+      <created>1417642485062</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1417642485062</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -520,6 +522,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28159127" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294979" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3256785" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -529,7 +532,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -972,8 +974,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/daily_extreme_stats_cdo_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73978496" vertical-offset="2933" max-vertical-offset="4454">
-          <caret line="213" column="0" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.3376344" vertical-offset="9" max-vertical-offset="4454">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
           <folding>
             <element signature="e#363#389#0" expanded="true" />
           </folding>
