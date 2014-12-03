@@ -544,7 +544,7 @@ def CD18(fname='', styr=0, enyr=0):
                 break
             else:
                 raise 'infile not found: ', fn
-        txt = "cdo -m 1e+20 mul -subc,18 " + fn + " -gtc,18 " + fn + " " + OUTTEMP + "/junk_cd18_oneyear.nc"
+        txt = "cdo -m 1e+20 mul -subc,291.15 " + fn + " -gtc,291.15 " + fn + " " + OUTTEMP + "/junk_cd18_oneyear.nc"
         system(txt)
         for j in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
             fx = " -selmon," + str(j) + " " + OUTTEMP + "/junk_cd18_oneyear.nc"
@@ -594,10 +594,10 @@ def HD18(fname='', styr=0, enyr=0):
                 raise 'infile not found: ', fn
         for j in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
             if (i == 0 and j == 1):
-                txt = "cdo -m 1e+20 eca_hd,18 -addc,273.15 -selmon," + str(j) + " " + fn + " " + ofallmon
+                txt = "cdo -m 1e+20 eca_hd,18 -selmon," + str(j) + " " + fn + " " + ofallmon
                 system(txt)
             else:
-                txt = "cdo -m 1e+20 eca_hd,18 -addc,273.15 -selmon," + str(j) + " " + fn + " junk_mon.nc"
+                txt = "cdo -m 1e+20 eca_hd,18 -selmon," + str(j) + " " + fn + " junk_mon.nc"
                 system(txt)
                 txt = "cdo cat junk_mon.nc " + ofallmon
                 system(txt)
@@ -637,7 +637,7 @@ def GD10(fname='', styr=0, enyr=0):
                 break
             else:
                 raise 'infile not found: ', fn
-        txt = "cdo -m 1e+20 mul -subc,10 " + fn + " -gtc,10 " + fn + " " + OUTTEMP + "/junk_gd10_oneyear.nc"
+        txt = "cdo -m 1e+20 mul -subc,283.15 " + fn + " -gtc,283.15 " + fn + " " + OUTTEMP + "/junk_gd10_oneyear.nc"
         system(txt)
         for j in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
             # fx = " -selmon,"+str(j)+" "+fn

@@ -204,10 +204,11 @@ for scens in ('historical', 'rcp45', 'rcp85'):
     ###########################################################################
 
     # Monthly total precip
-    if 'ptot' in var_stat:
-        of = p_stats.Ptot(fn_hist_pr, StComHis, EnComHis)
+    if 'ptot' in var_stat and scens == 'historical':
+        of = p_stats.ptot(fn_hist_pr, StComHis, EnComHis, model)
         print "created outfile %s\n" % of
-        of = p_stats.Ptot(fn_rcp_pr, StYrsFut, EnYrsFut)
+    if 'ptot' in var_stat and scens != 'historical':
+        of = p_stats.ptot(fn_rcp_pr, StYrsFut, EnYrsFut, model)
         print "created outfile %s\n" % of
 
     # Consecutive dry days
