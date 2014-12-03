@@ -207,6 +207,7 @@ for scens in ('historical', 'rcp45', 'rcp85'):
     if 'ptot' in var_stat and scens == 'historical':
         of = p_stats.ptot(fn_hist_pr, StComHis, EnComHis, model)
         print "created outfile %s\n" % of
+        break
     if 'ptot' in var_stat and scens != 'historical':
         of = p_stats.ptot(fn_rcp_pr, StYrsFut, EnYrsFut, model)
         print "created outfile %s\n" % of
