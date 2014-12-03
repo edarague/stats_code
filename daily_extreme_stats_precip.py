@@ -50,7 +50,7 @@ def ptot(fname='', styr=0, enyr=0, model=''):
                 else:
                     raise Exception('infile not found: %s' % fn)
             if i == 0:
-                txt = "cdo -m 1e+20 mulc,86400 monsum " + fn + " " + ofallmon
+                txt = "cdo mulc,86400 -m 1e+20 monsum " + fn + " " + ofallmon
                 print txt
                 system(txt)
                 break

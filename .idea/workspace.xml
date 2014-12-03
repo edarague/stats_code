@@ -64,8 +64,8 @@
       <file leaf-file-name="daily_extreme_stats_precip.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/daily_extreme_stats_precip.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41509435" vertical-offset="340" max-vertical-offset="8619">
-              <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.6037736" vertical-offset="340" max-vertical-offset="8619">
+              <caret line="52" column="46" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
               <folding>
                 <element signature="e#116#150#0" expanded="true" />
               </folding>
@@ -518,7 +518,13 @@
       <option name="project" value="LOCAL" />
       <updated>1417642544906</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="cdo_main and stats_temp updated">
+      <created>1417643171833</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1417643171833</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -980,8 +986,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/daily_extreme_stats_precip.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41509435" vertical-offset="340" max-vertical-offset="8619">
-          <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.6037736" vertical-offset="340" max-vertical-offset="8619">
+          <caret line="52" column="46" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
           <folding>
             <element signature="e#116#150#0" expanded="true" />
           </folding>
