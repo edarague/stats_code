@@ -46,12 +46,16 @@ def calc_ppmm(fnamep='', styr=0, enyr=0, model=''):
         # calc mean daily temp if doesn't already exist
         if not path.exists(fnpr):
             print "\n... calculating daily pp temp for %s in mm, year %s" % (path.basename(fnp), y)
-            txt1 = "cdo -m 1e+20 -mulc,86400 %s" % fnp
+            txt1 = "cdo -m 1e+20 -mulc,86400 %s tmpfile" % fnp
             print txt1
             # system(txt1)
-            txt2 = "mv " + fnp + " " + fnpr
+            txt2 = "mv tmpfile " + fnpr
             print txt2
             # system(txt2)
+            txt3 = "rm -rf tmpfile"
+            print txt3
+            # system(txt3)
+
 
 
 def ptot(fname='', styr=0, enyr=0, model=''):
