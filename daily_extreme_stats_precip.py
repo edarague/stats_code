@@ -42,15 +42,15 @@ def calc_ppmm(fnamep='', styr=0, enyr=0, model=''):
                 break
             else:
                 raise Exception('infile not found: ' + fnp)
-        # calc mean daily temp if doesn't already exist
+        # calc pp in mm if not extist
         if not path.exists(fnpr):
             print "\n... calculating daily pp in mm for %s" % (path.basename(fnp))
             txt1 = "cdo -m 1e+20 -mulc,86400 %s tmpfile" % fnp
             print txt1
-            # system(txt1)
+            system(txt1)
             txt2 = "mv tmpfile " + fnpr
             print txt2
-            # system(txt2)
+            system(txt2)
 
 
 def ptot(fname='', styr=0, enyr=0, model=''):
