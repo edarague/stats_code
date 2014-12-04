@@ -34,30 +34,23 @@ def calc_ppmm(fnamep='', styr=0, enyr=0, model=''):
     for i in range(nyrs):
         y = styr + i
         fnp = OUTTEMP + "/" + model + "/junk/" + fnp_nodir + str(y) + ".nc"
-        if not (path.exists(fnx) and path.exists(fnp_nodir)):
+        fnpr = RootDir + "/" + model + "/junk/" + fnp_nodir + str(y) + ".nc"
+        fnpr = fnpr.replace('pr', 'prmm')
+        if not (path.exists(fnpr) and path.exists(fnp_nodir)):
             if y == enyr:
-                print 'infile not found: ', fnx, fnp_nodir, ' ...skipping last year'
+                print 'infile not found: ', fnp, fnp_nodir, ' ...skipping last year'
                 break
             else:
-                raise Exception('infile not found: ' + fnx + ' or ' + fnp_nodir)
+                raise Exception('infile not found: ' + fnp + ' or ' + fnp_nodir)
         # calc mean daily temp if doesn't already exist
-        if not path.exists(fne):
-            print "\n... calculating daily pp temp for %s in mm" % (path.basename(fnamep), y)
+        if not path.exists(fnpr):
+            print "\n... calculating daily pp temp for %s in mm" % (path.basename(fnpr), y)
             txt1 = "cdo -m 1e+20 -mulc,86400 %s" % fnp
             print txt1
-            system(txt1)
-            txt2 = "cdo divc,2.0 %s %s" % (ft, fp)
+            # system(txt1)
+            txt2 = "mv " + fnp + " " + fnpr
             print txt2
-            system(txt2)
-            txt3 = "rm -rf " + ft
-            print txt3
-            system(txt3)
-            txt4 = "ncrename -h -v tasmin,tas " + fp
-            print txt4
-            system(txt4)
-            txt5 = "mv " + fp + " " + fne
-            print txt5
-            system(txt5)
+            # system(txt2)
 
 
 def ptot(fname='', styr=0, enyr=0, model=''):
