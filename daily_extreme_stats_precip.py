@@ -37,15 +37,15 @@ def calc_ppmm(fnamep='', styr=0, enyr=0, model=''):
         fnpr = RootDir + "/" + model + "/junk/" + fnp_nodir + str(y) + ".nc"
         fnpr = fnpr.replace('pr', 'prmm')
         print fnpr, fnp_nodir
-        if not (path.exists(fnp) and path.exists(fnp_nodir)):
+        if not path.exists(fnp):
             if y == enyr:
-                print 'infile not found: ', fnp, fnp_nodir, ' ...skipping last year'
+                print 'infile not found: ', fnp, ' ...skipping last year'
                 break
             else:
-                raise Exception('infile not found: ' + fnp + ' or ' + fnp_nodir)
+                raise Exception('infile not found: ' + fnp)
         # calc mean daily temp if doesn't already exist
         if not path.exists(fnpr):
-            print "\n... calculating daily pp temp for %s in mm" % (path.basename(fnpr), y)
+            print "\n... calculating daily pp temp for %s in mm" % (path.basename(fnp), y)
             txt1 = "cdo -m 1e+20 -mulc,86400 %s" % fnp
             print txt1
             # system(txt1)
