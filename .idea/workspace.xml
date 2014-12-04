@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96277a6e-048a-4ac7-9f17-e06ef6ff3297" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daily_extreme_stats_cdo_main.py" afterPath="$PROJECT_DIR$/daily_extreme_stats_cdo_main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daily_extreme_stats_precip.py" afterPath="$PROJECT_DIR$/daily_extreme_stats_precip.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="stats_code.iws" />
@@ -49,11 +49,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="daily_extreme_stats_cdo_main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="daily_extreme_stats_cdo_main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/daily_extreme_stats_cdo_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15483871" vertical-offset="689" max-vertical-offset="4556">
-              <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="689" max-vertical-offset="4556">
+              <caret line="69" column="48" selection-start-line="69" selection-start-column="48" selection-end-line="69" selection-end-column="48" />
               <folding>
                 <element signature="e#363#389#0" expanded="true" />
               </folding>
@@ -61,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="daily_extreme_stats_precip.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="daily_extreme_stats_precip.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/daily_extreme_stats_precip.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="64" max-vertical-offset="9078">
-              <caret line="43" column="24" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.644086" vertical-offset="47" max-vertical-offset="9095">
+              <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
               <folding>
                 <element signature="e#116#150#0" expanded="true" />
               </folding>
@@ -94,8 +94,8 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/run_list_CCSM4.txt" />
         <option value="$PROJECT_DIR$/daily_extreme_stats_temp.py" />
-        <option value="$PROJECT_DIR$/daily_extreme_stats_precip.py" />
         <option value="$PROJECT_DIR$/daily_extreme_stats_cdo_main.py" />
+        <option value="$PROJECT_DIR$/daily_extreme_stats_precip.py" />
       </list>
     </option>
   </component>
@@ -560,7 +560,13 @@
       <option name="project" value="LOCAL" />
       <updated>1417694006790</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="cdo_main and stats_temp updated">
+      <created>1417694141637</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1417694141637</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1040,22 +1046,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/daily_extreme_stats_precip.py">
+    <entry file="file://$PROJECT_DIR$/daily_extreme_stats_cdo_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="64" max-vertical-offset="9078">
-          <caret line="43" column="24" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="689" max-vertical-offset="4556">
+          <caret line="69" column="48" selection-start-line="69" selection-start-column="48" selection-end-line="69" selection-end-column="48" />
           <folding>
-            <element signature="e#116#150#0" expanded="true" />
+            <element signature="e#363#389#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/daily_extreme_stats_cdo_main.py">
+    <entry file="file://$PROJECT_DIR$/daily_extreme_stats_precip.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15483871" vertical-offset="689" max-vertical-offset="4556">
-          <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.644086" vertical-offset="47" max-vertical-offset="9095">
+          <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
           <folding>
-            <element signature="e#363#389#0" expanded="true" />
+            <element signature="e#116#150#0" expanded="true" />
           </folding>
         </state>
       </provider>
