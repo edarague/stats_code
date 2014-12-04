@@ -47,7 +47,7 @@ if not path.isdir('/mnt/out_stats/' + model):
 # copy_files really just creates soft links to files for existing variables
 # working directory is hardcoded in two py modules.
 # Also, tavg ('tas') is needed for many stats, calculate up front
-for scens in ('historical'):
+for scens in ('historical', 'rcp45'):
 # for scens in ('historical', 'rcp45', 'rcp85'):
     if scens == 'historical':
         ind_hist = RootDir + "/" + model + "/historical/day/r1i1p1"
