@@ -37,7 +37,7 @@ def calc_ppmm(fnamep='', styr=0, enyr=0, model=''):
         fnpr = RootDir + "/" + model + "/junk/" + fnp_nodir + str(y) + ".nc"
         fnpr = fnpr.replace('pr', 'prmm')
         print fnpr, fnp_nodir
-        if not (path.exists(fnpr) and path.exists(fnp_nodir)):
+        if not (path.exists(fnp) and path.exists(fnp_nodir)):
             if y == enyr:
                 print 'infile not found: ', fnp, fnp_nodir, ' ...skipping last year'
                 break
