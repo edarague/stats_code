@@ -45,7 +45,7 @@ def calc_ppmm(fnamep='', styr=0, enyr=0, model=''):
                 raise Exception('infile not found: ' + fnp)
         # calc mean daily temp if doesn't already exist
         if not path.exists(fnpr):
-            print "\n... calculating daily pp temp for %s in mm, year %s" % (path.basename(fnp), y)
+            print "\n... calculating daily pp in mm for %s, year %s" % (path.basename(fnp), y)
             txt1 = "cdo -m 1e+20 -mulc,86400 %s tmpfile" % fnp
             print txt1
             # system(txt1)
