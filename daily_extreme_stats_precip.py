@@ -79,18 +79,18 @@ def ptot(fname='', styr=0, enyr=0, model=''):
             if i == 0:
                 txt = "cdo -m 1e+20 monsum " + fn + " " + ofallmon
                 print txt
-                system(txt)
+                # system(txt)
                 break
             else:
                 txt = "cdo -m 1e+20 monsum " + fn + " junk_mon.nc"
                 print txt
-                system(txt)
+                # system(txt)
                 txt = "cdo -b F32 cat " + ofallmon + " junk_mon.nc junk_mon_cat.nc"
                 print txt
-                system(txt)
+                # system(txt)
                 txt = "rm -rf junk_mon.nc " + ofallmon + " && mv junk_mon_cat.nc " + ofallmon
                 print txt
-                system(txt)
+                # system(txt)
         now = datetime.now()
         txthist = "Created on " + now.strftime("%Y-%m-%d %H:%M")
         txtcmd = "ncatted -h -a history,global,o,c,'"+txthist + "' " + ofallmon

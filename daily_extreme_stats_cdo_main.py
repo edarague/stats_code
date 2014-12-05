@@ -62,6 +62,7 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         # soflink pr historical
         fn_hist_pr = ind_hist + "/pr/pr_day_" + model + "_historical_r1i1p1_"
         t_stats.copy_files(fn_hist_pr, StComHis, EnComHis, model)
+        fn_hist_prmm = ind_hist + "/junk/prmm_day_" + model + "_historical_r1i1p1_"
 
         # calculate tmean historical
         t_stats.calc_tavg(fn_hist_tn, fn_hist_tx, StComHis, EnComHis, model)
@@ -82,6 +83,7 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         # soflink pr rcp
         fn_rcp_pr = ind_rcp + "/pr/pr_day_" + model + "_" + scens + "_r1i1p1_"
         t_stats.copy_files(fn_rcp_pr, StYrsFut, EnYrsFut, model)
+        fn_rcp_prmm = ind_rcp + "/junk/prmm_day_" + model + "_" + scens + "_r1i1p1_"
 
         # calculate tmean rcp
         t_stats.calc_tavg(fn_rcp_tn, fn_rcp_tx, StYrsFut, EnYrsFut, model)
@@ -211,11 +213,10 @@ for scens in ('historical', 'rcp45', 'rcp85'):
 
     # Monthly total precip
     if 'ptot' in var_stat and scens == 'historical':
-        of = p_stats.ptot(fn_hist_pr, StComHis, EnComHis, model)
+        of = p_stats.ptot(fn_hist_prmm, StComHis, EnComHis, model)
         print "created outfile %s\n" % of
-        break
     if 'ptot' in var_stat and scens != 'historical':
-        of = p_stats.ptot(fn_rcp_pr, StYrsFut, EnYrsFut, model)
+        of = p_stats.ptot(fn_rcp_prmm, StYrsFut, EnYrsFut, model)
         print "created outfile %s\n" % of
 
     # Consecutive dry days
