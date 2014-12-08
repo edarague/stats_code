@@ -2,7 +2,7 @@ __author__ = 'Edward Guevara'
 from os import system, path
 from sys import argv
 
-if len(argv) != 4:
+if len(argv) != 2:
     print "Usage: python prCopy.py MODEL"
     exit(1)
 MODEL = int(argv[1])
