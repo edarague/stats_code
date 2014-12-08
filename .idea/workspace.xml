@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96277a6e-048a-4ac7-9f17-e06ef6ff3297" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daily_extreme_stats_precip.py" afterPath="$PROJECT_DIR$/daily_extreme_stats_precip.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="stats_code.iws" />
@@ -26,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="daily_extreme_stats_cdo_main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="daily_extreme_stats_cdo_main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/daily_extreme_stats_cdo_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26121795" vertical-offset="160" max-vertical-offset="4658">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4675">
+              <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
               <folding>
                 <element signature="e#363#389#0" expanded="true" />
               </folding>
@@ -41,8 +42,8 @@
       <file leaf-file-name="daily_extreme_stats_temp.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/daily_extreme_stats_temp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3893" max-vertical-offset="13583">
-              <caret line="229" column="46" selection-start-line="229" selection-start-column="46" selection-end-line="229" selection-end-column="46" />
+            <state vertical-scroll-proportion="-5.034483" vertical-offset="2370" max-vertical-offset="13583">
+              <caret line="148" column="14" selection-start-line="148" selection-start-column="8" selection-end-line="148" selection-end-column="14" />
               <folding>
                 <element signature="e#114#134#0" expanded="true" />
               </folding>
@@ -50,13 +51,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="daily_extreme_stats_precip.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="daily_extreme_stats_precip.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/daily_extreme_stats_precip.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="974" max-vertical-offset="9078">
-              <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.9451613" vertical-offset="1522" max-vertical-offset="9197">
+              <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
               <folding>
-                <element signature="e#116#150#0" expanded="true" />
+                <element signature="e#116#136#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -84,8 +85,8 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/run_list_CCSM4.txt" />
         <option value="$PROJECT_DIR$/daily_extreme_stats_temp.py" />
-        <option value="$PROJECT_DIR$/daily_extreme_stats_precip.py" />
         <option value="$PROJECT_DIR$/daily_extreme_stats_cdo_main.py" />
+        <option value="$PROJECT_DIR$/daily_extreme_stats_precip.py" />
       </list>
     </option>
   </component>
@@ -93,7 +94,7 @@
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1320" />
-    <option name="height" value="784" />
+    <option name="height" value="780" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -153,7 +154,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/run_list_ACCESS1-0.txt" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -531,33 +532,63 @@
       <option name="project" value="LOCAL" />
       <updated>1417785489396</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="cdo_main and stats_temp updated">
+      <created>1417785498568</created>
+      <option name="number" value="00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1417785498568</updated>
+    </task>
+    <task id="LOCAL-00034" summary="cdo_main and stats_temp updated">
+      <created>1417785894111</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1417785894111</updated>
+    </task>
+    <task id="LOCAL-00035" summary="cdo_main and stats_temp updated">
+      <created>1418047134753</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1418047134753</updated>
+    </task>
+    <task id="LOCAL-00036" summary="cdo_main and stats_temp updated">
+      <created>1418047386373</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1418047386373</updated>
+    </task>
+    <task id="LOCAL-00037" summary="cdo_main and stats_temp updated">
+      <created>1418051382051</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1418051382051</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1320" height="784" extended-state="0" />
+    <frame x="-8" y="-8" width="1320" height="780" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28159127" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294979" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33020833" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28159127" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32561728" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39958158" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33020833" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32668713" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39958158" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -619,6 +650,36 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/daily_extreme_stats_cdo_main.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4658">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#363#389#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/daily_extreme_stats_temp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3893" max-vertical-offset="13583">
+          <caret line="229" column="46" selection-start-line="229" selection-start-column="46" selection-end-line="229" selection-end-column="46" />
+          <folding>
+            <element signature="e#114#134#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/daily_extreme_stats_precip.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="974" max-vertical-offset="9078">
+          <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
+          <folding>
+            <element signature="e#116#136#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/daily_extreme_stats_cdo_main.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="4556">
           <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
           <folding>
@@ -642,7 +703,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="9010">
           <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
           <folding>
-            <element signature="e#116#150#0" expanded="true" />
+            <element signature="e#116#136#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -672,7 +733,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="8126">
           <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
           <folding>
-            <element signature="e#116#150#0" expanded="true" />
+            <element signature="e#116#136#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -702,7 +763,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="8126">
           <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
           <folding>
-            <element signature="e#116#150#0" expanded="true" />
+            <element signature="e#116#136#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -732,7 +793,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="8126">
           <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
           <folding>
-            <element signature="e#116#150#0" expanded="true" />
+            <element signature="e#116#136#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -762,7 +823,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="8126">
           <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
           <folding>
-            <element signature="e#116#150#0" expanded="true" />
+            <element signature="e#116#136#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -792,7 +853,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="7230">
           <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
           <folding>
-            <element signature="e#116#150#0" expanded="true" />
+            <element signature="e#116#136#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -993,30 +1054,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/daily_extreme_stats_temp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3893" max-vertical-offset="13583">
-          <caret line="229" column="46" selection-start-line="229" selection-start-column="46" selection-end-line="229" selection-end-column="46" />
+        <state vertical-scroll-proportion="-5.034483" vertical-offset="2370" max-vertical-offset="13583">
+          <caret line="148" column="14" selection-start-line="148" selection-start-column="8" selection-end-line="148" selection-end-column="14" />
           <folding>
             <element signature="e#114#134#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/daily_extreme_stats_precip.py">
+    <entry file="file://$PROJECT_DIR$/daily_extreme_stats_cdo_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="974" max-vertical-offset="9078">
-          <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4675">
+          <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
           <folding>
-            <element signature="e#116#150#0" expanded="true" />
+            <element signature="e#363#389#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/daily_extreme_stats_cdo_main.py">
+    <entry file="file://$PROJECT_DIR$/daily_extreme_stats_precip.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26121795" vertical-offset="160" max-vertical-offset="4658">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.9451613" vertical-offset="1522" max-vertical-offset="9197">
+          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
           <folding>
-            <element signature="e#363#389#0" expanded="true" />
+            <element signature="e#116#136#0" expanded="true" />
           </folding>
         </state>
       </provider>
