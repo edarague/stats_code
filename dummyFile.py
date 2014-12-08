@@ -11,8 +11,8 @@ TarPath = str(argv[3])
 
 for year in range(iniYear, finYear + 1):
     fn = '%spr_day_CNRM-CM5_rcp85_r1i1p1_%s.nc' % (TarPath, year)
-    print '... touch %s' % fn
     if not path.exists(fn):
+        print '... touch %s' % fn
         system('touch %s' % fn)
     else:
         print "\n... nothing to do, %s exist!\n" % fn
