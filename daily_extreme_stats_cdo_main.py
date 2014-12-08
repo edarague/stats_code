@@ -60,9 +60,8 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         t_stats.copy_files(fn_hist_tx, StComHis, EnComHis, model)
 
         # soflink pr historical
-
         # fn_hist_pr = ind_hist + "/pr/pr_day_" + model + "_historical_r1i1p1_"
-        # cdo -m 1e+20 monsum /home/edarague/ACCESS1-0/junk/prmm_day_ACCESS1-0_rcp8t_stats.copy_files(fn_hist_pr, StComHis, EnComHis, model)
+        # t_stats.copy_files(fn_hist_pr, StComHis, EnComHis, model)
 
         # calculate tmean historical
         t_stats.calc_tavg(fn_hist_tn, fn_hist_tx, StComHis, EnComHis, model)
