@@ -3,7 +3,7 @@ from os import system, path
 from sys import argv
 
 if len(argv) != 4:
-    print "Usage: python daily_extreme_stats_cdo_main.py IniYear FinYear TargetPath"
+    print "Usage: python dummyFile.py IniYear FinYear TargetPath"
     exit(1)
 iniYear = int(argv[1])
 finYear = int(argv[2])
