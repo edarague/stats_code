@@ -60,8 +60,9 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         t_stats.copy_files(fn_hist_tx, StComHis, EnComHis, model)
 
         # soflink pr historical
+
         # fn_hist_pr = ind_hist + "/pr/pr_day_" + model + "_historical_r1i1p1_"
-        # t_stats.copy_files(fn_hist_pr, StComHis, EnComHis, model)
+        # cdo -m 1e+20 monsum /home/edarague/ACCESS1-0/junk/prmm_day_ACCESS1-0_rcp8t_stats.copy_files(fn_hist_pr, StComHis, EnComHis, model)
 
         # calculate tmean historical
         t_stats.calc_tavg(fn_hist_tn, fn_hist_tx, StComHis, EnComHis, model)
@@ -225,9 +226,9 @@ for scens in ('historical', 'rcp45', 'rcp85'):
 
     # Consecutive dry days
     if 'cdd' in var_stat:
-        of = p_stats.CDD(fn_hist_pr, StComHis, EnComHis)
+        of = p_stats.CDD(fn_hist_prmm, StComHis, EnComHis)
         print "created outfile %s\n" % of
-        of = p_stats.CDD(fn_rcp_pr, StYrsFut, EnYrsFut)
+        of = p_stats.CDD(fn_rcp_prmm, StYrsFut, EnYrsFut)
         print "created outfile %s\n" % of
 
     # Number of wet days > 0.2 mm/d

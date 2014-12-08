@@ -2,15 +2,17 @@
 
 """Module for computing precipitation extreme stats mostly using CDO utilities"""
 
-from os import path, mkdir, system
+from sys import exit
+from os import path, system, mkdir
 from cdms2 import setNetcdfShuffleFlag, setNetcdfDeflateLevelFlag, setNetcdfDeflateFlag
-from daily_stats_cdms_utils import MosaicFiles
 from string import split
 from datetime import datetime
+from daily_stats_cdms_utils import MosaicFiles
 
 setNetcdfShuffleFlag(0)
 setNetcdfDeflateFlag(0)
 setNetcdfDeflateLevelFlag(0)
+
 
 RootDir = '/mnt/BCSD'
 
@@ -24,6 +26,12 @@ if not path.isdir(OUTTEMP):
 
 # added as fgobal institution attribute to output files
 txtinst = "Santa Clara U.,Climate Central,The Nature Conservancy"
+
+# input files are on 0->360 longitude convention. To switch to a -180->180 grid:
+# cdo sellonlatbox,-180,180,-90,90 ifile ofile
+# which works for global domains only.For smaller domains:
+# cdo griddes ifile > mygrid ; then edit mygrid and set xfirst to the new value
+# cdo setgrid,mygrid ifile ofile
 
 
 def calc_ppmm(fnamep='', styr=0, enyr=0, model=''):
@@ -58,7 +66,7 @@ def ptot(fname='', styr=0, enyr=0, model=''):
         raise 'incorrect args passed to Ptot %s %d %d' % (fname, styr, enyr)
     nyrs = enyr - styr + 1
     fn_nodir = split(fname, "/")[-1]
-    ofall = OUTTEMP + "/" + model + "/junk/" + fn_nodir+str(styr) + "-" + str(enyr) + ".nc"
+    ofall = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
     ofallr = OUTROOT + "/" + model + "/" + fn_nodir+str(styr) + "-" + str(enyr) + ".nc"
     # ofall = ofall.replace('tasmax','TXX')
     ofallmon = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
