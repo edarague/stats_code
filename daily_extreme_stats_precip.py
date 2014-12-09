@@ -70,7 +70,7 @@ def ptot(fname='', styr=0, enyr=0, model=''):
     ofallr = OUTROOT + "/" + model + "/" + fn_nodir+str(styr) + "-" + str(enyr) + ".nc"
     # ofall = ofall.replace('tasmax','TXX')
     ofallmon = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    ofallmonr = OUTTEMP + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
+    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
     # ofallmon = ofallmon.replace('tasmax','TXX')
     if not path.exists(ofallmonr):
         for i in range(nyrs):
