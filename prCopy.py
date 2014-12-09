@@ -13,7 +13,7 @@ for year in range(2006, 2100):
     fc = '/mnt/BCSD/%s/junk/prmm_day_%s_rcp45_r1i1p1_%s.nc' % (MODEL, MODEL, year)
     print fc
     ft = '/mnt/BCSD/%s/rcp85/day/r1i1p1/pr/pr_day_%s_rcp85_r1i1p1_%s.nc' % (MODEL, MODEL, year)
-    prin ftp
+    prin ft
     if not path.exists(fc):
         print '... copying %s' % ft
         system('cp %s %s' % (fs, ft))
