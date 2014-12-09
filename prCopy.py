@@ -10,11 +10,11 @@ Scen = str(argv[2])
 
 for year in range(2006, 2100):
     fs = '/box0_p2/BCSD/%s/%s/day/r1i1p1/pr/pr_day_%s_%s_r1i1p1_%s.nc' % (MODEL, Scen, MODEL, Scen, year)
-    print fs
+    # print fs
     fc = '/mnt/BCSD/%s/junk/prmm_day_%s_%s_r1i1p1_%s.nc' % (MODEL, MODEL, Scen, year)
-    print fc
+    # print fc
     ft = '/mnt/BCSD/%s/%s/day/r1i1p1/pr/pr_day_%s_%s_r1i1p1_%s.nc' % (MODEL, Scen, MODEL, Scen, year)
-    print ft
+    # print ft
     if not path.exists(fc):
         print '... copying %s' % ft
         system('cp %s %s' % (fs, ft))
