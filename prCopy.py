@@ -5,9 +5,10 @@ from sys import argv
 if len(argv) != 4:
     print "Usage: python prCopy.py iniYear finYear MODEL"
     exit(1)
-    iniYear = int(argv[1])
-    finYear = int(argv[2])
-    MODEL = str(argv[3])
+
+iniYear = int(argv[1])
+finYear = int(argv[2])
+MODEL = str(argv[3])
 
 for year in range(iniYear, finYear + 1):
     fs = '/box0_p2/BCSD/%s/rcp85/day/r1i1p1/pr/pr_day_%s_rcp85_r1i1p1_%s.nc' % (MODEL, MODEL, year)
