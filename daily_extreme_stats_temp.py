@@ -322,14 +322,17 @@ def gd10(fname='', styr=0, enyr=0, model=''):
                 # fx = " -selmon,"+str(j)+" "+fn
                 fx = " -selmon," + str(j) + " " + OUTTEMP + "/" + model + "/junk/junk_gd10_oneyear.nc"
                 if i == 0 and j == 1:
-                    txt = "cdo -m 1e+20 timsum " + fx + " " + ofallmon
+                    txt = "cdo -m 1e+20 " + fx + " selmon_1.nc"
+                    print "\n" + txt
+                    system(txt)
+                    txt = "cdo -m 1e+20 timsum selmon_1.nc " + ofallmon
                     print "\n" + txt
                     system(txt)
                 else:
-                    txt = "cdo -m 1e+20 " + fx + " selmon_" + j + ".nc"
+                    txt = "cdo -m 1e+20 " + fx + " selmon_" + str(j) + ".nc"
                     print "\n" + txt
                     system(txt)
-                    txt = "cdo -m 1e+20 timsum selmon_" + j + ".nc junk_mon.nc"
+                    txt = "cdo -m 1e+20 timsum selmon_" + str(j) + ".nc junk_mon.nc"
                     print "\n" + txt
                     system(txt)
                     txt = "cdo cat junk_mon.nc " + ofallmon
