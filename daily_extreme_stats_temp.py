@@ -310,27 +310,30 @@ def gd10(fname='', styr=0, enyr=0, model=''):
                 else:
                     raise Exception('infile not found: %s' % fn)
             txt = "cdo -m 1e+20 -gtc,283.15 " + fn + " gtc10"
-            print txt
+            print "\n" + txt
             system(txt)
             txt = "cdo -m 1e+20 -subc,283.15 " + fn + " subc10"
-            print txt
+            print "\n" + txt
             system(txt)
             txt = "cdo -m 1e+20 mul gtc10 subc10 " + OUTTEMP + "/" + model + "/junk/junk_gd10_oneyear.nc"
-            print txt
+            print "\n" + txt
             system(txt)
             for j in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
                 # fx = " -selmon,"+str(j)+" "+fn
                 fx = " -selmon," + str(j) + " " + OUTTEMP + "/" + model + "/junk/junk_gd10_oneyear.nc"
                 if i == 0 and j == 1:
                     txt = "cdo -m 1e+20 timsum " + fx + " " + ofallmon
-                    print txt
+                    print "\n" + txt
                     system(txt)
                 else:
-                    txt = "cdo -m 1e+20 timsum " + fx + " junk_mon.nc"
-                    print txt
+                    txt = "cdo -m 1e+20 " + fx + " selmon_" + j + ".nc"
+                    print "\n" + txt
+                    system(txt)
+                    txt = "cdo -m 1e+20 timsum selmon_" + j + ".nc junk_mon.nc"
+                    print "\n" + txt
                     system(txt)
                     txt = "cdo cat junk_mon.nc " + ofallmon
-                    print txt
+                    print "\n" + txt
                     system(txt)
             exit()
         # modify variable name and other attributes
