@@ -325,7 +325,6 @@ def gd10(fname='', styr=0, enyr=0, model=''):
                     txt = "cdo -m 1e+20 timsum " + fx + " " + ofallmon
                     print txt
                     system(txt)
-                    exit()
                 else:
                     txt = "cdo -m 1e+20 timsum " + fx + " junk_mon.nc"
                     print txt
@@ -333,6 +332,7 @@ def gd10(fname='', styr=0, enyr=0, model=''):
                     txt = "cdo cat junk_mon.nc " + ofallmon
                     print txt
                     system(txt)
+            exit()
         # modify variable name and other attributes
         now = datetime.now()
         txthist = "Created on " + now.strftime("%Y-%m-%d %H:%M")
