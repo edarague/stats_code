@@ -309,12 +309,19 @@ def gd10(fname='', styr=0, enyr=0, model=''):
                     break
                 else:
                     raise Exception('infile not found: %s' % fn)
-            txt = "cdo -m 1e+20 mul -subc,283.15 " + fn + " -gtc,283.15 " + fn + " " + OUTTEMP + "/junk_gd10_oneyear.nc"
+            txt = "cdo -m 1e+20 -gtc,283.15 " + fn + " gtc10"
             print txt
             system(txt)
+            txt = "cdo -m 1e+20 -subc,283.15 " + fn + " subc10"
+            print txt
+            system(txt)
+            txt = "cdo -m 1e+20 mul gtc10 subc10 " + OUTTEMP + "/" + model + "/junk/junk_gd10_oneyear.nc"
+            print txt
+            system(txt)
+            exit()
             for j in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
                 # fx = " -selmon,"+str(j)+" "+fn
-                fx = " -selmon," + str(j) + " " + OUTTEMP + "/" + model + "/junk/" + "/junk_gd10_oneyear.nc"
+                fx = " -selmon," + str(j) + " " + OUTTEMP + "/" + model + "/junk/junk_gd10_oneyear.nc"
                 if i == 0 and j == 1:
                     txt = "cdo -m 1e+20 timsum " + fx + " " + ofallmon
                     print txt
