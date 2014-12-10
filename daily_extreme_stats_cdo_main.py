@@ -66,11 +66,15 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         # calculate tmean historical
         t_stats.calc_tavg(fn_hist_tn, fn_hist_tx, StComHis, EnComHis, model)
 
+        # soflink tmean historical
+        fn_hist_tas = RootDir + "/" + model + "/junk/tas_day_" + model + "_historical_r1i1p1_"
+        t_stats.copy_files(fn_hist_tas, StComHis, EnComHis, model)
+
         # calculate pr in mm historical
         # p_stats.calc_ppmm(fn_hist_pr, StComHis, EnComHis, model)
         # soflink prmm historical
-        fn_hist_prmm = RootDir + "/" + model + "/junk/prmm_day_" + model + "_historical_r1i1p1_"
-        t_stats.copy_files(fn_hist_prmm, StComHis, EnComHis, model)
+        # fn_hist_prmm = RootDir + "/" + model + "/junk/prmm_day_" + model + "_historical_r1i1p1_"
+        # t_stats.copy_files(fn_hist_prmm, StComHis, EnComHis, model)
     else:
         ind_rcp = RootDir + "/" + model + "/" + scens + "/day/r1i1p1"
 
@@ -89,11 +93,15 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         # calculate tmean rcp
         t_stats.calc_tavg(fn_rcp_tn, fn_rcp_tx, StYrsFut, EnYrsFut, model)
 
+        # soflink tmean rcp
+        fn_rcp_tas = RootDir + "/" + model + "/junk/prmm_day_" + model + "_" + scens + "_r1i1p1_"
+        t_stats.copy_files(fn_rcp_tas, StYrsFut, EnYrsFut, model)
+
         # calculate pr in mm rcp
         # p_stats.calc_ppmm(fn_rcp_pr, StYrsFut, EnYrsFut, model)
         # soflink prmm rcp
-        fn_rcp_prmm = RootDir + "/" + model + "/junk/prmm_day_" + model + "_" + scens + "_r1i1p1_"
-        t_stats.copy_files(fn_rcp_prmm, StYrsFut, EnYrsFut, model)
+        # fn_rcp_prmm = RootDir + "/" + model + "/junk/prmm_day_" + model + "_" + scens + "_r1i1p1_"
+        # t_stats.copy_files(fn_rcp_prmm, StYrsFut, EnYrsFut, model)
 
     # Monthly mean maximum temperatures historical
     if 'txavg' in var_stat and scens == 'historical':
@@ -129,6 +137,15 @@ for scens in ('historical', 'rcp45', 'rcp85'):
     if 'tnn' in var_stat and scens != 'historical':
         of = t_stats.tnn(fn_rcp_tn, StYrsFut, EnYrsFut, model)
         print "created outfile %s\n" % of
+
+    # growing degree days
+    if 'gd10' in var_stat and scens == 'historical':
+        of = t_stats.gd10(fn_hist_tas, StComHis, EnComHis, model)
+        print "created outfile %s\n" % of
+    if 'gd10' in var_stat and scens != 'historical':
+        of = t_stats.gd10(fn_rcp_tas, StYrsFut, EnYrsFut, model)
+        print "created outfile %s\n" % of
+
 
     # 90th percentile Tmax - one value per year
     if 'tx90' in var_stat:
@@ -204,13 +221,6 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         of = t_stats.HD18(fn20tg, StComHis, EnComHis)
         print "created outfile %s\n" % of
         of = t_stats.HD18(fn21tg, StYrsFut, EnYrsFut)
-        print "created outfile %s\n" % of
-
-    # growing degree days
-    if 'gd10' in var_stat:
-        of = t_stats.GD10(fn20tg, StComHis, EnComHis)
-        print "created outfile %s\n" % of
-        of = t_stats.GD10(fn21tg, StYrsFut, EnYrsFut)
         print "created outfile %s\n" % of
 
     ###########################################################################
