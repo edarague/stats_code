@@ -318,7 +318,6 @@ def gd10(fname='', styr=0, enyr=0, model=''):
             txt = "cdo -m 1e+20 mul gtc10 subc10 " + OUTTEMP + "/" + model + "/junk/junk_gd10_oneyear.nc"
             print txt
             system(txt)
-            exit()
             for j in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
                 # fx = " -selmon,"+str(j)+" "+fn
                 fx = " -selmon," + str(j) + " " + OUTTEMP + "/" + model + "/junk/junk_gd10_oneyear.nc"
@@ -326,6 +325,7 @@ def gd10(fname='', styr=0, enyr=0, model=''):
                     txt = "cdo -m 1e+20 timsum " + fx + " " + ofallmon
                     print txt
                     system(txt)
+                    exit()
                 else:
                     txt = "cdo -m 1e+20 timsum " + fx + " junk_mon.nc"
                     print txt
