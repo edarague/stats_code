@@ -361,7 +361,7 @@ def gd10(fname='', styr=0, enyr=0, model=''):
                 print "... " + txt
                 system(txt)
         # modify variable name and other attributes
-        txt = "mv junkmon_tmp.nc " + ofallmon
+        txt = "mv junkmon.nc " + ofallmon
         print "\n... " + txt
         system(txt)
         now = datetime.now()
