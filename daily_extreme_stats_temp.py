@@ -302,7 +302,7 @@ def gd10(fname='', styr=0, enyr=0, model=''):
         for i in range(nyrs):
             y = styr + i
             print "\n> computing GD10 for year ", y
-            fn = fn_nodir + str(y) + ".nc"
+            fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
             if not path.exists(fn):
                 if y == enyr:
                     print '... infile not found: ', fn, ' ...skipping last year'
