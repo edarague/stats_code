@@ -348,9 +348,9 @@ def gd10(fname='', styr=0, enyr=0, model=''):
                     # txt = "rm junk_mon.nc selmon_" + str(j) + ".nc"
                     print "\n" + txt
                     system(txt)
+                system(txt)
             # txt = "rm " + OUTTEMP + "/" + model + "/junk/junk_gd10_oneyear.nc"
             print "\n" + txt
-            system(txt)
             exit()
         # modify variable name and other attributes
         now = datetime.now()
