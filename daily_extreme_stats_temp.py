@@ -338,6 +338,7 @@ def gd10(fname='', styr=0, enyr=0, model=''):
                     txt = "cdo cat junk_mon.nc " + ofallmon
                     print "\n" + txt
                     system(txt)
+            exit()
         # modify variable name and other attributes
         now = datetime.now()
         txthist = "Created on " + now.strftime("%Y-%m-%d %H:%M")
@@ -359,7 +360,6 @@ def gd10(fname='', styr=0, enyr=0, model=''):
         txtmv = "mv %s %s" % (ofall, ofallr)
         print txtmv
         system(txtmv)
-        exit()
         return ofall
     else:
         print "\n... nothing to do, %s exist!\n" % ofall
