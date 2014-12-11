@@ -290,9 +290,9 @@ def gd10(fname='', styr=0, enyr=0, model=''):
         raise 'incorrect args passed to GD10 %s %d %d' % (fname, styr, enyr)
     nyrs = enyr - styr + 1
     fn_nodir = split(fname, "/")[-1]
-    ofall = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
+    ofall = fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
     ofall = ofall.replace('tas', 'GD10')
-    ofallmon = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
+    ofallmon = fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
     ofallmon = ofallmon.replace('tas', 'GD10')
     ofallr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
     ofallr = ofallr.replace('tas', 'GD10')
@@ -302,7 +302,7 @@ def gd10(fname='', styr=0, enyr=0, model=''):
         for i in range(nyrs):
             y = styr + i
             print "\n> computing GD10 for year ", y
-            fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
+            fn = fn_nodir + str(y) + ".nc"
             if not path.exists(fn):
                 if y == enyr:
                     print '... infile not found: ', fn, ' ...skipping last year'
@@ -342,7 +342,7 @@ def gd10(fname='', styr=0, enyr=0, model=''):
                   "timsum_7.nc timsum_8.nc timsum_9.nc timsum_10.nc timsum_11.nc timsum_12.nc " + ofallmon
             print "... " + txt
             system(txt)
-            txt = "rm selmon_*.nc timsum_*.nc"
+            txt = "rm selmon_*.nc timsum_*.nc junk_gd10_oneyear.nc"
             print "... " + txt
             system(txt)
         # modify variable name and other attributes
