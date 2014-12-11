@@ -315,7 +315,7 @@ def gd10(fname='', styr=0, enyr=0, model=''):
             txt = "cdo -m 1e+20 -subc,283.15 " + fn + " subc10.nc"
             print "\n" + txt
             system(txt)
-            txt = "cdo -m 1e+20 mul gtc10.nc subc10.nc " + OUTTEMP + "/" + model + "/junk/junk_gd10_oneyear.nc"
+            txt = "cdo -m 1e+20 mul gtc10.nc subc10.nc junk_gd10_oneyear.nc"
             print "\n" + txt
             system(txt)
             system(txt)

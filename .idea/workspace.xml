@@ -42,8 +42,8 @@
       <file leaf-file-name="daily_extreme_stats_temp.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/daily_extreme_stats_temp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26240352" vertical-offset="5287" max-vertical-offset="14246">
-              <caret line="325" column="31" selection-start-line="325" selection-start-column="31" selection-end-line="325" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.13120176" vertical-offset="5287" max-vertical-offset="14246">
+              <caret line="318" column="28" selection-start-line="318" selection-start-column="28" selection-end-line="318" selection-end-column="28" />
               <folding>
                 <element signature="e#114#134#0" expanded="true" />
               </folding>
@@ -688,7 +688,13 @@
       <option name="project" value="LOCAL" />
       <updated>1418327897115</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="cdo_main and stats_temp updated">
+      <created>1418328645436</created>
+      <option name="number" value="00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1418328645436</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1200,8 +1206,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/daily_extreme_stats_temp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26240352" vertical-offset="5287" max-vertical-offset="14246">
-          <caret line="325" column="31" selection-start-line="325" selection-start-column="31" selection-end-line="325" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.13120176" vertical-offset="5287" max-vertical-offset="14246">
+          <caret line="318" column="28" selection-start-line="318" selection-start-column="28" selection-end-line="318" selection-end-column="28" />
           <folding>
             <element signature="e#114#134#0" expanded="true" />
           </folding>
