@@ -336,7 +336,7 @@ def gd10(fname='', styr=0, enyr=0, model=''):
                     txt = "cdo -m 1e+20 " + fx + " selmon_" + str(j) + ".nc"
                     print "\n" + txt
                     system(txt)
-                    txt = "cdo -m 1e+20 timsum selmon_" + str(j) + " timsum_" + str(j) + ".nc"
+                    txt = "cdo -m 1e+20 timsum selmon_" + str(j) + ".nc timsum_" + str(j) + ".nc"
                     print "\n" + txt
                     system(txt)
             txt = "cdo cat timsum_1.nc timsum_2.nc timsum_3.nc timsum_4.nc timsum_5.nc timsum_6.nc " \
