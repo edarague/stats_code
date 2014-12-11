@@ -324,36 +324,28 @@ def gd10(fname='', styr=0, enyr=0, model=''):
             system(txt)
             for j in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
                 # fx = " -selmon,"+str(j)+" "+fn
-                fx = " -selmon," + str(j) + " " + OUTTEMP + "/" + model + "/junk/junk_gd10_oneyear.nc"
+                fx = " -selmon," + str(j) + " junk_gd10_oneyear.nc"
                 if i == 0 and j == 1:
                     txt = "cdo -m 1e+20 " + fx + " selmon_1.nc"
                     print "\n" + txt
                     system(txt)
-                    txt = "cdo -m 1e+20 timsum selmon_1.nc " + ofallmon
+                    txt = "cdo -m 1e+20 timsum selmon_1.nc timsum_1.nc"
                     print "\n" + txt
                     system(txt)
-                    # txt = "rm selmon_1.nc"
-                    # print "\n" + txt
-                    # system(txt)
                 else:
                     txt = "cdo -m 1e+20 " + fx + " selmon_" + str(j) + ".nc"
                     print "\n" + txt
                     system(txt)
-                    txt = "cdo -m 1e+20 timsum selmon_" + str(j) + ".nc junk_mon.nc"
+                    txt = "cdo -m 1e+20 timsum selmon_" + str(j) + " timsum_" + str(j) + ".nc"
                     print "\n" + txt
                     system(txt)
-                    txt = "cp junk_mon.nc tismun_" + str(j) + ".nc"
-                    print "\n" + txt
-                    system(txt)
-                    txt = "cdo cat junk_mon.nc " + ofallmon
-                    print "\n" + txt
-                    system(txt)
-                    # txt = "rm junk_mon.nc selmon_" + str(j) + ".nc"
-                    # print "\n" + txt
-                    # system(txt)
-            # system(txt)
-            # txt = "rm " + OUTTEMP + "/" + model + "/junk/junk_gd10_oneyear.nc"
-            # print "\n" + txt
+            txt = "cdo cat timsum_1.nc timsum_2.nc timsum_3.nc timsum_4.nc timsum_5.nc timsum_6.nc " \
+                  "timsum_7.nc timsum_8.nc timsum_9.nc timsum_10.nc timsum_11.nc timsum_12.nc " + ofallmon
+            print "\n" + txt
+            system(txt)
+            txt = "rm selmon_*.nc timsum_*.nc"
+            print "\n" + txt
+            system(txt)
             exit()
         # modify variable name and other attributes
         now = datetime.now()
@@ -366,7 +358,7 @@ def gd10(fname='', styr=0, enyr=0, model=''):
         txtnewvar = "tas"
         txtcmd = "ncrename -h -v " + txtnewvar + ",gd10 " + ofallmon
         system(txtcmd)
-        #create yearly summary file
+        # create yearly summary file
         txtcmd = "cdo -m 1e+20 yearsum " + ofallmon + " " + ofall
         print txtcmd
         system(txtcmd)
@@ -537,7 +529,7 @@ def GSL(fnamen='', fnamex='', fnamemask='', styr=0, enyr=0):
     txt = "cdo -m 1e+20 selyear," + str(styr) + "," + str(
         ey) + " -eca_gsl -addc,273.15 " + ofbig + " " + fnamemask + " " + ofall
     system(txt)
-    #modify variable name and other attributes
+    # modify variable name and other attributes
     now = datetime.now()
     txthist = "Created on " + now.strftime("%Y-%m-%d %H:%M")
     txtcmd = "ncatted -h -a history,global,o,c,'" + txthist + "' " + ofall
@@ -664,7 +656,7 @@ def CD18(fname='', styr=0, enyr=0):
     txtnewvar = "tas"
     txtcmd = "ncrename -h -v " + txtnewvar + ",cd18 " + ofallmon
     system(txtcmd)
-    #create yearly summary file
+    # create yearly summary file
     txtcmd = "cdo -m 1e+20 yearsum " + ofallmon + " " + ofall
     system(txtcmd)
     return ofall
@@ -709,7 +701,7 @@ def HD18(fname='', styr=0, enyr=0):
     txtnewvar = "heating_degree_days_per_time_period"
     txtcmd = "ncrename -h -v " + txtnewvar + ",hd18 " + ofallmon
     system(txtcmd)
-    #create yearly summary file
+    # create yearly summary file
     txtcmd = "cdo -m 1e+20 yearsum " + ofallmon + " " + ofall
     system(txtcmd)
     return ofall
@@ -718,7 +710,7 @@ def HD18(fname='', styr=0, enyr=0):
 # generic ref period percentile for temperatures only (precip needs to be masked)
 def Tref(fname='', pctl='', varin='', styr=0, enyr=0):
     # to create a file with 366 time steps and a TNN value for each cell
-    #uses a 5-day running mean
+    # uses a 5-day running mean
     if pctl <= 0 or pctl >= 100:
         raise 'percentile out of range'
     if not styr > 1899 and enyr < 2008 and (enyr > styr):
@@ -835,7 +827,7 @@ def TP(fname='', pctl='', varin='', reffile='', styr=0, enyr=0):
     # change new variable name created by CDO to desired variable name:
     txtcmd = "ncrename -h -v " + varlong + "," + varout + " " + ofallmon
     system(txtcmd)
-    #create yearly summary file - weight by number of days per month
+    # create yearly summary file - weight by number of days per month
     txtcmd = "cdo -m 1e+20 divdpy -yearsum -muldpm " + ofallmon + " " + ofall
     system(txtcmd)
     return ofall
