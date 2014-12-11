@@ -345,7 +345,6 @@ def gd10(fname='', styr=0, enyr=0, model=''):
             txt = "rm selmon_*.nc timsum_*.nc"
             print "\n" + txt
             system(txt)
-            exit()
         # modify variable name and other attributes
         now = datetime.now()
         txthist = "Created on " + now.strftime("%Y-%m-%d %H:%M")
