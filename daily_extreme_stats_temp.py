@@ -333,8 +333,8 @@ def gd10(fname='', styr=0, enyr=0, model=''):
                     print "\n" + txt
                     system(txt)
                     # txt = "rm selmon_1.nc"
-                    print "\n" + txt
-                    system(txt)
+                    # print "\n" + txt
+                    # system(txt)
                 else:
                     txt = "cdo -m 1e+20 " + fx + " selmon_" + str(j) + ".nc"
                     print "\n" + txt
@@ -349,11 +349,11 @@ def gd10(fname='', styr=0, enyr=0, model=''):
                     print "\n" + txt
                     system(txt)
                     # txt = "rm junk_mon.nc selmon_" + str(j) + ".nc"
-                    print "\n" + txt
-                    system(txt)
-                system(txt)
+                    # print "\n" + txt
+                    # system(txt)
+            # system(txt)
             # txt = "rm " + OUTTEMP + "/" + model + "/junk/junk_gd10_oneyear.nc"
-            print "\n" + txt
+            # print "\n" + txt
             exit()
         # modify variable name and other attributes
         now = datetime.now()
