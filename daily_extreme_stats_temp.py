@@ -323,17 +323,16 @@ def gd10(fname='', styr=0, enyr=0, model=''):
             print "\n" + txt
             system(txt)
             for j in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
-                # fx = " -selmon,"+str(j)+" "+fn
-                fx = " -selmon_" + str(j) + " junk_gd10_oneyear.nc"
+                fx = " -selmon " + str(j) + " junk_gd10_oneyear.nc "
                 if i == 0 and j == 1:
-                    txt = "cdo -m 1e+20 " + fx + " selmon_1.nc"
+                    txt = "cdo -m 1e+20" + fx + "selmon_1.nc"
                     print "\n" + txt
                     system(txt)
                     txt = "cdo -m 1e+20 timsum selmon_1.nc timsum_1.nc"
                     print "\n" + txt
                     system(txt)
                 else:
-                    txt = "cdo -m 1e+20 " + fx + " selmon_" + str(j) + ".nc"
+                    txt = "cdo -m 1e+20" + fx + "selmon_" + str(j) + ".nc"
                     print "\n" + txt
                     system(txt)
                     txt = "cdo -m 1e+20 timsum selmon_" + str(j) + ".nc timsum_" + str(j) + ".nc"
