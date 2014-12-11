@@ -338,13 +338,25 @@ def gd10(fname='', styr=0, enyr=0, model=''):
                     txt = "cdo -m 1e+20 timsum selmon_" + str(j) + ".nc timsum_" + str(j) + ".nc"
                     print "... " + txt
                     system(txt)
-            txt = "cdo cat timsum_1.nc timsum_2.nc timsum_3.nc timsum_4.nc timsum_5.nc timsum_6.nc " \
-                  "timsum_7.nc timsum_8.nc timsum_9.nc timsum_10.nc timsum_11.nc timsum_12.nc " + ofallmon
-            print "... " + txt
-            system(txt)
-            txt = "rm selmon_*.nc timsum_*.nc junk_gd10_oneyear.nc"
-            print "... " + txt
-            system(txt)
+            if i == 0:
+                txt = "cdo cat timsum_1.nc timsum_2.nc timsum_3.nc timsum_4.nc timsum_5.nc timsum_6.nc " \
+                      "timsum_7.nc timsum_8.nc timsum_9.nc timsum_10.nc timsum_11.nc timsum_12.nc " + ofallmon
+                print "... " + txt
+                system(txt)
+                txt = "rm selmon_*.nc timsum_*.nc junk_gd10_oneyear.nc"
+                print "... " + txt
+                system(txt)
+            else:
+                txt = "cdo cat timsum_1.nc timsum_2.nc timsum_3.nc timsum_4.nc timsum_5.nc timsum_6.nc " \
+                      "timsum_7.nc timsum_8.nc timsum_9.nc timsum_10.nc timsum_11.nc timsum_12.nc junkmon.nc"
+                print "... " + txt
+                system(txt)
+                txt = "cdo cat " + ofallmon + " junkmon.nc"
+                print "... " + txt
+                system(txt)
+                txt = "rm selmon_*.nc timsum_*.nc junk_gd10_oneyear.nc junkmon.nc"
+                print "... " + txt
+                system(txt)
         # modify variable name and other attributes
         now = datetime.now()
         txthist = "Created on " + now.strftime("%Y-%m-%d %H:%M")
