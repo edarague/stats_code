@@ -113,7 +113,7 @@ def tavg(fname='', styr=0, enyr=0, model=''):
     if not path.exists(ofallmonr):
         for i in range(nyrs):
             y = styr + i
-            print "\n... computing tavg for %s%s " % (path.basename(fname), y)
+            print "\n computing tavg for %s%s " % (path.basename(fname), y)
             fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
             if not path.exists(fn):
                 if y == enyr:
@@ -169,7 +169,7 @@ def txx(fname='', styr=0, enyr=0, model=''):
     if not path.exists(ofallmonr):
         for i in range(nyrs):
             y = styr + i
-            print "\n... computing TXX for year ", y
+            print "\n> computing TXX for year ", y
             # fn = fname + str(y) + ".nc"
             fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
             if not path.exists(fn):
@@ -236,7 +236,7 @@ def tnn(fname='', styr=0, enyr=0, model=''):
     if not path.exists(ofallmonr):
         for i in range(nyrs):
             y = styr + i
-            print "\n... computing TNN for year ", y
+            print "\n> computing TNN for year ", y
             fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
             if not path.exists(fn):
                 if y == enyr:
@@ -301,49 +301,49 @@ def gd10(fname='', styr=0, enyr=0, model=''):
     if not path.exists(ofallmonr):
         for i in range(nyrs):
             y = styr + i
-            print "\n... computing GD10 for year ", y
+            print "\n> computing GD10 for year ", y
             fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
             if not path.exists(fn):
                 if y == enyr:
-                    print 'infile not found: ', fn, ' ...skipping last year'
+                    print '... infile not found: ', fn, ' ...skipping last year'
                     break
                 else:
                     raise Exception('infile not found: %s' % fn)
             txt = "cdo -m 1e+20 -gtc,283.15 " + fn + " gtc10.nc"
-            print "\n" + txt
+            print "... " + txt
             system(txt)
             txt = "cdo -m 1e+20 -subc,283.15 " + fn + " subc10.nc"
-            print "\n" + txt
+            print "... " + txt
             system(txt)
             txt = "cdo -m 1e+20 mul gtc10.nc subc10.nc junk_gd10_oneyear.nc"
-            print "\n" + txt
+            print "... " + txt
             system(txt)
             system(txt)
             txt = "rm gtc10.nc subc10.nc"
-            print "\n" + txt
+            print "... " + txt
             system(txt)
             for j in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
                 fx = " -selmon," + str(j) + " junk_gd10_oneyear.nc "
                 if i == 0 and j == 1:
                     txt = "cdo -m 1e+20" + fx + "selmon_1.nc"
-                    print "\n" + txt
+                    print "..." + txt
                     system(txt)
                     txt = "cdo -m 1e+20 timsum selmon_1.nc timsum_1.nc"
-                    print "\n" + txt
+                    print "... " + txt
                     system(txt)
                 else:
                     txt = "cdo -m 1e+20" + fx + "selmon_" + str(j) + ".nc"
-                    print "\n" + txt
+                    print "... " + txt
                     system(txt)
                     txt = "cdo -m 1e+20 timsum selmon_" + str(j) + ".nc timsum_" + str(j) + ".nc"
-                    print "\n" + txt
+                    print "... " + txt
                     system(txt)
             txt = "cdo cat timsum_1.nc timsum_2.nc timsum_3.nc timsum_4.nc timsum_5.nc timsum_6.nc " \
                   "timsum_7.nc timsum_8.nc timsum_9.nc timsum_10.nc timsum_11.nc timsum_12.nc " + ofallmon
-            print "\n" + txt
+            print "... " + txt
             system(txt)
             txt = "rm selmon_*.nc timsum_*.nc"
-            print "\n" + txt
+            print "... " + txt
             system(txt)
         # modify variable name and other attributes
         now = datetime.now()
@@ -358,17 +358,17 @@ def gd10(fname='', styr=0, enyr=0, model=''):
         system(txtcmd)
         # create yearly summary file
         txtcmd = "cdo -m 1e+20 yearsum " + ofallmon + " " + ofall
-        print txtcmd
+        print "... " + txtcmd
         system(txtcmd)
         txtmvmon = "mv %s %s" % (ofallmon, ofallmonr)
-        print txtmvmon
+        print "... " + txtmvmon
         system(txtmvmon)
         txtmv = "mv %s %s" % (ofall, ofallr)
-        print txtmv
+        print "... " + txtmv
         system(txtmv)
         return ofall
     else:
-        print "\n... nothing to do, %s exist!\n" % ofall
+        print "... nothing to do, %s exist!\n" % ofall
 
 
 def TX90(fname='', styr=0, enyr=0):
