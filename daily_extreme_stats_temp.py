@@ -309,17 +309,17 @@ def gd10(fname='', styr=0, enyr=0, model=''):
                     break
                 else:
                     raise Exception('infile not found: %s' % fn)
-            txt = "cdo -m 1e+20 -gtc,283.15 " + fn + " gtc10"
+            txt = "cdo -m 1e+20 -gtc,283.15 " + fn + " gtc10.nc"
             print "\n" + txt
             system(txt)
-            txt = "cdo -m 1e+20 -subc,283.15 " + fn + " subc10"
+            txt = "cdo -m 1e+20 -subc,283.15 " + fn + " subc10.nc"
             print "\n" + txt
             system(txt)
-            txt = "cdo -m 1e+20 mul gtc10 subc10 " + OUTTEMP + "/" + model + "/junk/junk_gd10_oneyear.nc"
+            txt = "cdo -m 1e+20 mul gtc10.nc subc10.nc " + OUTTEMP + "/" + model + "/junk/junk_gd10_oneyear.nc"
             print "\n" + txt
             system(txt)
             system(txt)
-            txt = "rm gtc10 subc10"
+            txt = "rm gtc10.nc subc10.nc"
             print "\n" + txt
             system(txt)
             for j in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
@@ -340,6 +340,9 @@ def gd10(fname='', styr=0, enyr=0, model=''):
                     print "\n" + txt
                     system(txt)
                     txt = "cdo -m 1e+20 timsum selmon_" + str(j) + ".nc junk_mon.nc"
+                    print "\n" + txt
+                    system(txt)
+                    txt = "cp junk_mon.nc tismun_" + str(j) + ".nc"
                     print "\n" + txt
                     system(txt)
                     txt = "cdo cat junk_mon.nc " + ofallmon
