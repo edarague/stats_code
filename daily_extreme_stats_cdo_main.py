@@ -94,7 +94,7 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         t_stats.calc_tavg(fn_rcp_tn, fn_rcp_tx, StYrsFut, EnYrsFut, model)
 
         # soflink tmean rcp
-        fn_rcp_tas = RootDir + "/" + model + "/junk/prmm_day_" + model + "_" + scens + "_r1i1p1_"
+        fn_rcp_tas = RootDir + "/" + model + "/junk/tas_day_" + model + "_" + scens + "_r1i1p1_"
         t_stats.copy_files(fn_rcp_tas, StYrsFut, EnYrsFut, model)
 
         # calculate pr in mm rcp
