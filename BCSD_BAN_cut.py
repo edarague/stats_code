@@ -16,7 +16,7 @@ for fn in fi.readlines():
     fo = fn.replace('/mnt/BCSD/', '/home/edarague/BCSD/BAN/')
     print "Input File: %s" % (fn)
     print "Output File: %s" % (fo)
-    print 'mkdir -p ' + fo[-1]
+    print 'mkdir -p ' + fo[:-1]
     print '\n'
 
 # Close opend file
