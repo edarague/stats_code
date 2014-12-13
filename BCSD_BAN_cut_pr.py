@@ -14,7 +14,7 @@ print "Name of the file: ", fi.name
 
 for fn in fi.readlines():
     fn = fn.replace('./', '/box0_p2/BCSD/')[:-1]
-    fo = fn.replace('/mnt/BCSD/', '/home/edarague/BCSD/BAN/')
+    fo = fn.replace('/box0_p2/BCSD/', '/home/edarague/BCSD/BAN/')
     if not path.exists(path.dirname(fo)):
         call('mkdir -p %s' % path.dirname(fn), shell=True)
         print '... directorio %s creado!' % path.dirname(fo)
@@ -22,8 +22,8 @@ for fn in fi.readlines():
         print "\n... cut file Bangladesh: %s" % (fn)
         print 'nces -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % (fn, fo)
         call('nces -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % (fn, fo), shell=True)
-    #else:
-    #    raise Exception('infile not found: %s' % fn)
+    else:
+        raise Exception('infile not found: %s' % fn)
 
 # Close opend file
 fi.close()
