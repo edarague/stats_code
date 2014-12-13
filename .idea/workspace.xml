@@ -367,6 +367,10 @@
       <option name="PATH" value="C:\Users\Edward Guevara\PycharmProjects\stats_code\.idea\shelf\Uncommitted_changes_before_update_operation_at_27_11_2014_7_20_PM_[Default].patch" />
       <option name="DESCRIPTION" value="Uncommitted changes before update operation at 27/11/2014 7:20 PM [Default]" />
     </changelist>
+    <recycled_changelist date="1418499963690">
+      <option name="PATH" value="C:\Users\Edward Guevara\PycharmProjects\stats_code\.idea\shelf\Uncommitted_changes_before_update_operation_at_13_12_2014_2_45_PM_[Default].patch" />
+      <option name="DESCRIPTION" value="Uncommitted changes before update operation at 13/12/2014 2:45 PM [Default]" />
+    </recycled_changelist>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -377,12 +381,6 @@
       <created>1414773027072</created>
       <option name="number" value="Default" />
       <updated>1414773027072</updated>
-    </task>
-    <task id="LOCAL-00019" summary="cdo_main and stats_temp updated">
-      <created>1416796264390</created>
-      <option name="number" value="00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1416796264390</updated>
     </task>
     <task id="LOCAL-00020" summary="cdo_main and stats_temp updated">
       <created>1416796888336</created>
@@ -672,7 +670,13 @@
       <option name="project" value="LOCAL" />
       <updated>1418499798342</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="cdo_main and stats_temp updated">
+      <created>1418499940225</created>
+      <option name="number" value="00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1418499940225</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="ToolWindowManager">
