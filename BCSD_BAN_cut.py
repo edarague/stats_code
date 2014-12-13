@@ -13,9 +13,10 @@ print "Name of the file: ", fi.name
 
 for fn in fi.readlines():
     fn = fn.replace('./', '/mnt/BCSD/')
-    fo = (fn.replace('/mnt/BCSD/', '/home/edarague/BCSD/BAN/')).replace('/rcp85/day/', '')
+    fo = fn.replace('/mnt/BCSD/', '/home/edarague/BCSD/BAN/')
     print "Input File: %s" % (fn)
     print "Output File: %s" % (fo)
+    print 'mkdir -p ' + fo[-1]
     print '\n'
 
 # Close opend file
