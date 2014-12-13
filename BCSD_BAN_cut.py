@@ -8,11 +8,15 @@ if len(argv) != 2:
     exit(1)
 
 # Open a file
-fo = open(argv[1], "r")
-print "Name of the file: ", fo.name
+fi = open(argv[1], "r")
+print "Name of the file: ", fi.name
 
-for line in fo.readlines():
-    print "Read Line: %s" % (line)
+for fn in fi.readlines():
+    fn = fn.replace('./', '/mnt/BCSD/')
+    fo = fn.replace('/mnt/BCSD/', '/home/edarague/BCSD/BAN/')
+    print "Input File: %s" % (fn)
+    print "Output File: %s" % (fo)
+    print '\n'
 
 # Close opend file
-fo.close()
+fi.close()
