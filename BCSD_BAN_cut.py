@@ -17,14 +17,14 @@ for fn in fi.readlines():
     fn = fn.replace('./', '/mnt/BCSD/')
     fo = fn.replace('/mnt/BCSD/', '/home/edarague/BCSD/BAN/')
     if not path.exists(path.dirname(fo)):
-        system('mkdir -p %s' % path.dirname(fn))
+        call('mkdir -p %s' % path.dirname(fn), shell=True)
         print '... directorio %s creado!' % path.dirname(fo)
     system('ln -s %s inputFileTmp.nc' % fo)
     if not path.exists(fo):
         print "... cut file Bangladesh: %s" % (fn)
         print 'nces -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % ('inputFileTmp.nc', fo)
         call('nces -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % ('inputFileTmp.nc', fo), shell=True)
-        call('rm inputFileTmp.nc')
+        call('rm inputFileTmp.nc', shell=True)
     else:
         raise Exception('infile not found: %s' % fn)
 
