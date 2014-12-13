@@ -18,12 +18,10 @@ for fn in fi.readlines():
     if not path.exists(path.dirname(fo)):
         call('mkdir -p %s' % path.dirname(fn), shell=True)
         print '... directorio %s creado!' % path.dirname(fo)
-    call('ln -s %s inputFileTmp.nc' % fn, shell=True)
     if not path.exists(fo):
         print "... cut file Bangladesh: %s" % (fn)
-        print 'nces -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % ('inputFileTmp.nc', fo)
-        call('nces -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % ('inputFileTmp.nc', fo), shell=True)
-        call('rm inputFileTmp.nc', shell=True)
+        print 'nces -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % (fn, fo)
+        call('nces -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % (fn, fo), shell=True)
     else:
         raise Exception('infile not found: %s' % fn)
 
