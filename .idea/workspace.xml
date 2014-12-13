@@ -42,11 +42,9 @@
       <file leaf-file-name="BCSD_BAN_cut.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BCSD_BAN_cut.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.57580644" vertical-offset="0" max-vertical-offset="620">
-              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-              <folding>
-                <element signature="e#49#69#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.10967742" vertical-offset="0" max-vertical-offset="620">
+              <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -648,7 +646,13 @@
       <option name="project" value="LOCAL" />
       <updated>1418488800222</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="cdo_main and stats_temp updated">
+      <created>1418488920430</created>
+      <option name="number" value="00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1418488920430</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1230,11 +1234,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BCSD_BAN_cut.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57580644" vertical-offset="0" max-vertical-offset="620">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <element signature="e#49#69#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.10967742" vertical-offset="0" max-vertical-offset="620">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>

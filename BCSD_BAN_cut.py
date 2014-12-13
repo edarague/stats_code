@@ -2,7 +2,7 @@
 __author__ = 'Edward Guevara'
 
 from sys import argv
-import os
+from os import path, system
 
 if len(argv) != 2:
     print "Usage: python BCSD_BAN_cut.py ListFiles.txt"
@@ -15,8 +15,9 @@ print "Name of the file: ", fi.name
 for fn in fi.readlines():
     fn = fn.replace('./', '/mnt/BCSD/')
     fo = fn.replace('/mnt/BCSD/', '/home/edarague/BCSD/BAN/')
-    if not os.path.exists(os.path.dirname(fo)):
-        print 'mkdir -p ' + os.path.dirname(fo)
+    if not path.exists(path.dirname(fo)):
+        system('mkdir -p %s' % path.dirname(fo))
+        print '... directorio %s creado!' % path.dirname(fo)
 
     #print "Input File: %s" % (fn)
     #print "Output File: %s" % (fo)
