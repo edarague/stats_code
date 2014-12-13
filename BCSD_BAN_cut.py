@@ -2,6 +2,7 @@
 __author__ = 'Edward Guevara'
 
 from sys import argv
+import os
 
 if len(argv) != 2:
     print "Usage: python BCSD_BAN_cut.py ListFiles.txt"
@@ -16,7 +17,7 @@ for fn in fi.readlines():
     fo = fn.replace('/mnt/BCSD/', '/home/edarague/BCSD/BAN/')
     print "Input File: %s" % (fn)
     print "Output File: %s" % (fo)
-    print 'mkdir -p ' + fo[:-1]
+    print 'mkdir -p ' + os.path.dirname(fo)
     print '\n'
 
 # Close opend file
