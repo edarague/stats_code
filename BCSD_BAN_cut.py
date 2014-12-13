@@ -13,7 +13,7 @@ print "Name of the file: ", fi.name
 
 for fn in fi.readlines():
     fn = fn.replace('./', '/mnt/BCSD/')
-    fo = fn.replace('/mnt/BCSD/', '/home/edarague/BCSD/BAN/')
+    fo = (fn.replace('/mnt/BCSD/', '/home/edarague/BCSD/BAN/')).replace('/rcp85/day/', '')
     print "Input File: %s" % (fn)
     print "Output File: %s" % (fo)
     print '\n'
