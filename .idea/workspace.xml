@@ -42,8 +42,8 @@
       <file leaf-file-name="BCSD_BAN_cut.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BCSD_BAN_cut.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6" vertical-offset="0" max-vertical-offset="629">
-              <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.4857143" vertical-offset="0" max-vertical-offset="629">
+              <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
               <folding>
                 <element signature="e#49#69#0" expanded="true" />
               </folding>
@@ -366,12 +366,6 @@
       <option name="number" value="Default" />
       <updated>1414773027072</updated>
     </task>
-    <task id="LOCAL-00012" summary="cdo_main and stats_temp updated">
-      <created>1416764473610</created>
-      <option name="number" value="00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1416764473610</updated>
-    </task>
     <task id="LOCAL-00013" summary="cdo_main and stats_temp updated">
       <created>1416772302186</created>
       <option name="number" value="00013" />
@@ -660,7 +654,13 @@
       <option name="project" value="LOCAL" />
       <updated>1418496758453</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="cdo_main and stats_temp updated">
+      <created>1418496986273</created>
+      <option name="number" value="00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1418496986274</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1242,8 +1242,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BCSD_BAN_cut.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6" vertical-offset="0" max-vertical-offset="629">
-          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.4857143" vertical-offset="0" max-vertical-offset="629">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
           <folding>
             <element signature="e#49#69#0" expanded="true" />
           </folding>
