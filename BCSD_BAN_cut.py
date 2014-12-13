@@ -19,9 +19,11 @@ for fn in fi.readlines():
         system('mkdir -p %s' % path.dirname(fo))
         print '... directorio %s creado!' % path.dirname(fo)
 
-    #print "Input File: %s" % (fn)
-    #print "Output File: %s" % (fo)
-    print '\n'
+    if not path.exists(fo):
+        print "... cut file Bangladesh: %s" % (fn)
+        system('ncea -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % (fn, fo))
+    else:
+        raise Exception('infile not found: %s' % fn)
 
 # Close opend file
 fi.close()
