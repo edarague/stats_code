@@ -42,10 +42,10 @@
       <file leaf-file-name="BCSD_BAN_cut.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BCSD_BAN_cut.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4857143" vertical-offset="0" max-vertical-offset="629">
-              <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.42857143" vertical-offset="0" max-vertical-offset="612">
+              <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
               <folding>
-                <element signature="e#49#69#0" expanded="true" />
+                <element signature="e#31#51#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -366,12 +366,6 @@
       <option name="number" value="Default" />
       <updated>1414773027072</updated>
     </task>
-    <task id="LOCAL-00013" summary="cdo_main and stats_temp updated">
-      <created>1416772302186</created>
-      <option name="number" value="00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1416772302186</updated>
-    </task>
     <task id="LOCAL-00014" summary="cdo_main and stats_temp updated">
       <created>1416772775658</created>
       <option name="number" value="00014" />
@@ -660,7 +654,13 @@
       <option name="project" value="LOCAL" />
       <updated>1418496986274</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="cdo_main and stats_temp updated">
+      <created>1418497195831</created>
+      <option name="number" value="00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1418497195831</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1242,10 +1242,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BCSD_BAN_cut.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4857143" vertical-offset="0" max-vertical-offset="629">
-          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.42857143" vertical-offset="0" max-vertical-offset="612">
+          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
           <folding>
-            <element signature="e#49#69#0" expanded="true" />
+            <element signature="e#31#51#0" expanded="true" />
           </folding>
         </state>
       </provider>

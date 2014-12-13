@@ -1,4 +1,3 @@
-#!/usr/bin/python
 __author__ = 'Edward Guevara'
 
 from sys import argv
@@ -14,7 +13,7 @@ fi = open(argv[1], "r")
 print "Name of the file: ", fi.name
 
 for fn in fi.readlines():
-    fn = fn.replace('./', '/mnt/BCSD/')
+    fn = fn.replace('./', '/mnt/BCSD/')[:-1]
     fo = fn.replace('/mnt/BCSD/', '/home/edarague/BCSD/BAN/')
     if not path.exists(path.dirname(fo)):
         call('mkdir -p %s' % path.dirname(fn), shell=True)
