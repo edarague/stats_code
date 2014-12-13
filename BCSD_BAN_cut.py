@@ -15,9 +15,11 @@ print "Name of the file: ", fi.name
 for fn in fi.readlines():
     fn = fn.replace('./', '/mnt/BCSD/')
     fo = fn.replace('/mnt/BCSD/', '/home/edarague/BCSD/BAN/')
-    print "Input File: %s" % (fn)
-    print "Output File: %s" % (fo)
-    print 'mkdir -p ' + os.path.dirname(fo)
+    if not os.path.exists(os.path.dirname(fo)):
+        print 'mkdir -p ' + os.path.dirname(fo)
+
+    #print "Input File: %s" % (fn)
+    #print "Output File: %s" % (fo)
     print '\n'
 
 # Close opend file

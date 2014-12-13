@@ -42,8 +42,8 @@
       <file leaf-file-name="BCSD_BAN_cut.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BCSD_BAN_cut.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5209677" vertical-offset="0" max-vertical-offset="620">
-              <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.57580644" vertical-offset="0" max-vertical-offset="620">
+              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
               <folding>
                 <element signature="e#49#69#0" expanded="true" />
               </folding>
@@ -642,7 +642,13 @@
       <option name="project" value="LOCAL" />
       <updated>1418488682105</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="cdo_main and stats_temp updated">
+      <created>1418488800222</created>
+      <option name="number" value="00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1418488800222</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1224,8 +1230,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BCSD_BAN_cut.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5209677" vertical-offset="0" max-vertical-offset="620">
-          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.57580644" vertical-offset="0" max-vertical-offset="620">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
           <folding>
             <element signature="e#49#69#0" expanded="true" />
           </folding>
