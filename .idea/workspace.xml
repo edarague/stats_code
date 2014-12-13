@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96277a6e-048a-4ac7-9f17-e06ef6ff3297" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BCSD_BAN_cut_pr.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="stats_code.iws" />
@@ -379,12 +378,6 @@
       <option name="number" value="Default" />
       <updated>1414773027072</updated>
     </task>
-    <task id="LOCAL-00017" summary="cdo_main and stats_temp updated">
-      <created>1416787217535</created>
-      <option name="number" value="00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1416787217535</updated>
-    </task>
     <task id="LOCAL-00018" summary="cdo_main and stats_temp updated">
       <created>1416787273454</created>
       <option name="number" value="00018" />
@@ -673,7 +666,13 @@
       <option name="project" value="LOCAL" />
       <updated>1418497712234</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="cdo_main and stats_temp updated">
+      <created>1418499389541</created>
+      <option name="number" value="00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1418499389545</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="ToolWindowManager">
