@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96277a6e-048a-4ac7-9f17-e06ef6ff3297" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BCSD_BAN_cut.py" afterPath="$PROJECT_DIR$/BCSD_BAN_cut.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BCSD_BAN_cut_pr.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="stats_code.iws" />
@@ -39,11 +39,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BCSD_BAN_cut.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BCSD_BAN_cut.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BCSD_BAN_cut.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6" vertical-offset="0" max-vertical-offset="595">
+            <state vertical-scroll-proportion="-12.310345" vertical-offset="0" max-vertical-offset="578">
               <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+              <folding>
+                <element signature="e#31#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BCSD_BAN_cut_pr.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BCSD_BAN_cut_pr.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7900641" vertical-offset="0" max-vertical-offset="624">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
                 <element signature="e#31#51#0" expanded="true" />
               </folding>
@@ -113,6 +125,7 @@
         <option value="$PROJECT_DIR$/dummyFile.py" />
         <option value="$PROJECT_DIR$/daily_extreme_stats_cdo_main.py" />
         <option value="$PROJECT_DIR$/BCSD_BAN_cut.py" />
+        <option value="$PROJECT_DIR$/BCSD_BAN_cut_pr.py" />
       </list>
     </option>
   </component>
@@ -365,12 +378,6 @@
       <created>1414773027072</created>
       <option name="number" value="Default" />
       <updated>1414773027072</updated>
-    </task>
-    <task id="LOCAL-00016" summary="cdo_main and stats_temp updated">
-      <created>1416785161779</created>
-      <option name="number" value="00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1416785161779</updated>
     </task>
     <task id="LOCAL-00017" summary="cdo_main and stats_temp updated">
       <created>1416787217535</created>
@@ -660,7 +667,13 @@
       <option name="project" value="LOCAL" />
       <updated>1418497616975</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="cdo_main and stats_temp updated">
+      <created>1418497712234</created>
+      <option name="number" value="00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1418497712234</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -746,16 +759,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dummyFile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="408">
-          <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
-          <folding>
-            <element signature="e#30#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/daily_extreme_stats_cdo_main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1054" max-vertical-offset="4828">
@@ -1242,8 +1245,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BCSD_BAN_cut.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6" vertical-offset="0" max-vertical-offset="595">
+        <state vertical-scroll-proportion="-12.310345" vertical-offset="0" max-vertical-offset="578">
           <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+          <folding>
+            <element signature="e#31#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BCSD_BAN_cut_pr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7900641" vertical-offset="0" max-vertical-offset="624">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
             <element signature="e#31#51#0" expanded="true" />
           </folding>
