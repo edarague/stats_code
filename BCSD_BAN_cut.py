@@ -21,8 +21,8 @@ for fn in fi.readlines():
 
     if not path.exists(fo):
         print "... cut file Bangladesh: %s" % (fn)
-        print 'ncea -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % (fn, fo)
-        system('ncea -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % (fn, fo))
+        print 'nces -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % (fn, fo)
+        system('nces -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % (fn, fo))
     else:
         raise Exception('infile not found: %s' % fn)
 
