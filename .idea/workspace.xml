@@ -378,12 +378,6 @@
       <option name="number" value="Default" />
       <updated>1414773027072</updated>
     </task>
-    <task id="LOCAL-00018" summary="cdo_main and stats_temp updated">
-      <created>1416787273454</created>
-      <option name="number" value="00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1416787273454</updated>
-    </task>
     <task id="LOCAL-00019" summary="cdo_main and stats_temp updated">
       <created>1416796264390</created>
       <option name="number" value="00019" />
@@ -672,7 +666,13 @@
       <option name="project" value="LOCAL" />
       <updated>1418499389545</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="cdo_main and stats_temp updated">
+      <created>1418499798342</created>
+      <option name="number" value="00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1418499798342</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="ToolWindowManager">
