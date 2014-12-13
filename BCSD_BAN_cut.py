@@ -21,7 +21,7 @@ for fn in fi.readlines():
         print '... directorio %s creado!' % path.dirname(fo)
 
     if not path.exists(fo):
-        print "... cut file Bangladesh: %s" % (fn)
+        print "... cut file Bangladesh: %s outtemp.nc" % (fn)
         print 'nces -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % (fn, fo)
         system('nces -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % (fn, 'outtemp.nc'))
     else:
