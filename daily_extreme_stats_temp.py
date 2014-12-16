@@ -405,7 +405,6 @@ def hd18(fname='', styr=0, enyr=0, model=''):
     if not path.exists(ofallmonr):
         for i in range(nyrs):
             y = styr + i
-
             print "\n> computing HD18 for year ", y
             fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
             if not path.exists(fn):
@@ -423,8 +422,24 @@ def hd18(fname='', styr=0, enyr=0, model=''):
                     txt = "cdo -m 1e+20 eca_hd,18 selmon_1.nc eca_hd_1.nc"
                     print "... " + txt
                     system(txt)
-                    exit()
+                else:
+                    txt = "cdo -m 1e+20" + fx + "selmon_" + str(j) + ".nc"
+                    print "... " + txt
+                    system(txt)
+                    txt = "cdo -m 1e+20 eca_hd,18 selmon_" + str(j) + ".nc eca_hd_" + str(j) + ".nc"
+                    print "... " + txt
+                    system(txt)
+            if i == 0:
+                txt = "cdo cat eca_hd_1.nc eca_hd_2.nc eca_hd_3.nc eca_hd_4.nc eca_hd_5.nc eca_hd_6.nc " \
+                      "eca_hd_7.nc eca_hd_8.nc eca_hd_9.nc eca_hd_10.nc eca_hd_11.nc eca_hd_12.nc junkmon.nc"
+                print "... " + txt
+                system(txt)
 
+                exit()
+
+                txt = "rm selmon_*.nc eca_hd_*.nc"
+                print "... " + txt
+                system(txt)
 
 
 
