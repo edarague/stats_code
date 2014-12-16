@@ -449,6 +449,7 @@ def cd18(fname='', styr=0, enyr=0, model=''):
     ofallmonr = ofallmonr.replace('tas', 'CD18')
     if not path.exists(ofallmonr):
         for i in range(nyrs):
+            y = styr + i
             print "\n> computing CD18 for year ", y
             fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
             if not path.exists(fn):
