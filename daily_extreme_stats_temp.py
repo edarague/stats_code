@@ -389,9 +389,9 @@ def gd10(fname='', styr=0, enyr=0, model=''):
         print "... nothing to do, %s exist!\n" % ofall
 
 
-def HD18(fname='', styr=0, enyr=0):
+def HD18(fname='', styr=0, enyr=0, model=''):
     if not styr > 1899 and enyr < 2101 and (enyr > styr):
-        raise 'incorrect args passed to HD18 %s %d %d' % (fname, styr, enyr)
+        raise 'incorrect args passed to HD18 %s %d %d' % (fname, styr, enyr, model)
     nyrs = enyr - styr + 1
     ofall = OUTROOT + "/" + fname + str(styr) + "-" + str(enyr) + ".nc"
     ofall = ofall.replace('tas', 'HD18')
@@ -434,9 +434,9 @@ def HD18(fname='', styr=0, enyr=0):
     return ofall
 
 
-def cd18(fname='', styr=0, enyr=0):
+def cd18(fname='', styr=0, enyr=0, model=''):
     if not styr > 1899 and enyr < 2101 and (enyr > styr):
-        raise 'incorrect args passed to CD18 %s %d %d' % (fname, styr, enyr)
+        raise 'incorrect args passed to CD18 %s %d %d' % (fname, styr, enyr, model)
     nyrs = enyr - styr + 1
     fn_nodir = split(fname, "/")[-1]
     ofall = fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
@@ -457,54 +457,61 @@ def cd18(fname='', styr=0, enyr=0):
                     break
                 else:
                     raise Exception('infile not found: %s' % fn)
-            txt = "cdo -m 1e+20 -gtc,283.15 " + fn + " gtc10.nc"
+            txt = "cdo -m 1e+20 -gtc,291.15 " + fn + " gtc10.nc"
             print "... " + txt
             system(txt)
-            txt = "cdo -m 1e+20 -subc,283.15 " + fn + " subc10.nc"
+            txt = "cdo -m 1e+20 -subc,291.15 " + fn + " subc10.nc"
             print "... " + txt
             system(txt)
-            txt = "cdo -m 1e+20 mul gtc10.nc subc10.nc junk_gd10_oneyear.nc"
+            txt = "cdo -m 1e+20 mul gtc10.nc subc10.nc junk_cd18_oneyear.nc"
             print "... " + txt
             system(txt)
             system(txt)
             txt = "rm gtc10.nc subc10.nc"
             print "... " + txt
             system(txt)
-
-
-
-
-
-
-            fn = OUTTEMP + "/" + fname + str(y) + ".nc"
-            print "Now working on CD18 for year ", y
-            if not (path.exists(fn)):
-                if y == enyr:
-                    print 'infile not found: ', fn, ' ...skipping last year'
-                    nyrs = nyrs - 1
-                    break
-                else:
-                    raise 'infile not found: ', fn
-            txt = "cdo -m 1e+20 mul -subc,291.15 " + fn + " -gtc,291.15 " + fn + " " + OUTTEMP + "/junk_cd18_oneyear.nc"
-            system(txt)
-
-
-
-
-
-
-
             for j in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
-                fx = " -selmon," + str(j) + " " + OUTTEMP + "/junk_cd18_oneyear.nc"
-                if (i == 0 and j == 1):
-                    txt = "cdo -m 1e+20 timsum " + fx + " " + ofallmon
+                fx = " -selmon," + str(j) + " junk_cd18_oneyear.nc "
+                if i == 0 and j == 1:
+                    txt = "cdo -m 1e+20" + fx + "selmon_1.nc"
+                    print "..." + txt
+                    system(txt)
+                    txt = "cdo -m 1e+20 timsum selmon_1.nc timsum_1.nc"
+                    print "... " + txt
                     system(txt)
                 else:
-                    txt = "cdo -m 1e+20 timsum " + fx + " junk_mon.nc"
+                    txt = "cdo -m 1e+20" + fx + "selmon_" + str(j) + ".nc"
+                    print "... " + txt
                     system(txt)
-                    txt = "cdo cat junk_mon.nc " + ofallmon
+                    txt = "cdo -m 1e+20 timsum selmon_" + str(j) + ".nc timsum_" + str(j) + ".nc"
+                    print "... " + txt
                     system(txt)
+            if i == 0:
+                txt = "cdo cat timsum_1.nc timsum_2.nc timsum_3.nc timsum_4.nc timsum_5.nc timsum_6.nc " \
+                      "timsum_7.nc timsum_8.nc timsum_9.nc timsum_10.nc timsum_11.nc timsum_12.nc junkmon.nc"
+                print "... " + txt
+                system(txt)
+                txt = "rm selmon_*.nc timsum_*.nc junk_cd18_oneyear.nc"
+                print "... " + txt
+                system(txt)
+            else:
+                txt = "cdo cat timsum_1.nc timsum_2.nc timsum_3.nc timsum_4.nc timsum_5.nc timsum_6.nc " \
+                      "timsum_7.nc timsum_8.nc timsum_9.nc timsum_10.nc timsum_11.nc timsum_12.nc junkmon_tisum.nc"
+                print "... " + txt
+                system(txt)
+                txt = "cdo cat junkmon.nc junkmon_tisum.nc junkmon_tmp.nc"
+                print "... " + txt
+                system(txt)
+                txt = "rm selmon_*.nc timsum_*.nc junk_cd18_oneyear.nc junkmon.nc junkmon_tisum.nc"
+                print "... " + txt
+                system(txt)
+                txt = "mv junkmon_tmp.nc junkmon.nc"
+                print "... " + txt
+                system(txt)
         # modify variable name and other attributes
+        txt = "mv junkmon.nc " + ofallmon
+        print "\n... " + txt
+        system(txt)
         now = datetime.now()
         txthist = "Created on " + now.strftime("%Y-%m-%d %H:%M")
         txtcmd = "ncatted -h -a history,global,o,c,'" + txthist + "' " + ofallmon
@@ -517,8 +524,17 @@ def cd18(fname='', styr=0, enyr=0):
         system(txtcmd)
         # create yearly summary file
         txtcmd = "cdo -m 1e+20 yearsum " + ofallmon + " " + ofall
+        print "... " + txtcmd
         system(txtcmd)
+        txtmvmon = "mv %s %s" % (ofallmon, ofallmonr)
+        print "... " + txtmvmon
+        system(txtmvmon)
+        txtmv = "mv %s %s" % (ofall, ofallr)
+        print "... " + txtmv
+        system(txtmv)
         return ofall
+    else:
+        print "... nothing to do, %s exist!\n" % ofall
 
 
 def TX90(fname='', styr=0, enyr=0):
