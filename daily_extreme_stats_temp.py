@@ -420,10 +420,10 @@ def hd18(fname='', styr=0, enyr=0, model=''):
                     print "..." + txt
                     system(txt)
                     txt = "cdo -m 1e+20 eca_hd,18 selmon_1.nc eca_hd_1.nc"
-                    print "... " + txt
+                    print "... " + txt + "\n"
                     system(txt)
                 else:
-                    txt = "cdo -m 1e+20" + fx + "selmon_" + str(j) + ".nc"
+                    txt = "cdo -m 1e+20" + fx + " selmon_" + str(j) + ".nc"
                     print "... " + txt
                     system(txt)
                     txt = "cdo -m 1e+20 eca_hd,18 selmon_" + str(j) + ".nc eca_hd_" + str(j) + ".nc"
