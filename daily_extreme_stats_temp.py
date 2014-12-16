@@ -458,17 +458,17 @@ def cd18(fname='', styr=0, enyr=0, model=''):
                     break
                 else:
                     raise Exception('infile not found: %s' % fn)
-            txt = "cdo -m 1e+20 -gtc,291.15 " + fn + " gtc10.nc"
+            txt = "cdo -m 1e+20 -gtc,291.15 " + fn + " gtc18.nc"
             print "... " + txt
             system(txt)
-            txt = "cdo -m 1e+20 -subc,291.15 " + fn + " subc10.nc"
+            txt = "cdo -m 1e+20 -subc,291.15 " + fn + " subc18.nc"
             print "... " + txt
             system(txt)
-            txt = "cdo -m 1e+20 mul gtc10.nc subc10.nc junk_cd18_oneyear.nc"
+            txt = "cdo -m 1e+20 mul gtc18.nc subc18.nc junk_cd18_oneyear.nc"
             print "... " + txt
             system(txt)
             system(txt)
-            txt = "rm gtc10.nc subc10.nc"
+            txt = "rm gtc18.nc subc18.nc"
             print "... " + txt
             system(txt)
             for j in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
