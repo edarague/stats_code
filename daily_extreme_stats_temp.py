@@ -420,7 +420,7 @@ def hd18(fname='', styr=0, enyr=0, model=''):
                     print "..." + txt
                     system(txt)
                     txt = "cdo -m 1e+20 eca_hd,18 selmon_1.nc eca_hd_1.nc"
-                    print "... " + txt + "\n"
+                    print "... " + txt
                     system(txt)
                 else:
                     txt = "cdo -m 1e+20" + fx + " selmon_" + str(j) + ".nc"
@@ -434,34 +434,27 @@ def hd18(fname='', styr=0, enyr=0, model=''):
                       "eca_hd_7.nc eca_hd_8.nc eca_hd_9.nc eca_hd_10.nc eca_hd_11.nc eca_hd_12.nc junkmon.nc"
                 print "... " + txt
                 system(txt)
-
-                exit()
-
                 txt = "rm selmon_*.nc eca_hd_*.nc"
                 print "... " + txt
                 system(txt)
-
-
-
-
-
-                if i == 0 and j == 1:
-                    txt = "cdo -m 1e+20 eca_hd,18 -selmon," + str(j) + " " + fn + " " + ofallmon
-                    system(txt)
-
-
-
-
-
-
-
-
-                else:
-                    txt = "cdo -m 1e+20 eca_hd,18 -selmon," + str(j) + " " + fn + " junk_mon.nc"
-                    system(txt)
-                    txt = "cdo cat junk_mon.nc " + ofallmon
-                    system(txt)
+            else:
+                txt = "cdo cat eca_hd_1.nc eca_hd_2.nc eca_hd_3.nc eca_hd_4.nc eca_hd_5.nc eca_hd_6.nc " \
+                      "eca_hd_7.nc eca_hd_8.nc eca_hd_9.nc eca_hd_10.nc eca_hd_11.nc eca_hd_12.nc junkmon_eca_hd.nc"
+                print "... " + txt
+                system(txt)
+                txt = "cdo cat junkmon.nc junkmon_eca_hd.nc junkmon_tmp.nc"
+                print "... " + txt
+                system(txt)
+                txt = "rm selmon_*.nc timsum_*.nc junk_gd10_oneyear.nc junkmon.nc junkmon_eca_hd.nc"
+                print "... " + txt
+                system(txt)
+                txt = "mv junkmon_tmp.nc junkmon.nc"
+                print "... " + txt
+                system(txt)
         # modify variable name and other attributes
+        txt = "mv junkmon.nc " + ofallmon
+        print "\n... " + txt
+        system(txt)
         now = datetime.now()
         txthist = "Created on " + now.strftime("%Y-%m-%d %H:%M")
         txtcmd = "ncatted -h -a history,global,o,c,'" + txthist + "' " + ofallmon
@@ -469,13 +462,22 @@ def hd18(fname='', styr=0, enyr=0, model=''):
         txtcmd = "ncatted -h -a institution,global,c,c,'" + txtinst + "' " + ofallmon
         system(txtcmd)
         # new variable name created by CDO:
-        txtnewvar = "heating_degree_days_per_time_period"
-        txtcmd = "ncrename -h -v " + txtnewvar + ",hd18 " + ofallmon
+        txtnewvar = "tas"
+        txtcmd = "ncrename -h -v " + txtnewvar + ",gd10 " + ofallmon
         system(txtcmd)
         # create yearly summary file
         txtcmd = "cdo -m 1e+20 yearsum " + ofallmon + " " + ofall
+        print "... " + txtcmd
         system(txtcmd)
+        txtmvmon = "mv %s %s" % (ofallmon, ofallmonr)
+        print "... " + txtmvmon
+        system(txtmvmon)
+        txtmv = "mv %s %s" % (ofall, ofallr)
+        print "... " + txtmv
+        system(txtmv)
         return ofall
+    else:
+        print "... nothing to do, %s exist!\n" % ofall
 
 
 def cd18(fname='', styr=0, enyr=0, model=''):
