@@ -389,49 +389,78 @@ def gd10(fname='', styr=0, enyr=0, model=''):
         print "... nothing to do, %s exist!\n" % ofall
 
 
-def HD18(fname='', styr=0, enyr=0, model=''):
+def hd18(fname='', styr=0, enyr=0, model=''):
     if not styr > 1899 and enyr < 2101 and (enyr > styr):
         raise 'incorrect args passed to HD18 %s %d %d' % (fname, styr, enyr, model)
     nyrs = enyr - styr + 1
-    ofall = OUTROOT + "/" + fname + str(styr) + "-" + str(enyr) + ".nc"
+    fn_nodir = split(fname, "/")[-1]
+    ofall = fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
     ofall = ofall.replace('tas', 'HD18')
-    ofallmon = OUTROOT + "/" + fname + str(styr) + "-" + str(enyr) + ".monthly.nc"
+    ofallmon = fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
     ofallmon = ofallmon.replace('tas', 'HD18')
-    for i in range(nyrs):
-        y = styr + i
-        fn = OUTTEMP + "/" + fname + str(y) + ".nc"
-        print "Now working on HD18 for year ", y
-        if not (path.exists(fn)):
-            if y == enyr:
-                print 'infile not found: ', fn, ' ...skipping last year'
-                nyrs = nyrs - 1
-                break
-            else:
-                raise 'infile not found: ', fn
-        for j in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
-            if (i == 0 and j == 1):
-                txt = "cdo -m 1e+20 eca_hd,18 -selmon," + str(j) + " " + fn + " " + ofallmon
-                system(txt)
-            else:
-                txt = "cdo -m 1e+20 eca_hd,18 -selmon," + str(j) + " " + fn + " junk_mon.nc"
-                system(txt)
-                txt = "cdo cat junk_mon.nc " + ofallmon
-                system(txt)
-    # modify variable name and other attributes
-    now = datetime.now()
-    txthist = "Created on " + now.strftime("%Y-%m-%d %H:%M")
-    txtcmd = "ncatted -h -a history,global,o,c,'" + txthist + "' " + ofallmon
-    system(txtcmd)
-    txtcmd = "ncatted -h -a institution,global,c,c,'" + txtinst + "' " + ofallmon
-    system(txtcmd)
-    # new variable name created by CDO:
-    txtnewvar = "heating_degree_days_per_time_period"
-    txtcmd = "ncrename -h -v " + txtnewvar + ",hd18 " + ofallmon
-    system(txtcmd)
-    # create yearly summary file
-    txtcmd = "cdo -m 1e+20 yearsum " + ofallmon + " " + ofall
-    system(txtcmd)
-    return ofall
+    ofallr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
+    ofallr = ofallr.replace('tas', 'HD18')
+    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
+    ofallmonr = ofallmonr.replace('tas', 'HD18')
+    if not path.exists(ofallmonr):
+        for i in range(nyrs):
+            y = styr + i
+
+            print "\n> computing HD18 for year ", y
+            fn = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(y) + ".nc"
+            if not path.exists(fn):
+                if y == enyr:
+                    print '... infile not found: ', fn, ' ...skipping last year'
+                    break
+                else:
+                    raise Exception('infile not found: %s' % fn)
+            for j in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
+                fx = " -selmon," + str(j) + " " + fn
+                if i == 0 and j == 1:
+                    txt = "cdo -m 1e+20" + fx + "selmon_1.nc"
+                    print "..." + txt
+                    system(txt)
+                    txt = "cdo -m 1e+20 eca_hd,18 selmon_1.nc eca_hd_1.nc"
+                    print "... " + txt
+                    system(txt)
+                    exit()
+
+
+
+
+
+
+                if i == 0 and j == 1:
+                    txt = "cdo -m 1e+20 eca_hd,18 -selmon," + str(j) + " " + fn + " " + ofallmon
+                    system(txt)
+
+
+
+
+
+
+
+
+                else:
+                    txt = "cdo -m 1e+20 eca_hd,18 -selmon," + str(j) + " " + fn + " junk_mon.nc"
+                    system(txt)
+                    txt = "cdo cat junk_mon.nc " + ofallmon
+                    system(txt)
+        # modify variable name and other attributes
+        now = datetime.now()
+        txthist = "Created on " + now.strftime("%Y-%m-%d %H:%M")
+        txtcmd = "ncatted -h -a history,global,o,c,'" + txthist + "' " + ofallmon
+        system(txtcmd)
+        txtcmd = "ncatted -h -a institution,global,c,c,'" + txtinst + "' " + ofallmon
+        system(txtcmd)
+        # new variable name created by CDO:
+        txtnewvar = "heating_degree_days_per_time_period"
+        txtcmd = "ncrename -h -v " + txtnewvar + ",hd18 " + ofallmon
+        system(txtcmd)
+        # create yearly summary file
+        txtcmd = "cdo -m 1e+20 yearsum " + ofallmon + " " + ofall
+        system(txtcmd)
+        return ofall
 
 
 def cd18(fname='', styr=0, enyr=0, model=''):
