@@ -148,18 +148,18 @@ for scens in ('historical', 'rcp45', 'rcp85'):
 
     # heating degree days
     if 'hd18' in var_stat and scens == 'historical':
-        of = t_stats.HD18(fn_hist_tas, StComHis, EnComHis, model)
+        of = t_stats.hd18(fn_hist_tas, StComHis, EnComHis, model)
         print "created outfile %s\n" % of
     if 'hd18' in var_stat and scens != 'historical':
-        of = t_stats.HD18(fn_rcp_tas, StYrsFut, EnYrsFut, model)
+        of = t_stats.hd18(fn_rcp_tas, StYrsFut, EnYrsFut, model)
         print "created outfile %s\n" % of
 
     # cooling degree days
     if 'cd18' in var_stat and scens == 'historical':
-        of = t_stats.CD18(fn_hist_tas, StComHis, EnComHis, model)
+        of = t_stats.cd18(fn_hist_tas, StComHis, EnComHis, model)
         print "created outfile %s\n" % of
     if 'cd18' in var_stat and scens != 'historical':
-        of = t_stats.CD18(fn_rcp_tas, StYrsFut, EnYrsFut, model)
+        of = t_stats.cd18(fn_rcp_tas, StYrsFut, EnYrsFut, model)
         print "created outfile %s\n" % of
 
     # 90th percentile Tmax - one value per year
