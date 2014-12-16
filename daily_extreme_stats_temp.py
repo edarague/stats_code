@@ -417,7 +417,7 @@ def hd18(fname='', styr=0, enyr=0, model=''):
             for j in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
                 fx = " -selmon," + str(j) + " " + fn
                 if i == 0 and j == 1:
-                    txt = "cdo -m 1e+20" + fx + "selmon_1.nc"
+                    txt = "cdo -m 1e+20" + fx + " selmon_1.nc"
                     print "..." + txt
                     system(txt)
                     txt = "cdo -m 1e+20 eca_hd,18 selmon_1.nc eca_hd_1.nc"
