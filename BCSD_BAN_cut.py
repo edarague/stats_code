@@ -16,7 +16,7 @@ for fn in fi.readlines():
     fn = fn.replace('./', '/mnt/BCSD/')[:-1]
     fo = fn.replace('/mnt/BCSD/', '/home/edarague/BCSD/BAN/')
     if not path.exists(path.dirname(fo)):
-        call('mkdir -p %s' % path.dirname(fn), shell=True)
+        call('mkdir -p %s' % path.dirname(fo), shell=True)
         print '... directorio %s creado!' % path.dirname(fo)
     if not path.exists(fo):
         print "\n... cut file Bangladesh: %s" % (fn)
