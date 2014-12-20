@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/tasmin_tasmax_avgyear.py" line="20" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96277a6e-048a-4ac7-9f17-e06ef6ff3297" name="Default" comment="cdo_main and stats_temp updated">
+    <list default="true" id="96277a6e-048a-4ac7-9f17-e06ef6ff3297" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="stats_code.iws" />
@@ -44,8 +44,8 @@
       <file leaf-file-name="daily_extreme_stats_temp.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/daily_extreme_stats_temp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.942953" vertical-offset="7462" max-vertical-offset="16303">
-              <caret line="472" column="31" selection-start-line="472" selection-start-column="31" selection-end-line="472" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.3137584" vertical-offset="6494" max-vertical-offset="16303">
+              <caret line="393" column="58" selection-start-line="393" selection-start-column="58" selection-end-line="393" selection-end-column="58" />
               <folding>
                 <element signature="e#114#134#0" expanded="true" />
               </folding>
@@ -413,12 +413,6 @@
       <option name="number" value="Default" />
       <updated>1414773027072</updated>
     </task>
-    <task id="LOCAL-00023" summary="cdo_main and stats_temp updated">
-      <created>1416831068060</created>
-      <option name="number" value="00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1416831068060</updated>
-    </task>
     <task id="LOCAL-00024" summary="cdo_main and stats_temp updated">
       <created>1417013530371</created>
       <option name="number" value="00024" />
@@ -707,7 +701,13 @@
       <option name="project" value="LOCAL" />
       <updated>1419106083291</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="cdo_main and stats_temp updated">
+      <created>1419106089583</created>
+      <option name="number" value="00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1419106089583</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1260,8 +1260,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/daily_extreme_stats_temp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.942953" vertical-offset="7462" max-vertical-offset="16303">
-          <caret line="472" column="31" selection-start-line="472" selection-start-column="31" selection-end-line="472" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.3137584" vertical-offset="6494" max-vertical-offset="16303">
+          <caret line="393" column="58" selection-start-line="393" selection-start-column="58" selection-end-line="393" selection-end-column="58" />
           <folding>
             <element signature="e#114#134#0" expanded="true" />
           </folding>
