@@ -445,7 +445,7 @@ def hd18(fname='', styr=0, enyr=0, model=''):
                 txt = "cdo cat junkmon.nc junkmon_eca_hd.nc junkmon_tmp.nc"
                 print "... " + txt
                 system(txt)
-                txt = "rm selmon_*.nc timsum_*.nc junk_gd10_oneyear.nc junkmon.nc junkmon_eca_hd.nc"
+                txt = "rm selmon_*.nc timsum_*.nc junk_hd18_oneyear.nc junkmon.nc junkmon_eca_hd.nc"
                 print "... " + txt
                 system(txt)
                 txt = "mv junkmon_tmp.nc junkmon.nc"
@@ -463,7 +463,7 @@ def hd18(fname='', styr=0, enyr=0, model=''):
         system(txtcmd)
         # new variable name created by CDO:
         txtnewvar = "tas"
-        txtcmd = "ncrename -h -v " + txtnewvar + ",gd10 " + ofallmon
+        txtcmd = "ncrename -h -v " + txtnewvar + ",hd18 " + ofallmon
         system(txtcmd)
         # create yearly summary file
         txtcmd = "cdo -m 1e+20 yearsum " + ofallmon + " " + ofall
