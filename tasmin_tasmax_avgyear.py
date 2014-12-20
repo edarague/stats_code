@@ -17,8 +17,9 @@ for fn in fi.readlines():
     fo = fn.replace('.monthly', '')
     if not path.exists(fo):
         print "\n... year summary: %s" % (fn)
-        #print 'nces -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % (fn, fo)
-        #call('nces -d lat,20.746231,26.631950 -d lon,88.028340,92.680664 %s %s' % (fn, fo), shell=True)
+        txtcmd = "cdo -m 1e+20 yearmean " + fn + " " + fo
+        print txtcmd
+      #  system(txtcmd)
     else:
         raise Exception('infile not found: %s' % fn)
 
