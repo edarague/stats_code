@@ -18,7 +18,7 @@ for fn in fi.readlines():
         print "\n... year summary: %s" % (fn)
         txtcmd = "cdo -m 1e+20 yearmean " + fn + " " + fo
         print txtcmd
-       # system(txtcmd)
+        system(txtcmd)
     else:
         raise Exception('infile not found: %s' % fn)
 
