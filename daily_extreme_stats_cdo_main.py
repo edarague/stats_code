@@ -17,7 +17,7 @@ import daily_extreme_stats_temp as t_stats
 import daily_extreme_stats_precip as p_stats
 
 # var_stat = ['txavg', 'tnavg', 'txx', 'tnn', 'gd10', 'hd18', 'cd18', 'ptot', 'cdd', 'r02', 'r5d', 'sdii']
-var_stat = ['txavg', 'tnavg', 'txx', 'tnn', 'gd10', 'hd18', 'cd18', 'ptot', 'cdd']
+var_stat = ['txavg', 'tnavg', 'txx', 'tnn', 'gd10', 'hd18', 'cd18', 'ptot']
 
 # define reference historical period
 StRefHis = 1950
