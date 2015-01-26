@@ -17,7 +17,7 @@ import daily_extreme_stats_temp as t_stats
 import daily_extreme_stats_precip as p_stats
 
 # var_stat = ['txavg', 'tnavg', 'txx', 'tnn', 'gd10', 'hd18', 'cd18', 'ptot', 'cdd', 'r02', 'r5d', 'sdii']
-var_stat = ['txavg', 'tnavg', 'txx', 'tnn', 'gd10', 'hd18', 'cd18']
+var_stat = ['ptot']
 
 # define reference historical period
 StRefHis = 1950
@@ -60,8 +60,8 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         t_stats.copy_files(fn_hist_tx, StComHis, EnComHis, model)
 
         # soflink pr historical
-        # fn_hist_pr = ind_hist + "/pr/pr_day_" + model + "_historical_r1i1p1_"
-        # t_stats.copy_files(fn_hist_pr, StComHis, EnComHis, model)
+        fn_hist_pr = ind_hist + "/pr/pr_day_" + model + "_historical_r1i1p1_"
+        t_stats.copy_files(fn_hist_pr, StComHis, EnComHis, model)
 
         # calculate tmean historical
         t_stats.calc_tavg(fn_hist_tn, fn_hist_tx, StComHis, EnComHis, model)
@@ -71,10 +71,10 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         t_stats.copy_files(fn_hist_tas, StComHis, EnComHis, model)
 
         # calculate pr in mm historical
-        # p_stats.calc_ppmm(fn_hist_pr, StComHis, EnComHis, model)
+        p_stats.calc_ppmm(fn_hist_pr, StComHis, EnComHis, model)
         # soflink prmm historical
-        # fn_hist_prmm = RootDir + "/" + model + "/junk/prmm_day_" + model + "_historical_r1i1p1_"
-        # t_stats.copy_files(fn_hist_prmm, StComHis, EnComHis, model)
+        fn_hist_prmm = RootDir + "/" + model + "/junk/prmm_day_" + model + "_historical_r1i1p1_"
+        t_stats.copy_files(fn_hist_prmm, StComHis, EnComHis, model)
     else:
         ind_rcp = RootDir + "/" + model + "/" + scens + "/day/r1i1p1"
 
@@ -87,8 +87,8 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         t_stats.copy_files(fn_rcp_tx, StYrsFut, EnYrsFut, model)
 
         # soflink pr rcp
-        # fn_rcp_pr = ind_rcp + "/pr/pr_day_" + model + "_" + scens + "_r1i1p1_"
-        # t_stats.copy_files(fn_rcp_pr, StYrsFut, EnYrsFut, model)
+        fn_rcp_pr = ind_rcp + "/pr/pr_day_" + model + "_" + scens + "_r1i1p1_"
+        t_stats.copy_files(fn_rcp_pr, StYrsFut, EnYrsFut, model)
 
         # calculate tmean rcp
         t_stats.calc_tavg(fn_rcp_tn, fn_rcp_tx, StYrsFut, EnYrsFut, model)
@@ -98,10 +98,10 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         t_stats.copy_files(fn_rcp_tas, StYrsFut, EnYrsFut, model)
 
         # calculate pr in mm rcp
-        # p_stats.calc_ppmm(fn_rcp_pr, StYrsFut, EnYrsFut, model)
+        p_stats.calc_ppmm(fn_rcp_pr, StYrsFut, EnYrsFut, model)
         # soflink prmm rcp
-        # fn_rcp_prmm = RootDir + "/" + model + "/junk/prmm_day_" + model + "_" + scens + "_r1i1p1_"
-        # t_stats.copy_files(fn_rcp_prmm, StYrsFut, EnYrsFut, model)
+        fn_rcp_prmm = RootDir + "/" + model + "/junk/prmm_day_" + model + "_" + scens + "_r1i1p1_"
+        t_stats.copy_files(fn_rcp_prmm, StYrsFut, EnYrsFut, model)
 
     # Monthly mean maximum temperatures historical
     if 'txavg' in var_stat and scens == 'historical':
