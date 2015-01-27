@@ -169,14 +169,10 @@ def txx(fname='', styr=0, enyr=0, model=''):
     nyrs = enyr - styr + 1
     fn_nodir = split(fname, "/")[-1]
     ofall = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
-    # ofall = ofall.replace('tasmax', 'TXX')
     ofallmon = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    # ofallmon = ofallmon.replace('tasmax', 'TXX')
     fn_nodirr = ((split(fname, "/")[-1]).replace('tasmax_day', 'TXX')).replace('_r1i1p1', '')
     ofallr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".nc"
-    # ofallr = ofallr.replace('tasmax', 'TXX')
     ofallmonr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    # ofallmonr = ofallmonr.replace('tasmax', 'TXX')
     if not path.exists(ofallmonr):
         for i in range(nyrs):
             y = styr + i
@@ -237,13 +233,10 @@ def tnn(fname='', styr=0, enyr=0, model=''):
     nyrs = enyr - styr + 1
     fn_nodir = split(fname, "/")[-1]
     ofall = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
-    ofall = ofall.replace('tasmin', 'TNN')
     ofallmon = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    ofallmon = ofallmon.replace('tasmin', 'TNN')
-    ofallr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
-    ofallr = ofallr.replace('tasmin', 'TNN')
-    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    ofallmonr = ofallmonr.replace('tasmin', 'TNN')
+    fn_nodirr = ((split(fname, "/")[-1]).replace('tasmax_day', 'TNN')).replace('_r1i1p1', '')
+    ofallr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".nc"
+    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".monthly.nc"
     if not path.exists(ofallmonr):
         for i in range(nyrs):
             y = styr + i
