@@ -17,7 +17,7 @@ import daily_extreme_stats_temp as t_stats
 import daily_extreme_stats_precip as p_stats
 
 # var_stat = ['txavg', 'tnavg', 'txx', 'tnn', 'gd10', 'hd18', 'cd18', 'ptot', 'cdd', 'r02', 'r5d', 'sdii']
-var_stat = ['tnn', 'gd10', 'hd18', 'cd18']
+var_stat = ['ptot', 'cdd', 'r02', 'r5d', 'sdii']
 
 # define reference historical period
 StRefHis = 1950
@@ -236,24 +236,35 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         print "created outfile %s\n" % of
 
     # Consecutive dry days
-    if 'cdd' in var_stat:
-        of = p_stats.CDD(fn_hist_prmm, StComHis, EnComHis)
+    if 'cdd' in var_stat and scens == 'historical':
+        of = p_stats.cdd(fn_hist_prmm, StComHis, EnComHis, model)
         print "created outfile %s\n" % of
-        of = p_stats.CDD(fn_rcp_prmm, StYrsFut, EnYrsFut)
+    if 'cdd' in var_stat and scens != 'historical':
+        of = p_stats.cdd(fn_rcp_prmm, StYrsFut, EnYrsFut, model)
         print "created outfile %s\n" % of
 
     # Number of wet days > 0.2 mm/d
-    if 'r02' in var_stat:
-        of = p_stats.R02(fn_hist_pr, StComHis, EnComHis)
+    if 'r02' in var_stat and scens == 'historical':
+        of = p_stats.r02(fn_hist_prmm, StComHis, EnComHis, model)
         print "created outfile %s\n" % of
-        of = p_stats.R02(fn_rcp_pr, StYrsFut, EnYrsFut)
+    if 'r02' in var_stat and scens != 'historical':
+        of = p_stats.r02(fn_rcp_prmm, StYrsFut, EnYrsFut, model)
         print "created outfile %s\n" % of
 
     # Max consec 5 day precip
-    if 'r5d' in var_stat:
-        of = p_stats.R5D(fn_hist_pr, StComHis, EnComHis)
+    if 'r5d' in var_stat and scens == 'historical':
+        of = p_stats.r5d(fn_hist_prmm, StComHis, EnComHis, model)
         print "created outfile %s\n" % of
-        of = p_stats.R5D(fn_rcp_pr, StYrsFut, EnYrsFut)
+    if 'r5d' in var_stat and scens != 'historical':
+        of = p_stats.r5d(fn_rcp_prmm, StYrsFut, EnYrsFut, model)
+        print "created outfile %s\n" % of% of
+
+    # simple daily precip intensity index
+    if 'sdii' in var_stat and scens == 'historical':
+        of = p_stats.sdii(fn_hist_prmm, StComHis, EnComHis, model)
+        print "created outfile %s\n" % of
+    if 'sdii' in var_stat and scens != 'historical':
+        of = p_stats.sdii(fn_rcp_prmm, StYrsFut, EnYrsFut, model)
         print "created outfile %s\n" % of
 
     # Pct of time precip exceeds ref pd 90th percentile (wet day values)
@@ -268,13 +279,6 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         of = p_stats.R90PTOT(fn_hist_pr, ofpr90_ref, StComHis, EnComHis)
         print "created outfile %s\n" % of
         of = p_stats.R90PTOT(fn_rcp_pr, ofpr90_ref, StYrsFut, EnYrsFut)
-        print "created outfile %s\n" % of
-
-    # simple daily precip intensity index
-    if 'sdii' in var_stat:
-        of = p_stats.SDII(fn_hist_pr, StComHis, EnComHis)
-        print "created outfile %s\n" % of
-        of = p_stats.SDII(fn_rcp_pr, StYrsFut, EnYrsFut)
         print "created outfile %s\n" % of
 
 print '\n\n... done!\n'
