@@ -56,9 +56,12 @@ def calc_ppmm(fnamep='', styr=0, enyr=0, model=''):
             txt1 = "cdo -m 1e+20 -mulc,86400 %s tmpfile" % fnp
             print txt1
             system(txt1)
-            txt2 = "mv tmpfile " + fnpr
+            txt2 = "ncatted -a units,pr,o,c,'mm/day' tmpfile"
             print txt2
             system(txt2)
+            txt3 = "mv tmpfile " + fnpr
+            print txt3
+            system(txt3)
 
 
 def ptot(fname='', styr=0, enyr=0, model=''):
@@ -67,11 +70,10 @@ def ptot(fname='', styr=0, enyr=0, model=''):
     nyrs = enyr - styr + 1
     fn_nodir = split(fname, "/")[-1]
     ofall = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
-    ofallr = OUTROOT + "/" + model + "/" + fn_nodir+str(styr) + "-" + str(enyr) + ".nc"
-    # ofall = ofall.replace('tasmax','TXX')
     ofallmon = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    # ofallmon = ofallmon.replace('tasmax','TXX')
+    fn_nodirr = (split(fname, "/")[-1]).replace('pprm','PTOT')
+    ofallr = OUTROOT + "/" + model + "/" + fn_nodirr+str(styr) + "-" + str(enyr) + ".nc"
+    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".monthly.nc"
     if not path.exists(ofallmonr):
         for i in range(nyrs):
             y = styr+i
@@ -106,8 +108,9 @@ def ptot(fname='', styr=0, enyr=0, model=''):
         txtcmd = "ncatted -h -a institution,global,c,c,'"+txtinst + "' " + ofallmon
         print txtcmd
         system(txtcmd)
-        # txtcmd = "ncrename -h -v tasmax,txx " + ofallmon
-        # os.system(txtcmd)
+        txtcmd = "ncrename -h -v prmm,PTOT " + ofallmon
+        print txtcmd
+        system(txtcmd)
         # create yearly summary file
         txtcmd = "cdo -m 1e+20 yearsum " + ofallmon + " " + ofall
         print txtcmd
