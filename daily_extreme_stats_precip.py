@@ -132,7 +132,7 @@ def cdd(fname='', styr=0, enyr=0, model=''):
     fn_nodir = split(fname,"/")[-1]
     ofall = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
     ofallmon = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    fn_nodirr = ((split(fname, "/")[-1]).replace('pr_day', 'CDD')).replace('_r1i1p1', '')
+    fn_nodirr = ((split(fname, "/")[-1]).replace('prmm_day', 'CDD')).replace('_r1i1p1', '')
     ofallr = OUTROOT + "/" + model + "/" + fn_nodirr+str(styr) + "-" + str(enyr) + ".nc"
     ofallmonr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".monthly.nc"
     if not path.exists(ofallmonr):
@@ -201,7 +201,7 @@ def r02(fname='', styr=0, enyr=0, model=''):
     fn_nodir = split(fname,"/")[-1]
     ofall = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
     ofallmon = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    fn_nodirr = ((split(fname, "/")[-1]).replace('pr_day', 'R02')).replace('_r1i1p1', '')
+    fn_nodirr = ((split(fname, "/")[-1]).replace('prmm_day', 'R02')).replace('_r1i1p1', '')
     ofallr = OUTROOT + "/" + model + "/" + fn_nodirr+str(styr) + "-" + str(enyr) + ".nc"
     ofallmonr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".monthly.nc"
     if not path.exists(ofallmonr):
@@ -356,7 +356,7 @@ def sdii(fname='', styr=0, enyr=0, model=''):
     fn_nodir = split(fname,"/")[-1]
     ofall = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
     ofallmon = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    fn_nodirr = ((split(fname, "/")[-1]).replace('pr_day', 'SDII')).replace('_r1i1p1', '')
+    fn_nodirr = ((split(fname, "/")[-1]).replace('prmm_day', 'SDII')).replace('_r1i1p1', '')
     ofallr = OUTROOT + "/" + model + "/" + fn_nodirr+str(styr) + "-" + str(enyr) + ".nc"
     ofallmonr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".monthly.nc"
     if not path.exists(ofallmonr):
