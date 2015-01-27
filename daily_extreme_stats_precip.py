@@ -71,7 +71,7 @@ def ptot(fname='', styr=0, enyr=0, model=''):
     fn_nodir = split(fname, "/")[-1]
     ofall = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
     ofallmon = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    fn_nodirr = (split(fname, "/")[-1]).replace('prmm_day', 'PTOT')
+    fn_nodirr = ((split(fname, "/")[-1]).replace('prmm_day', 'PTOT')).replace('_r1i1p1', '')
     ofallr = OUTROOT + "/" + model + "/" + fn_nodirr+str(styr) + "-" + str(enyr) + ".nc"
     ofallmonr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".monthly.nc"
     if not path.exists(ofallmonr):
