@@ -234,7 +234,7 @@ def tnn(fname='', styr=0, enyr=0, model=''):
     fn_nodir = split(fname, "/")[-1]
     ofall = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
     ofallmon = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    fn_nodirr = ((split(fname, "/")[-1]).replace('tasmax_day', 'TNN')).replace('_r1i1p1', '')
+    fn_nodirr = ((split(fname, "/")[-1]).replace('tasmin_day', 'TNN')).replace('_r1i1p1', '')
     ofallr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".nc"
     ofallmonr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".monthly.nc"
     if not path.exists(ofallmonr):
@@ -295,13 +295,10 @@ def gd10(fname='', styr=0, enyr=0, model=''):
     nyrs = enyr - styr + 1
     fn_nodir = split(fname, "/")[-1]
     ofall = fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
-    ofall = ofall.replace('tas', 'GD10')
     ofallmon = fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    ofallmon = ofallmon.replace('tas', 'GD10')
-    ofallr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
-    ofallr = ofallr.replace('tas', 'GD10')
-    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    ofallmonr = ofallmonr.replace('tas', 'GD10')
+    fn_nodirr = ((split(fname, "/")[-1]).replace('tas_day', 'GD10')).replace('_r1i1p1', '')
+    ofallr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".nc"
+    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".monthly.nc"
     if not path.exists(ofallmonr):
         for i in range(nyrs):
             y = styr + i
@@ -399,13 +396,10 @@ def hd18(fname='', styr=0, enyr=0, model=''):
     nyrs = enyr - styr + 1
     fn_nodir = split(fname, "/")[-1]
     ofall = fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
-    ofall = ofall.replace('tas', 'HD18')
     ofallmon = fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    ofallmon = ofallmon.replace('tas', 'HD18')
-    ofallr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
-    ofallr = ofallr.replace('tas', 'HD18')
-    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    ofallmonr = ofallmonr.replace('tas', 'HD18')
+    fn_nodirr = ((split(fname, "/")[-1]).replace('tas_day', 'HD18')).replace('_r1i1p1', '')
+    ofallr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".nc"
+    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".monthly.nc"
     if not path.exists(ofallmonr):
         for i in range(nyrs):
             y = styr + i
@@ -490,13 +484,10 @@ def cd18(fname='', styr=0, enyr=0, model=''):
     nyrs = enyr - styr + 1
     fn_nodir = split(fname, "/")[-1]
     ofall = fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
-    ofall = ofall.replace('tas', 'CD18')
     ofallmon = fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    ofallmon = ofallmon.replace('tas', 'CD18')
-    ofallr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
-    ofallr = ofallr.replace('tas', 'CD18')
-    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    ofallmonr = ofallmonr.replace('tas', 'CD18')
+    fn_nodirr = ((split(fname, "/")[-1]).replace('tas_day', 'CD18')).replace('_r1i1p1', '')
+    ofallr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".nc"
+    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".monthly.nc"
     if not path.exists(ofallmonr):
         for i in range(nyrs):
             y = styr + i
