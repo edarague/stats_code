@@ -167,7 +167,7 @@ def txx(fname='', styr=0, enyr=0, model=''):
     if not styr > 1899 and enyr < 2101 and (enyr > styr):
         raise 'incorrect args passed to TXX %s %d %d' % (fname, styr, enyr)
     nyrs = enyr - styr + 1
-    fn_nodir = (split(fname, "/")[-1]).replace('tasmax', 'TXX')
+    fn_nodir = split(fname, "/")[-1]
     ofall = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
     # ofall = ofall.replace('tasmax', 'TXX')
     ofallmon = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
