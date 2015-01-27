@@ -108,7 +108,7 @@ def ptot(fname='', styr=0, enyr=0, model=''):
         txtcmd = "ncatted -h -a institution,global,c,c,'"+txtinst + "' " + ofallmon
         print txtcmd
         system(txtcmd)
-        txtcmd = "ncrename -h -v prmm,PTOT " + ofallmon
+        txtcmd = "ncrename -h -v pr,PTOT " + ofallmon
         print txtcmd
         system(txtcmd)
         # create yearly summary file
