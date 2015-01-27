@@ -109,7 +109,10 @@ def tavg(fname='', styr=0, enyr=0, model=''):
     nyrs = enyr - styr + 1
     fn_nodir = split(fname, "/")[-1]
     ofallmon = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
+    ofall = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
+    fn_nodirr = ((split(fname, "/")[-1]).replace('r1i1p1_', '')).replace('_day', '')
+    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".monthly.nc"
+    ofallr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".nc"
     if not path.exists(ofallmonr):
         for i in range(nyrs):
             y = styr + i
@@ -146,7 +149,14 @@ def tavg(fname='', styr=0, enyr=0, model=''):
         txtmvmon = "mv %s %s" % (ofallmon, ofallmonr)
         print txtmvmon
         system(txtmvmon)
-        return ofallmon
+        # create yearly summary file
+        txtcmd = "cdo -m 1e+20  yearavg " + ofallmon + " " + ofall
+        print txtcmd
+        system(txtcmd)
+        txtmv = "mv %s %s" % (ofall, ofallr)
+        print txtmv
+        system(txtmv)
+        return ofall
     else:
         print "\n... nothing to do, %s exist!\n" % ofallmon
 
