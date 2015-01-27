@@ -167,15 +167,16 @@ def txx(fname='', styr=0, enyr=0, model=''):
     if not styr > 1899 and enyr < 2101 and (enyr > styr):
         raise 'incorrect args passed to TXX %s %d %d' % (fname, styr, enyr)
     nyrs = enyr - styr + 1
-    fn_nodir = split(fname, "/")[-1]
+    fn_nodir = (split(fname, "/")[-1]).replace('tasmax', 'TXX')
     ofall = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
-    ofall = ofall.replace('tasmax', 'TXX')
+    # ofall = ofall.replace('tasmax', 'TXX')
     ofallmon = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    ofallmon = ofallmon.replace('tasmax', 'TXX')
-    ofallr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
-    ofallr = ofallr.replace('tasmax', 'TXX')
-    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
-    ofallmonr = ofallmonr.replace('tasmax', 'TXX')
+    # ofallmon = ofallmon.replace('tasmax', 'TXX')
+    fn_nodirr = ((split(fname, "/")[-1]).replace('tasmax_day', 'TXX')).replace('_r1i1p1', '')
+    ofallr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".nc"
+    # ofallr = ofallr.replace('tasmax', 'TXX')
+    ofallmonr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".monthly.nc"
+    # ofallmonr = ofallmonr.replace('tasmax', 'TXX')
     if not path.exists(ofallmonr):
         for i in range(nyrs):
             y = styr + i
