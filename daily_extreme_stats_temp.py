@@ -146,13 +146,13 @@ def tavg(fname='', styr=0, enyr=0, model=''):
         txtcmd = "ncatted -h -a institution,global,c,c,'" + txtinst + "' " + ofallmon
         print txtcmd
         system(txtcmd)
-        txtmvmon = "mv %s %s" % (ofallmon, ofallmonr)
-        print txtmvmon
-        system(txtmvmon)
         # create yearly summary file
         txtcmd = "cdo -m 1e+20  yearavg " + ofallmon + " " + ofall
         print txtcmd
         system(txtcmd)
+        txtmvmon = "mv %s %s" % (ofallmon, ofallmonr)
+        print txtmvmon
+        system(txtmvmon)
         txtmv = "mv %s %s" % (ofall, ofallr)
         print txtmv
         system(txtmv)
