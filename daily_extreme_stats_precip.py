@@ -133,7 +133,7 @@ def cdd(fname='', styr=0, enyr=0, model=''):
     ofall = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".nc"
     ofallmon = OUTTEMP + "/" + model + "/junk/" + fn_nodir + str(styr) + "-" + str(enyr) + ".monthly.nc"
     fn_nodirr = ((split(fname, "/")[-1]).replace('prmm_day', 'CDD')).replace('_r1i1p1', '')
-    ofallr = OUTROOT + "/" + model + "/" + fn_nodirr+str(styr) + "-" + str(enyr) + ".nc"
+    ofallr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".nc"
     ofallmonr = OUTROOT + "/" + model + "/" + fn_nodirr + str(styr) + "-" + str(enyr) + ".monthly.nc"
     if not path.exists(ofallmonr):
         for i in range(nyrs):
@@ -147,7 +147,7 @@ def cdd(fname='', styr=0, enyr=0, model=''):
                 else:
                     raise Exception('infile not found: %s' % fn)
             if i == 0:
-                txt = "cdo -m 1e+20 eca_cdd " + fn + " " + ofall
+                txt = "cdo -m 1e+20 eca_cdd " + fn + " " + ofallmon
                 system(txt)
             else:
                 txt = "cdo -m 1e+20 eca_cdd " + fn + " junk_mon.nc"
@@ -319,15 +319,15 @@ def r5d(fname='', styr=0, enyr=0, model=''):
                 system(txt)
         now = datetime.now()
         txthist = "Created on " + now.strftime("%Y-%m-%d %H:%M")
-        txtcmd = "ncatted -h -a history,global,o,c,'"+txthist + "' " + ofallmon
+        txtcmd = "ncatted -h -a history,global,o,c,'"+ txthist + "' " + ofallmon
         print txtcmd
         system(txtcmd)
-        txtcmd = "ncatted -h -a institution,global,c,c,'"+txtinst + "' " + ofallmon
+        txtcmd = "ncatted -h -a institution,global,c,c,'"+ txtinst + "' " + ofallmon
         print txtcmd
         system(txtcmd)
         #new variable name created by CDO:
         txtnewvar = "highest_five_day_precipitation_amount_per_time_period"
-        txtcmd = "ncrename -h -v "+txtnewvar + ",r5d " + ofall
+        txtcmd = "ncrename -h -v " + txtnewvar + ",r5d " + ofall
         print txtcmd
         system(txtcmd)
         # create yearly summary file
