@@ -257,7 +257,7 @@ for scens in ('historical', 'rcp45', 'rcp85'):
         print "created outfile %s\n" % of
     if 'r5d' in var_stat and scens != 'historical':
         of = p_stats.r5d(fn_rcp_prmm, StYrsFut, EnYrsFut, model)
-        print "created outfile %s\n" % of% of
+        print "created outfile %s\n" % of
 
     # simple daily precip intensity index
     if 'sdii' in var_stat and scens == 'historical':
